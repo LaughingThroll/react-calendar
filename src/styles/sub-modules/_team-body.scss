@@ -1,0 +1,9 @@
+.team-body {
+  &__cell {
+    &:last-child {
+      @extend %font-bold;
+
+      text-align: center;
+    }
+  }
+}

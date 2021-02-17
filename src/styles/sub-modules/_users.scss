@@ -1,0 +1,8 @@
+.users {
+  color: $users-count;
+
+  &__count {
+    display: inline-block;
+    margin-left: 3px;
+  }
+}
