@@ -72,3 +72,17 @@ a {
   padding: 0 $main-padding;
   max-width: $main-width;
 }
+
+h4,
+h5 {
+  line-height: 22px;
+}
+h4 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+h5 {
+  font-size: 14px;
+  font-weight: 600;
+}

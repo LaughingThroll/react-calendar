@@ -4,13 +4,21 @@
   padding: 10px;
   min-width: 144px;
   border-radius: 7px;
-  background-color: $button--main;
-  color: $white;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  &__svg {
+  &--primary {
+    background-color: $button--primary;
+    color: $white;
+  }
+
+  &--secondary {
+    border: 1px solid $button--secondary-border;
+    color: $scorpion;
+  }
+
+  &__icon {
     margin-right: 10px;
     width: 13px;
     height: 13px;

@@ -7,6 +7,7 @@
 
 @import "./modules/calendar";
 @import "./modules/calendar-table";
+
 @import "./sub-modules/month/month-navigate";
 @import "./sub-modules/button";
 @import "./sub-modules/month/month-header";
@@ -16,3 +17,12 @@
 @import "./sub-modules/users";
 @import "./sub-modules/weekend-percent";
 @import "./sub-modules/btn-arrow-up";
+
+@import "./sub-modules/select";
+@import "./sub-modules/form-dates";
+@import "./sub-modules/input-date";
+@import "./sub-modules/modal/modal-footer";
+@import "./sub-modules/modal/modal-header";
+@import "./sub-modules/modal/modal-body";
+@import "./sub-modules/overlay";
+@import "./modules/modal";
