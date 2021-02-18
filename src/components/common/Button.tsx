@@ -10,7 +10,7 @@ interface IButton {
   className?: string[]
   type?: "button" | "submit" | "reset"
   icon?: IButtonIcon
-  onClick?: () => void
+  onClick?: (...args: any) => any
   children?: string | ReactElement
 }
 

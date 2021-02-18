@@ -1,15 +1,11 @@
 import React from "react"
-import plus from "../../assets/images/icons/plus.svg"
 
-import { Button } from "../common"
+interface IModalFooter {
+  children?: JSX.Element | JSX.Element[]
+}
 
-const ModalFooter = () => {
-  return (
-    <div className="modal-footer">
-      <Button secondary>Cancel</Button>
-      <Button type="submit">Send</Button>
-    </div>
-  )
+const ModalFooter = ({ children }: IModalFooter) => {
+  return <div className="modal-footer">{children}</div>
 }
 
 export default ModalFooter

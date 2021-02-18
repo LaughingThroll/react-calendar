@@ -8,15 +8,12 @@
     align-items: center;
   }
 
-  &__label {
+  .input-date {
     max-width: 140px;
     width: 100%;
-    cursor: pointer;
-    & + .form-dates__label {
+
+    & + .input-date {
       margin-left: 30px;
     }
-  }
-  &__input {
-    display: block;
   }
 }
