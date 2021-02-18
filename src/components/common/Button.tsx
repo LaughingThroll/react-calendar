@@ -5,21 +5,24 @@ interface IButtonIcon {
   path: string
 }
 
-interface IButton {
+interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   secondary?: boolean
-  className?: string[]
+  classNames?: string[]
   type?: "button" | "submit" | "reset"
   icon?: IButtonIcon
   onClick?: (...args: any) => any
   children?: string | ReactElement
+  disabled?: boolean
 }
 
-const Button = ({ secondary, className = [], type = "button", icon, onClick, children }: IButton) => {
+const Button = ({ type = "button", children, secondary, disabled, classNames = [], icon, ...rest }: IButton) => {
   return (
     <button
       type={type}
-      className={`button ${secondary ? "button--secondary" : "button--primary"} ${className.join(" ")}`}
-      onClick={onClick}
+      className={`button ${
+        secondary ? "button--secondary" : disabled ? "button--disabled" : "button--primary"
+      } ${classNames.join(" ")}`}
+      {...rest}
     >
       {icon?.path ? (
         <span

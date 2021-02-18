@@ -1,14 +1,14 @@
 import React from "react"
-interface IInputDate {
+
+interface IInputDate extends React.InputHTMLAttributes<HTMLInputElement> {
   title?: string
-  value: string
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const InputDate = ({ title, value, onChange }: IInputDate) => {
+const InputDate = ({ title, ...rest }: IInputDate) => {
   return (
     <label className="input-date">
-      {title} <input className="input-date__field" type="date" value={value} onChange={onChange} />
+      {title} <input className="input-date__field" type="date" {...rest} />
     </label>
   )
 }

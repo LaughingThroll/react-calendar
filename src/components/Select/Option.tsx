@@ -1,13 +1,12 @@
 import React from "react"
 
-interface IOption {
+interface IOption extends React.OptionHTMLAttributes<HTMLOptionElement> {
   title: string
-  value: string
 }
 
-const Option = ({ title, value }: IOption) => {
+const Option = ({ title, ...rest }: IOption) => {
   return (
-    <option className="select__option" value={value}>
+    <option className="select__option" {...rest}>
       {title}
     </option>
   )

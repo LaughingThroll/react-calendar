@@ -3,16 +3,16 @@ import { TChildren } from "../types/utilsTypes"
 
 interface IFormDates {
   title?: string
-  isInner?: boolean
+  inner?: boolean
   children?: TChildren
 }
 
-const FormDates = ({ title, isInner, children }: IFormDates) => {
+const FormDates = ({ title, inner, children }: IFormDates) => {
   return (
     <>
       <div className="form-dates">
         <h5 className="form-dates__title">{title}</h5>
-        {isInner ? <div className="form-dates__inner"> {children}</div> : children}
+        {inner ? <div className="form-dates__inner"> {children}</div> : children}
       </div>
     </>
   )
