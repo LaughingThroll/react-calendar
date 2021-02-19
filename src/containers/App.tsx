@@ -1,53 +1,29 @@
 import React from "react"
-import Navigation from "../components/Navigation/Navigation"
 
-const curentD: Date = new Date()
-
-interface IAppProps {
-  date?: Date
-}
+import Navigation from "../components/Navigation"
 
 interface IAppState {
   currentDate: Date
 }
 
-class App extends React.Component<IAppProps, IAppState> {
-  public static defaultProps = {
-    d: new Date(),
-  }
-
-  constructor(props: IAppProps) {
-    super(props)
-
-    this.state = {
-      currentDate: curentD,
-    }
+class App extends React.Component {
+  state: IAppState = {
+    currentDate: new Date(),
   }
 
   setNextMonth = () => {
-    this.setState((prevState) => {
-      console.log(prevState)
-      const nextState = {
-        currentDate: new Date(prevState.currentDate.setMonth(prevState.currentDate.getMonth() + 1)),
-      }
-      return nextState
-    })
+    const currentDate = new Date(this.state.currentDate.setMonth(this.state.currentDate.getMonth() + 1))
+    this.setState({ currentDate })
   }
 
   setPrevMonth = () => {
-    this.setState((prevState) => {
-      console.log(prevState)
-      const nextState = {
-        currentDate: new Date(prevState.currentDate.setMonth(prevState.currentDate.getMonth() - 1)),
-      }
-      return nextState
-    })
+    const currentDate = new Date(this.state.currentDate.setMonth(this.state.currentDate.getMonth() - 1))
+    this.setState({ currentDate })
   }
 
   render() {
     return (
       <React.Fragment>
-        <h1>App TSX</h1>
         <Navigation date={this.state.currentDate} setNextMonth={this.setNextMonth} setPrevMonth={this.setPrevMonth} />
       </React.Fragment>
     )
