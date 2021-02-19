@@ -1,37 +1,24 @@
 import React, { ReactElement } from "react"
 
-interface IButtonIcon {
-  iconClasses?: string[]
-  path: string
-}
-
 interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   secondary?: boolean
   classNames?: string[]
   type?: "button" | "submit" | "reset"
-  icon?: IButtonIcon
+  iconPlus?: boolean
   onClick?: (...args: any) => any
   children?: string | ReactElement
   disabled?: boolean
 }
 
-const Button = ({ type = "button", children, secondary, disabled, classNames = [], icon, ...rest }: IButton) => {
+const Button = ({ type = "button", children, secondary, disabled, classNames = [], iconPlus, ...rest }: IButton) => {
   return (
     <button
       type={type}
-      className={`button ${
+      className={`button ${iconPlus ? "button--icon-plus" : ""} ${
         secondary ? "button--secondary" : disabled ? "button--disabled" : "button--primary"
       } ${classNames.join(" ")}`}
       {...rest}
     >
-      {icon?.path ? (
-        <span
-          className={`button__icon ${icon.iconClasses ? icon.iconClasses.join(" ") : ""}`}
-          style={{ backgroundImage: `url(${icon?.path})` }}
-        />
-      ) : (
-        ""
-      )}
       {children}
     </button>
   )

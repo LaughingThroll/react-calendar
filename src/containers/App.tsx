@@ -103,7 +103,7 @@ class App extends Component {
             <InputDate title="To" onChange={this.handleChangeInput} value={endDate} name="endDate" />
           </FormDates>
           <FormDates title="Vac Type">
-            <Select value={type} onChange={this.handleChangeSelect} icon={arrowDown}>
+            <Select value={type} onChange={this.handleChangeSelect}>
               <Option title="Paid Day Off (PD)" value="UnPaid" />
               <Option title="Paid Day On (PD)" value="Paid" />
             </Select>
