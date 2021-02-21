@@ -14,16 +14,6 @@
     color: $white;
   }
 
-  &--secondary {
-    border: 1px solid $button--secondary-border;
-    color: $scorpion;
-  }
-
-  &--disabled {
-    pointer-events: none;
-    background-color: $button--disabled;
-  }
-
   &--icon-plus {
     &::before {
       content: "";
