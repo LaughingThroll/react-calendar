@@ -16,13 +16,8 @@ class App extends React.Component {
     daysInMonth: daysInMonth(new Date()),
   }
 
-  setNextMonth = () => {
-    const currentDate = new Date(this.state.currentDate.setMonth(this.state.currentDate.getMonth() + 1))
-    this.setState({ currentDate, daysInMonth: daysInMonth(currentDate) })
-  }
-
-  setPrevMonth = () => {
-    const currentDate = new Date(this.state.currentDate.setMonth(this.state.currentDate.getMonth() - 1))
+  changeMonth = (stepMonth: number) => {
+    const currentDate = new Date(this.state.currentDate.setMonth(this.state.currentDate.getMonth() + stepMonth))
     this.setState({ currentDate, daysInMonth: daysInMonth(currentDate) })
   }
 
@@ -31,7 +26,11 @@ class App extends React.Component {
 
     return (
       <div className="container">
-        <Navigation date={currentDate} setNextMonth={this.setNextMonth} setPrevMonth={this.setPrevMonth} />
+        <Navigation
+          date={currentDate}
+          setNextMonth={this.changeMonth.bind(null, 1)}
+          setPrevMonth={this.changeMonth.bind(null, -1)}
+        />
         <table className="calendar-table">
           <CalendarHeader date={currentDate} daysInMonth={daysInMonth} />
 
