@@ -6,9 +6,13 @@ interface IAppState {
   currentDate: Date
 }
 
-class App extends React.Component {
-  state: IAppState = {
-    currentDate: new Date(),
+class App extends React.Component<{}, IAppState> {
+  constructor(props: {}) {
+    super(props)
+
+    this.state = {
+      currentDate: new Date(),
+    }
   }
 
   changeMonth = (stepMonth: number) => {
