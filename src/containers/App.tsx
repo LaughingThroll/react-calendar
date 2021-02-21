@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import arrowDown from "../assets/images/icons/arrow--down.svg"
 
 import { Button } from "./../components/common"
 import FormDates from "./../components/FormDates"
@@ -35,21 +34,21 @@ class App extends Component {
   state: IAppState = {
     modal: {
       isOpen: true,
-      countDays: countDayFromTimeStamp(Date.parse(dateKebabFormat(8)) - Date.parse(dateKebabFormat(0))),
+      countDays: countDayFromTimeStamp(Date.parse(dateKebabFormat(8)) - Date.parse(dateKebabFormat(1))),
       disabledBtn: false,
     },
     vacation: {
-      startDate: dateKebabFormat(0),
-      startDateTimeStamp: Date.parse(dateKebabFormat(0)),
+      startDate: dateKebabFormat(1),
+      startDateTimeStamp: Date.parse(dateKebabFormat(1)),
       endDate: dateKebabFormat(8),
       endDateTimeStamp: Date.parse(dateKebabFormat(8)),
       type: "UnPaid",
     },
   }
 
-  closeModal = () => {
+  changeModalVisible = (bool: boolean) => {
     const modal = Object.assign({}, this.state.modal)
-    this.setState({ modal: { ...modal, isOpen: false } })
+    this.setState({ modal: { ...modal, isOpen: bool } })
   }
 
   onSumbit = (e: React.MouseEvent) => {
@@ -84,7 +83,6 @@ class App extends Component {
 
   handleChangeSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const vacation = Object.assign({}, this.state.vacation)
-
     this.setState({ vacation: { ...vacation, type: e.target.value } })
   }
 
@@ -95,7 +93,7 @@ class App extends Component {
     } = this.state
 
     return (
-      <Modal open={isOpen} onClose={this.closeModal}>
+      <Modal open={isOpen} onClose={this.changeModalVisible.bind(null, false)}>
         <ModalHeader title="Vacation Request" countDays={countDays} />
         <ModalBody>
           <FormDates title="Dates" inner>
@@ -110,7 +108,7 @@ class App extends Component {
           </FormDates>
         </ModalBody>
         <ModalFooter>
-          <Button secondary onClick={this.closeModal}>
+          <Button secondary onClick={this.changeModalVisible.bind(null, false)}>
             Cancel
           </Button>
           <Button type="submit" disabled={disabledBtn} onClick={this.onSumbit}>
