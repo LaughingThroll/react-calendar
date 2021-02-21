@@ -1,8 +1,6 @@
 import React from "react"
 import Navigation from "../components/Navigation/Navigation"
 
-const curentD: Date = new Date()
-
 interface IAppProps {
   date?: Date
 }
@@ -12,15 +10,11 @@ interface IAppState {
 }
 
 class App extends React.Component<IAppProps, IAppState> {
-  public static defaultProps = {
-    d: new Date(),
-  }
-
   constructor(props: IAppProps) {
     super(props)
 
     this.state = {
-      currentDate: curentD,
+      currentDate: new Date(),
     }
   }
 
@@ -47,7 +41,6 @@ class App extends React.Component<IAppProps, IAppState> {
   render() {
     return (
       <React.Fragment>
-        <h1>App TSX</h1>
         <Navigation date={this.state.currentDate} setNextMonth={this.setNextMonth} setPrevMonth={this.setPrevMonth} />
       </React.Fragment>
     )
