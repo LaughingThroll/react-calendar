@@ -1,6 +1,6 @@
 import React from "react"
 
-import Navigation from "../components/Navigation"
+import Navigation from "../components/CalendarNavigation"
 
 interface IAppState {
   currentDate: Date
@@ -15,20 +15,22 @@ class App extends React.Component<{}, IAppState> {
     }
   }
 
-  setNextMonth = () => {
-    const currentDate = new Date(this.state.currentDate.setMonth(this.state.currentDate.getMonth() + 1))
-    this.setState({ currentDate })
-  }
+  changeCurrentMonth = (symbol: "-" | "+", value: number) => {
+    let currentDate = this.state.currentDate
 
-  setPrevMonth = () => {
-    const currentDate = new Date(this.state.currentDate.setMonth(this.state.currentDate.getMonth() - 1))
+    if (symbol === "+") {
+      currentDate = new Date(this.state.currentDate.setMonth(this.state.currentDate.getMonth() + value))
+    } else if (symbol === "-") {
+      currentDate = new Date(this.state.currentDate.setMonth(this.state.currentDate.getMonth() - value))
+    }
+
     this.setState({ currentDate })
   }
 
   render() {
     return (
       <React.Fragment>
-        <Navigation date={this.state.currentDate} setNextMonth={this.setNextMonth} setPrevMonth={this.setPrevMonth} />
+        <Navigation date={this.state.currentDate} changeCurrentMonth={this.changeCurrentMonth} />
       </React.Fragment>
     )
   }
