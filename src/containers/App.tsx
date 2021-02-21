@@ -7,12 +7,8 @@ interface IAppState {
 }
 
 class App extends React.Component<{}, IAppState> {
-  constructor(props: {}) {
-    super(props)
-
-    this.state = {
-      currentDate: new Date(),
-    }
+  state = {
+    currentDate: new Date(),
   }
 
   changeMonth = (stepMonth: number) => {
@@ -22,13 +18,11 @@ class App extends React.Component<{}, IAppState> {
 
   render() {
     return (
-      <React.Fragment>
-        <Navigation
-          date={this.state.currentDate}
-          setNextMonth={this.changeMonth.bind(null, 1)}
-          setPrevMonth={this.changeMonth.bind(null, -1)}
-        />
-      </React.Fragment>
+      <Navigation
+        date={this.state.currentDate}
+        setNextMonth={this.changeMonth.bind(null, 1)}
+        setPrevMonth={this.changeMonth.bind(null, -1)}
+      />
     )
   }
 }
