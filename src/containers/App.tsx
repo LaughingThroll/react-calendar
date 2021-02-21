@@ -16,14 +16,9 @@ class App extends React.Component<{}, IAppState> {
   }
 
   changeCurrentMonth = (symbol: "-" | "+", value: number) => {
-    let currentDate = this.state.currentDate
-
-    if (symbol === "+") {
-      currentDate = new Date(this.state.currentDate.setMonth(this.state.currentDate.getMonth() + value))
-    } else if (symbol === "-") {
-      currentDate = new Date(this.state.currentDate.setMonth(this.state.currentDate.getMonth() - value))
-    }
-
+    const currentDate = new Date(
+      this.state.currentDate.setMonth(this.state.currentDate.getMonth() + parseInt(symbol + value, 10)),
+    )
     this.setState({ currentDate })
   }
 

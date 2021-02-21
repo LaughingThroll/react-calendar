@@ -12,7 +12,7 @@ const Navigation: React.FC<INavigation> = ({ date, changeCurrentMonth }) => {
     <div className="calendar-nav">
       <button
         className="calendar-nav__btn calendar-nav__btn--prev-month"
-        onClick={() => changeCurrentMonth("-", 1)}
+        onClick={() => changeCurrentMonth("-", 2)}
       ></button>
       <div className="calendar-nav__current-date">{formatedDate}</div>
       <button
