@@ -1,16 +1,13 @@
 import React from "react"
-import Navigation from "../components/Navigation/Navigation"
 
-interface IAppProps {
-  date?: Date
-}
+import Navigation from "../components/Navigation"
 
 interface IAppState {
   currentDate: Date
 }
 
-class App extends React.Component<IAppProps, IAppState> {
-  constructor(props: IAppProps) {
+class App extends React.Component<{}, IAppState> {
+  constructor(props: {}) {
     super(props)
 
     this.state = {
@@ -19,23 +16,13 @@ class App extends React.Component<IAppProps, IAppState> {
   }
 
   setNextMonth = () => {
-    this.setState((prevState) => {
-      console.log(prevState)
-      const nextState = {
-        currentDate: new Date(prevState.currentDate.setMonth(prevState.currentDate.getMonth() + 1)),
-      }
-      return nextState
-    })
+    const currentDate = new Date(this.state.currentDate.setMonth(this.state.currentDate.getMonth() + 1))
+    this.setState({ currentDate })
   }
 
   setPrevMonth = () => {
-    this.setState((prevState) => {
-      console.log(prevState)
-      const nextState = {
-        currentDate: new Date(prevState.currentDate.setMonth(prevState.currentDate.getMonth() - 1)),
-      }
-      return nextState
-    })
+    const currentDate = new Date(this.state.currentDate.setMonth(this.state.currentDate.getMonth() - 1))
+    this.setState({ currentDate })
   }
 
   render() {
