@@ -1,14 +1,14 @@
 import React from "react"
 
-import iconUsers from "./../assets/images/icons/users.svg"
+import iconUsers from "./../../assets/images/icons/users.svg"
 
 import TeamCell from "./TeamCell"
 import TeamMember from "./TeamMember"
 
-import { THEMES } from "../constant"
-import { formatDayInBinaryString } from "../utils/date"
+import { THEMES } from "../../constant"
+import { formatDayInBinaryString } from "../../utils/date"
 
-import { IMember, ITeam } from "../types/DB"
+import { IMember, ITeam } from "../../types/DB"
 
 interface ITeamComponent {
   team: ITeam
@@ -34,17 +34,17 @@ const Team: React.FC<ITeamComponent> = ({
               <img className="users__svg" src={iconUsers} alt="" />
               <span className="users__count">{members.length}</span>
             </div>
-            <div className="team__weekend-percent weekend-percent">${percentageOfAbsent[date.getMonth()]}</div>
+            <div className="team__weekend-percent weekend-percent">{percentageOfAbsent[date.getMonth()]}%</div>
             <button className="button-arrow-up"></button>
           </div>
         </td>
-        {new Array(allDaysInMonth).fill(0).map((_, day) => (
-          <TeamCell dayString={formatDayInBinaryString(date, day + 1)} />
+        {new Array(allDaysInMonth).fill(0).map((_, day: number) => (
+          <TeamCell key={day} dayString={formatDayInBinaryString(date, day + 1)} />
         ))}
         <td className="calendar-team__cell cell-gray"></td>
       </tr>
-      {members.map(({ name: nameMember }: IMember) => (
-        <TeamMember date={date} allDaysInMonth={allDaysInMonth} name={nameMember} theme={mainTheme} />
+      {members.map(({ name: nameMember }: IMember, day: number) => (
+        <TeamMember key={day} date={date} allDaysInMonth={allDaysInMonth} name={nameMember} theme={mainTheme} />
       ))}
     </>
   )

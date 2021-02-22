@@ -4,7 +4,7 @@ import departmentParts from "../api/DB"
 
 import Navigation from "../components/CalendarNavigation"
 import CalendarHeader from "../components/CalendarHeader/CalendarHeader"
-import Team from "../components/Team"
+import Team from "../components/CalendarBody/Team"
 
 import { daysInMonth } from "../utils/date"
 import { ITeam } from "../types/DB"
