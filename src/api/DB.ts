@@ -3,6 +3,7 @@ const departmentTeams = {
     {
       name: "Frontend Team",
       percentageOfAbsent: [0, 2, 0, 0, 1, 22, 2, 2, 2, 2, 11, 1],
+      teamId: 0,
       members: [
         {
           name: "FE_Team_User1",
@@ -23,6 +24,7 @@ const departmentTeams = {
     {
       name: "Backend Team",
       percentageOfAbsent: [0, 2, 0, 0, 1, 2, 2, 2, 2, 2, 1, 1],
+      teamId: 1,
       members: [
         {
           name: "BE_Team_User1",
@@ -43,6 +45,7 @@ const departmentTeams = {
     {
       name: "Frontend Team",
       percentageOfAbsent: [0, 2, 0, 0, 1, 22, 2, 2, 2, 2, 11, 1],
+      teamId: 2,
       members: [
         {
           name: "FE_Team_User1",
@@ -63,6 +66,7 @@ const departmentTeams = {
     {
       name: "Backend Team",
       percentageOfAbsent: [0, 2, 0, 0, 1, 2, 2, 2, 2, 2, 1, 1],
+      teamId: 3,
       members: [
         {
           name: "BE_Team_User1",
@@ -83,6 +87,7 @@ const departmentTeams = {
     {
       name: "Design Team",
       percentageOfAbsent: [11, 4, 0, 0, 1, 2, 0, 2, 12, 2, 0, 1],
+      teamId: 4,
       members: [
         {
           name: "DE_Team_User1",
@@ -103,6 +108,7 @@ const departmentTeams = {
     {
       name: "QA Team",
       percentageOfAbsent: [16, 14, 0, 0, 1, 2, 0, 2, 2, 0, 0, 28],
+      teamId: 5,
       members: [
         {
           name: "QA_Team_User1",
@@ -123,6 +129,7 @@ const departmentTeams = {
     {
       name: "Manager Team",
       percentageOfAbsent: [16, 14, 0, 0, 1, 2, 0, 2, 2, 0, 0, 28],
+      teamId: 6,
       members: [
         {
           name: "Manager_Team_User1",
@@ -143,6 +150,7 @@ const departmentTeams = {
     {
       name: "Hello Team",
       percentageOfAbsent: [16, 14, 0, 0, 1, 2, 0, 2, 2, 0, 0, 28],
+      teamId: 10,
       members: [
         {
           name: "Manager_Team_User1",
@@ -163,6 +171,7 @@ const departmentTeams = {
     {
       name: "Hello Team",
       percentageOfAbsent: [16, 14, 0, 0, 1, 2, 0, 2, 2, 0, 0, 28],
+      teamId: 7,
       members: [
         {
           name: "Manager_Team_User1",
