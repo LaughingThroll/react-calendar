@@ -62,7 +62,7 @@ class App extends Component {
       type,
     }
 
-    console.log("Submit", requestObj)
+    window.alert(JSON.stringify(requestObj, null, 2))
   }
 
   handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {

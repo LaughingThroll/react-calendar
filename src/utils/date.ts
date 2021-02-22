@@ -7,8 +7,8 @@ export const formatDayInBinaryString = (date: Date, day: number): string => {
 }
 
 export const countDayFromTimeStamp = (timestamp: number): number => {
-  const oneDay = 1000 * 60 * 60 * 24
-  let startDay = 0
+  const oneDay: number = 1000 * 60 * 60 * 24
+  let startDay: number = 0
   for (let i = 0; i < timestamp; i += oneDay) startDay++
   return startDay
 }
