@@ -1,0 +1,37 @@
+.team {
+  padding: 7px 5px 7px 19px;
+
+  &--common {
+    .team__name {
+      @extend %font-bold;
+
+      display: inline-block;
+      max-width: 105px;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-transform: capitalize;
+      vertical-align: text-top;
+    }
+  }
+
+  &--member {
+    .team__name {
+      text-transform: uppercase;
+    }
+  }
+
+  &__other {
+    display: inline-block;
+    margin-left: 20px;
+    vertical-align: bottom;
+
+    & > * {
+      display: inline-block;
+    }
+
+    & > *:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+}
