@@ -1,7 +1,8 @@
 import React from "react"
-        
+
 import Navigation from "../components/CalendarNavigation"
-import CalendarHeader from "../components/CalendarHeader/CalendarHeader"        
+import CalendarHeader from "../components/CalendarHeader/CalendarHeader"
+
 import { daysInMonth } from "../utils/date"
 
 interface IAppState {
@@ -15,11 +16,9 @@ class App extends React.Component {
     daysInMonth: daysInMonth(new Date()),
   }
 
-  changeCurrentMonth = (symbol: "-" | "+", value: number) => {
-    const currentDate = new Date(
-      this.state.currentDate.setMonth(this.state.currentDate.getMonth() + parseInt(symbol + value, 10)),
-    )
-    this.setState({ currentDate })  
+  changeCurrentMonth = (stepMonth: number) => {
+    const currentDate = new Date(this.state.currentDate.setMonth(this.state.currentDate.getMonth() + stepMonth))
+    this.setState({ currentDate, daysInMonth: daysInMonth(currentDate) })
   }
 
   render() {
@@ -27,7 +26,11 @@ class App extends React.Component {
 
     return (
       <div className="container">
-        <Navigation date={this.state.currentDate} changeCurrentMonth={this.changeCurrentMonth} />
+        <Navigation
+          date={currentDate}
+          prevButton={this.changeCurrentMonth.bind(this, -1)}
+          nextButton={this.changeCurrentMonth.bind(this, 1)}
+        />
         <table className="calendar-table">
           <CalendarHeader date={currentDate} daysInMonth={daysInMonth} />
 
