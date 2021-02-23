@@ -43,8 +43,15 @@ const Team: React.FC<ITeamComponent> = ({
         ))}
         <td className="calendar-team__cell cell-gray"></td>
       </tr>
-      {members.map(({ name: nameMember }: IMember, day: number) => (
-        <TeamMember key={day} date={date} allDaysInMonth={allDaysInMonth} name={nameMember} theme={mainTheme} />
+      {members.map(({ name: nameMember, vacations: arrayOfVacations }: IMember, day: number) => (
+        <TeamMember
+          key={day}
+          date={date}
+          allDaysInMonth={allDaysInMonth}
+          name={nameMember}
+          vacations={arrayOfVacations}
+          theme={mainTheme}
+        />
       ))}
     </>
   )

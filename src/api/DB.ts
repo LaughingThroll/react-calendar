@@ -8,15 +8,15 @@ const departmentTeams = {
         {
           name: "FE_Team_User1",
           vacations: [
-            { startDate: "20.12.2020", endDate: "22.12.2020", type: "Paid" },
-            { startDate: "20.11.2020", endDate: "22.11.2020", type: "Paid" },
+            { startDate: "30.11.2020", endDate: "01.12.2020", type: "Paid" },
+            { startDate: "28.12.2020", endDate: "01.01.2021", type: "Paid" },
           ],
         },
         {
           name: "FE_Team_User1",
           vacations: [
-            { startDate: "20.12.2020", endDate: "22.12.2020", type: "Paid" },
-            { startDate: "20.11.2020", endDate: "22.11.2020", type: "Paid" },
+            { startDate: "12.01.2021", endDate: "15.01.2021", type: "Paid" },
+            { startDate: "08.03.2021", endDate: "10.03.2021", type: "Paid" },
           ],
         },
         {
@@ -30,7 +30,7 @@ const departmentTeams = {
           name: "FE_Team_User1",
           vacations: [
             { startDate: "20.02.2020", endDate: "22.02.2020", type: "UnPaid" },
-            { startDate: "20.03.2020", endDate: "22.03.2020", type: "UnPaid" },
+            { startDate: "27.01.2021", endDate: "03.02.2021", type: "UnPaid" },
           ],
         },
       ],
@@ -44,14 +44,14 @@ const departmentTeams = {
           name: "BE_Team_User1",
           vacations: [
             { startDate: "15.02.2020", endDate: "22.02.2020", type: "UnPaid" },
-            { startDate: "20.03.2020", endDate: "22.03.2020", type: "UnPaid" },
+            { startDate: "18.03.2021", endDate: "22.03.2021", type: "UnPaid" },
           ],
         },
         {
           name: "BE_Team_User1",
           vacations: [
             { startDate: "15.02.2020", endDate: "22.02.2020", type: "UnPaid" },
-            { startDate: "20.03.2020", endDate: "22.03.2020", type: "UnPaid" },
+            { startDate: "15.02.2021", endDate: "15.02.2021", type: "UnPaid" },
           ],
         },
         {
@@ -72,14 +72,14 @@ const departmentTeams = {
           name: "FE_Team_User1",
           vacations: [
             { startDate: "20.12.2020", endDate: "22.12.2020", type: "Paid" },
-            { startDate: "20.11.2020", endDate: "22.11.2020", type: "Paid" },
+            { startDate: "01.03.2021", endDate: "07.03.2021", type: "Paid" },
           ],
         },
         {
           name: "FE_Team_User1",
           vacations: [
-            { startDate: "20.02.2020", endDate: "22.02.2020", type: "UnPaid" },
-            { startDate: "20.03.2020", endDate: "22.03.2020", type: "UnPaid" },
+            { startDate: "01.02.2021", endDate: "9.02.2021", type: "UnPaid" },
+            { startDate: "29.03.2021", endDate: "2.04.2021", type: "UnPaid" },
           ],
         },
       ],
@@ -99,8 +99,9 @@ const departmentTeams = {
         {
           name: "BE_Team_User2",
           vacations: [
-            { startDate: "20.02.2020", endDate: "22.02.2020", type: "UnPaid" },
-            { startDate: "20.03.2020", endDate: "22.03.2020", type: "UnPaid" },
+            { startDate: "12.02.2021", endDate: "15.02.2021", type: "UnPaid" },
+            { startDate: "01.03.2021", endDate: "01.03.2021", type: "UnPaid" },
+            { startDate: "02.03.2021", endDate: "03.03.2021", type: "UnPaid" },
           ],
         },
       ],
@@ -114,14 +115,14 @@ const departmentTeams = {
           name: "DE_Team_User1",
           vacations: [
             { startDate: "15.02.2020", endDate: "22.02.2020", type: "UnPaid" },
-            { startDate: "20.03.2020", endDate: "22.03.2020", type: "UnPaid" },
+            { startDate: "20.03.2021", endDate: "22.03.2021", type: "UnPaid" },
           ],
         },
         {
           name: "DE_Team_User2",
           vacations: [
             { startDate: "20.02.2020", endDate: "22.02.2020", type: "UnPaid" },
-            { startDate: "20.03.2020", endDate: "22.03.2020", type: "UnPaid" },
+            { startDate: "25.02.2021", endDate: "02.03.2021", type: "UnPaid" },
           ],
         },
       ],
