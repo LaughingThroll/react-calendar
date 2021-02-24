@@ -87,19 +87,22 @@ class App extends Component {
   }
 
   handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const vacation = Object.assign({}, this.state.modalVacation)
+    const modalVacation = Object.assign({}, this.state.modalVacation)
     const { name, value } = e.target
 
-    this.setState({ vacation: { ...vacation, [name]: value, [name + "TimeStamp"]: Date.parse(value) } }, () => {
-      const modal = Object.assign({}, this.state.modal)
+    this.setState(
+      { modalVacation: { ...modalVacation, [name]: value, [name + "TimeStamp"]: Date.parse(value) } },
+      () => {
+        const modal = Object.assign({}, this.state.modal)
 
-      const { endDateTimeStamp, startDateTimeStamp } = this.state.modalVacation
+        const { endDateTimeStamp, startDateTimeStamp } = this.state.modalVacation
 
-      const diff = endDateTimeStamp - startDateTimeStamp
+        const diff = endDateTimeStamp - startDateTimeStamp
 
-      if (diff > 0) this.setState({ modal: { ...modal, disabledBtn: false, countDays: countDayFromTimeStamp(diff) } })
-      if (diff <= 0) this.setState({ modal: { ...modal, disabledBtn: true, countDays: "is Not Valid" } })
-    })
+        if (diff > 0) this.setState({ modal: { ...modal, disabledBtn: false, countDays: countDayFromTimeStamp(diff) } })
+        if (diff <= 0) this.setState({ modal: { ...modal, disabledBtn: true, countDays: "is Not Valid" } })
+      },
+    )
   }
 
   handleChangeSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -118,7 +121,7 @@ class App extends Component {
     return (
       <>
         <div className="container">
-          <Navigation date={this.state.currentDate} changeCurrentMonth={this.changeCurrentMonth} />
+          <Navigation date={currentDate} changeCurrentMonth={this.changeCurrentMonth} />
           <table className="calendar-table">
             <CalendarHeader
               date={currentDate}
