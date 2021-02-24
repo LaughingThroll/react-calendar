@@ -36,7 +36,6 @@ class App extends React.Component {
   render() {
     const { currentDate, daysInMonth, teams } = this.state
 
-    console.log(teams)
     return (
       <div className="container">
         <Navigation date={this.state.currentDate} changeCurrentMonth={this.changeCurrentMonth} />
