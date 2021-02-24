@@ -7,7 +7,7 @@ interface IFormDates {
   children?: TChildren
 }
 
-const FormDates = ({ title, inner, children }: IFormDates) => {
+const FormDates: React.FC<IFormDates> = ({ title, inner, children }) => {
   return (
     <>
       <div className="form-dates">

@@ -11,10 +11,11 @@ interface IMember {
   vacations: IVacation[]
 }
 
-interface ITeam {
+export interface ITeam {
   name: string
   percentageOfAbsent: number[]
   members: IMember[]
+  teamId: number
 }
 
 export interface IDepartmentTeams {

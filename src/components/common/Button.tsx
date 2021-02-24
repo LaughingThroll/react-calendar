@@ -14,9 +14,10 @@ const Button = ({ type = "button", children, secondary, disabled, classNames = [
   return (
     <button
       type={type}
-      className={`button ${iconPlus ? "button--icon-plus" : ""} ${
-        secondary ? "button--secondary" : disabled ? "button--disabled" : "button--primary"
-      } ${classNames.join(" ")}`}
+      className={`button 
+      ${iconPlus ? "button--icon-plus" : ""} 
+      ${secondary ? "button--secondary" : disabled ? "button--disabled" : "button--primary"} 
+      ${classNames.join(" ")}`}
       {...rest}
     >
       {children}

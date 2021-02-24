@@ -4,7 +4,7 @@ interface IOption extends React.OptionHTMLAttributes<HTMLOptionElement> {
   title: string
 }
 
-const Option = ({ title, ...rest }: IOption) => {
+const Option: React.FC<IOption> = ({ title, ...rest }) => {
   return (
     <option className="select__option" {...rest}>
       {title}

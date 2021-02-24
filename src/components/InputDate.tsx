@@ -5,7 +5,7 @@ interface IInputDate extends React.InputHTMLAttributes<HTMLInputElement> {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const InputDate = ({ title, ...rest }: IInputDate) => {
+const InputDate: React.FC<IInputDate> = ({ title, ...rest }) => {
   return (
     <label className="input-date">
       {title} <input className="input-date__field" type="date" {...rest} />

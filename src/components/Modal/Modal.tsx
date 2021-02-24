@@ -8,7 +8,7 @@ interface IModalProps {
   onClose?: () => void
 }
 
-const Modal = ({ children, open, onClose }: IModalProps) => {
+const Modal: React.FC<IModalProps> = ({ children, open, onClose }) => {
   const handleClick = (e: React.MouseEvent) => {
     const target = e.target as HTMLElement
     if (!target.closest(".modal") && onClose) {
@@ -16,12 +16,14 @@ const Modal = ({ children, open, onClose }: IModalProps) => {
     }
   }
 
-  return open ? (
-    <div className="overlay" onClick={handleClick}>
-      <div className="modal">{children}</div>
-    </div>
-  ) : (
-    <></>
+  return (
+    <>
+      {open && (
+        <div className="overlay" onClick={handleClick}>
+          <div className="modal">{children}</div>
+        </div>
+      )}
+    </>
   )
 }
 

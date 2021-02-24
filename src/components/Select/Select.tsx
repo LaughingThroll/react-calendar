@@ -6,7 +6,7 @@ interface ISelect extends React.SelectHTMLAttributes<HTMLSelectElement> {
   value?: string
 }
 
-const Select = ({ children, value, ...rest }: ISelect) => {
+const Select: React.FC<ISelect> = ({ children, value, ...rest }) => {
   return (
     <div className="select">
       <select className="select__main" value={value} {...rest}>

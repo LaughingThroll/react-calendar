@@ -5,7 +5,7 @@ interface IModalHeader {
   countDays?: number
 }
 
-const ModalHeader = ({ title, countDays = 0 }: IModalHeader) => {
+const ModalHeader: React.FC<IModalHeader> = ({ title, countDays = 0 }) => {
   return (
     <div className="modal-header">
       <h4 className="modal-header__title">{title}</h4>
