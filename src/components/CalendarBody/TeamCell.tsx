@@ -1,6 +1,6 @@
 import React from "react"
 import { IVacation } from "../../types/DB"
-import { checkVacationsDate } from "../../utils/vacationsDate"
+import { checkVacationsDate } from "../../utils/date"
 
 interface ITeamCell {
   dayString: string
@@ -11,7 +11,7 @@ interface ITeamCell {
 
 const TeamCell: React.FC<ITeamCell> = ({ dayString, vacations, day, date }) => {
   let isVacation
-  if (vacations !== undefined && date !== undefined && day !== undefined) {
+  if (vacations && date && day) {
     let dateForCell = new Date(date.getFullYear(), date.getMonth(), day + 1)
     isVacation = checkVacationsDate(vacations, dateForCell)
   }

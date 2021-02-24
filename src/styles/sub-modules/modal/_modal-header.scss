@@ -1,0 +1,17 @@
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: $modal-header-bg;
+  padding: 13px 27px 13px 31px;
+  border-radius: inherit;
+  &__title {
+    text-transform: capitalize;
+    color: $modal-title-color;
+  }
+  &__days {
+    color: $modal-days-color;
+    font-weight: 600;
+    line-height: 22px;
+    font-size: 14px;
+  }
+}

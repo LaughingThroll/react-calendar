@@ -1,4 +1,4 @@
-type TVacation = "Paid" | "UnPaid"
+export type TVacation = "Paid" | "UnPaid"
 
 export interface IVacation {
   startDate: string
