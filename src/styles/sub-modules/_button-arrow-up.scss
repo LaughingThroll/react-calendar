@@ -5,4 +5,11 @@
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+  outline: none;
+  &.is-group-open-btn {
+    transform: rotate(0);
+  }
+  &.is-group-closed-btn {
+    transform: rotate(180deg);
+  }
 }
