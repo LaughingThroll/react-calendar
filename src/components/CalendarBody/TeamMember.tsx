@@ -9,11 +9,12 @@ interface ITeamMember {
   name: string
   theme?: string
   vacations: Array<IVacation>
+  isGroupOpen: boolean
 }
 
-const TeamMember: React.FC<ITeamMember> = ({ date, allDaysInMonth, theme, name, vacations }) => {
+const TeamMember: React.FC<ITeamMember> = ({ date, allDaysInMonth, theme, name, vacations, isGroupOpen }) => {
   return (
-    <tr className={`calendar-body ${theme}`}>
+    <tr className={`calendar-body ${theme}${isGroupOpen ? "" : " is-team-member-closed"}`}>
       <td className="team team--member calendar-team__cell">
         <span className="team__name">${name}</span>
       </td>
