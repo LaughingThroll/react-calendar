@@ -12,7 +12,7 @@ import { Select, Option } from "../components/Select/"
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "../components/Modal"
 
 import { countDayFromTimeStamp, dateKebabFormat, daysInMonth, formatDateViaDots } from "../utils/date"
-import { TVacation, ITeam } from "../types/DB"
+import { TVacation, ITeam, IVacation } from "../types/DB"
 import { ID } from "../types/utilsTypes"
 
 interface IAppState {
@@ -62,9 +62,12 @@ class App extends Component {
 
   componentDidMount() {
     // Симуляция GET запроса
+    const selectsData = Object.assign({}, this.state.selectsData)
+
     this.setState({
       teams: departmentParts.teams,
       selectsData: {
+        ...selectsData,
         currentTeamId: departmentParts.teams[0].teamId,
         currentMemberId: departmentParts.teams[0].members[0].memberId,
       },
@@ -88,22 +91,30 @@ class App extends Component {
 
     const {
       inputsData: { startDate: startDateOld, endDate: endDateOld },
-      selectsData: { currentType: type, currentMemberId, currentTeamId },
+      selectsData: { currentType, currentMemberId, currentTeamId },
     } = this.state
 
     // Симуляция POST запроса
+
     const member = departmentParts.teams
       .find(({ teamId }) => teamId === +currentTeamId)
       ?.members.find(({ memberId }) => memberId === +currentMemberId)
-    member?.vacations.push({
+
+    const requestVacation: IVacation = {
       startDate: formatDateViaDots(startDateOld.split("-")),
       endDate: formatDateViaDots(endDateOld.split("-")),
-      type,
-    })
+      type: currentType,
+    }
 
-    this.setState({ teams: departmentParts.teams })
+    if (!member?.vacations.some((el) => JSON.stringify(requestVacation) === JSON.stringify(el))) {
+      member?.vacations.push(requestVacation)
 
-    window.confirm("Отпуск установлен")
+      this.setState({ teams: departmentParts.teams })
+      window.alert("Отпуск установлен")
+    } else {
+      window.alert("Такой уже существует")
+    }
+
     this.changeModalVisible(false)
   }
 
