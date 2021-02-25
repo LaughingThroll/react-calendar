@@ -22,13 +22,11 @@
   }
 
   &__other {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     margin-left: 20px;
-    vertical-align: bottom;
-
-    & > * {
-      display: inline-block;
-    }
+    transform: translateY(25%);
 
     & > *:not(:last-child) {
       margin-right: 8px;
