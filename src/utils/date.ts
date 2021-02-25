@@ -8,6 +8,11 @@ export const formatDayInBinaryString = (date: Date, day: number): string => {
     .substring(-1, 2)
 }
 
+export const formatDateViaDots = (arr: string[]): string => {
+  arr[0] = [arr[2], (arr[2] = arr[0])][0]
+  return arr.join(".")
+}
+
 export const countDayFromTimeStamp = (timestamp: number): number => {
   const oneDay: number = 1000 * 60 * 60 * 24
   let startDay: number = 0
@@ -15,10 +20,10 @@ export const countDayFromTimeStamp = (timestamp: number): number => {
   return startDay
 }
 
-const formatDateinKebabCase = (date: Date): string => date.toISOString().match(/\d{4}-\d{2}-\d{2}/)![0]
+const formatDateInKebabCase = (date: Date): string => date.toISOString().match(/\d{4}-\d{2}-\d{2}/)![0]
 
 export const dateKebabFormat = (day: number): string => {
-  return formatDateinKebabCase(new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + day))
+  return formatDateInKebabCase(new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + day))
 }
 
 export const checkVacationsDate = (vacations: Array<IVacation>, currentCellDate: Date): boolean => {
