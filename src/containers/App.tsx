@@ -11,19 +11,9 @@ import InputDate from "./../components/InputDate"
 import { Select, Option } from "../components/Select/"
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "../components/Modal"
 
-import { countDayFromTimeStamp, dateKebabFormat, daysInMonth } from "../utils/date"
-import { IVacation, TVacation, ITeam } from "../types/DB"
-
-interface IRequestObject {
-  startDateTimeStamp: number
-  endDateTimeStamp: number
-  type: TVacation
-}
-
-interface IVcationState extends IVacation {
-  startDateTimeStamp: number
-  endDateTimeStamp: number
-}
+import { countDayFromTimeStamp, dateKebabFormat, daysInMonth, formatDateViaDots } from "../utils/date"
+import { TVacation, ITeam } from "../types/DB"
+import { ID } from "../types/utilsTypes"
 
 interface IAppState {
   currentDate: Date
@@ -34,7 +24,17 @@ interface IAppState {
     countDays: number
     disabledBtn: boolean
   }
-  modalVacation: IVcationState
+  inputsData: {
+    startDate: string
+    startDateTimeStamp: number
+    endDate: string
+    endDateTimeStamp: number
+  }
+  selectsData: {
+    currentTeamId: ID
+    currentMemberId: ID
+    currentType: TVacation
+  }
 }
 
 class App extends Component {
@@ -47,17 +47,28 @@ class App extends Component {
       countDays: countDayFromTimeStamp(Date.parse(dateKebabFormat(8)) - Date.parse(dateKebabFormat(1))),
       disabledBtn: false,
     },
-    modalVacation: {
+    inputsData: {
       startDate: dateKebabFormat(1),
       startDateTimeStamp: Date.parse(dateKebabFormat(1)),
       endDate: dateKebabFormat(8),
       endDateTimeStamp: Date.parse(dateKebabFormat(8)),
-      type: "UnPaid",
+    },
+    selectsData: {
+      currentTeamId: "",
+      currentMemberId: "",
+      currentType: "UnPaid",
     },
   }
 
   componentDidMount() {
-    this.setState({ teams: departmentParts.teams })
+    // Симуляция GET запроса
+    this.setState({
+      teams: departmentParts.teams,
+      selectsData: {
+        currentTeamId: departmentParts.teams[0].teamId,
+        currentMemberId: departmentParts.teams[0].members[0].memberId,
+      },
+    })
   }
 
   changeCurrentMonth = (symbol: "-" | "+", value: number) => {
@@ -75,39 +86,48 @@ class App extends Component {
   onSumbit = (e: React.MouseEvent) => {
     e.preventDefault()
 
-    const { startDateTimeStamp, endDateTimeStamp, type } = this.state.modalVacation
+    const {
+      inputsData: { startDate: startDateOld, endDate: endDateOld },
+      selectsData: { currentType: type, currentMemberId, currentTeamId },
+    } = this.state
 
-    const requestObj: IRequestObject = {
-      startDateTimeStamp,
-      endDateTimeStamp,
+    // Симуляция POST запроса
+    const member = departmentParts.teams
+      .find(({ teamId }) => teamId === +currentTeamId)
+      ?.members.find(({ memberId }) => memberId === +currentMemberId)
+    member?.vacations.push({
+      startDate: formatDateViaDots(startDateOld.split("-")),
+      endDate: formatDateViaDots(endDateOld.split("-")),
       type,
-    }
+    })
 
-    window.alert(JSON.stringify(requestObj, null, 2))
+    this.setState({ teams: departmentParts.teams })
+
+    window.confirm("Отпуск установлен")
+    this.changeModalVisible(false)
   }
 
   handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const modalVacation = Object.assign({}, this.state.modalVacation)
+    const inputsData = Object.assign({}, this.state.inputsData)
     const { name, value } = e.target
 
-    this.setState(
-      { modalVacation: { ...modalVacation, [name]: value, [name + "TimeStamp"]: Date.parse(value) } },
-      () => {
-        const modal = Object.assign({}, this.state.modal)
+    this.setState({ inputsData: { ...inputsData, [name]: value, [name + "TimeStamp"]: Date.parse(value) } }, () => {
+      const modal = Object.assign({}, this.state.modal)
 
-        const { endDateTimeStamp, startDateTimeStamp } = this.state.modalVacation
+      const { endDateTimeStamp, startDateTimeStamp } = this.state.inputsData
 
-        const diff = endDateTimeStamp - startDateTimeStamp
+      const diff = endDateTimeStamp - startDateTimeStamp
 
-        if (diff > 0) this.setState({ modal: { ...modal, disabledBtn: false, countDays: countDayFromTimeStamp(diff) } })
-        if (diff <= 0) this.setState({ modal: { ...modal, disabledBtn: true, countDays: "is Not Valid" } })
-      },
-    )
+      if (diff > 0) this.setState({ modal: { ...modal, disabledBtn: false, countDays: countDayFromTimeStamp(diff) } })
+      if (diff <= 0) this.setState({ modal: { ...modal, disabledBtn: true, countDays: "is Not Valid" } })
+    })
   }
 
   handleChangeSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const modalVacation = Object.assign({}, this.state.modalVacation)
-    this.setState({ modalVacation: { ...modalVacation, type: e.target.value } })
+    const selectsData = Object.assign({}, this.state.selectsData)
+    const name = e.target.name.replace(/^./g, (match) => match.toUpperCase())
+
+    this.setState({ selectsData: { ...selectsData, ["current" + name]: e.target.value } })
   }
 
   render() {
@@ -116,8 +136,10 @@ class App extends Component {
       daysInMonth,
       teams,
       modal: { isOpen, countDays, disabledBtn },
-      modalVacation: { startDate, endDate, type },
+      inputsData: { startDate, endDate },
+      selectsData: { currentTeamId, currentMemberId, currentType },
     } = this.state
+
     return (
       <>
         <div className="container">
@@ -150,8 +172,25 @@ class App extends Component {
               <InputDate title="From" onChange={this.handleChangeInput} value={startDate} name="startDate" />
               <InputDate title="To" onChange={this.handleChangeInput} value={endDate} name="endDate" />
             </FormDates>
+            <FormDates title="Team">
+              <Select value={currentTeamId} name="teamId" onChange={this.handleChangeSelect}>
+                {teams.map(({ name, teamId }: ITeam, index) => (
+                  <Option key={index} title={name} value={teamId} />
+                ))}
+              </Select>
+            </FormDates>
+            <FormDates title="User">
+              <Select value={currentMemberId} name="memberId" onChange={this.handleChangeSelect}>
+                {teams
+                  .find((el) => el.teamId === +currentTeamId)
+                  ?.members.map(({ name, memberId }) => {
+                    return <Option key={memberId} title={name} value={memberId} />
+                  })}
+              </Select>
+            </FormDates>
+
             <FormDates title="Vac Type">
-              <Select value={type} onChange={this.handleChangeSelect}>
+              <Select value={currentType} name="type" onChange={this.handleChangeSelect}>
                 <Option title="Paid Day Off (PD)" value="UnPaid" />
                 <Option title="Paid Day On (PD)" value="Paid" />
               </Select>

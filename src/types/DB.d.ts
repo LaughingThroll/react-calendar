@@ -1,3 +1,5 @@
+import { ID } from "./utilsTypes"
+
 export type TVacation = "Paid" | "UnPaid"
 
 export interface IVacation {
@@ -8,6 +10,7 @@ export interface IVacation {
 
 interface IMember {
   name: string
+  memberId: ID
   vacations: IVacation[]
 }
 

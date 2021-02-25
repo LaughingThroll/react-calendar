@@ -3,7 +3,7 @@ import React from "react"
 interface ISelect extends React.SelectHTMLAttributes<HTMLSelectElement> {
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
   children?: JSX.Element | JSX.Element[]
-  value?: string
+  value?: string | number
 }
 
 const Select: React.FC<ISelect> = ({ children, value, ...rest }) => {

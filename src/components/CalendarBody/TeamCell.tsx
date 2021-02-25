@@ -11,7 +11,7 @@ interface ITeamCell {
 
 const TeamCell: React.FC<ITeamCell> = ({ dayString, vacations, day, date }) => {
   let isVacation
-  if (vacations && date && day) {
+  if (vacations !== undefined && date !== undefined && day !== undefined) {
     let dateForCell = new Date(date.getFullYear(), date.getMonth(), day + 1)
     isVacation = checkVacationsDate(vacations, dateForCell)
   }
