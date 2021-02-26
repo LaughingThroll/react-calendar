@@ -5,3 +5,13 @@
     text-align: center;
   }
 }
+
+.is-group-closed {
+  td {
+    border-bottom: 1px;
+  }
+}
+
+.is-team-member-closed {
+  display: none;
+}

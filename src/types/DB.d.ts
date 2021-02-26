@@ -1,6 +1,8 @@
-type TVacation = "Paid" | "UnPaid"
+import { ID } from "./utilsTypes"
 
-interface IVacation {
+export type TVacation = "Paid" | "UnPaid"
+
+export interface IVacation {
   startDate: string
   endDate: string
   type: TVacation
@@ -8,6 +10,7 @@ interface IVacation {
 
 interface IMember {
   name: string
+  memberId: ID
   vacations: IVacation[]
 }
 

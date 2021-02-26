@@ -5,6 +5,15 @@
 @import "./utils/global";
 @import "./utils/themes";
 
+@import "./sub-modules/button";
+@import "./sub-modules/select";
+@import "./sub-modules/form-dates";
+@import "./sub-modules/input-date";
+@import "./sub-modules/modal/modal-footer";
+@import "./sub-modules/modal/modal-header";
+@import "./sub-modules/modal/modal-body";
+@import "./sub-modules/modal/overlay";
+
 @import "./sub-modules/cell-gray";
 @import "./sub-modules/button";
 @import "./sub-modules/button-arrow-up";
@@ -17,3 +26,4 @@
 @import "./modules/calendar-header";
 @import "./modules/calendar-table";
 @import "./modules/calendar-team";
+@import "./modules/modal";

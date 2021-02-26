@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import iconUsers from "./../../assets/images/icons/users.svg"
 
@@ -24,9 +24,19 @@ const Team: React.FC<ITeamComponent> = ({
   themeIndex = 0,
 }) => {
   const mainTheme = THEMES[themeIndex % THEMES.length][0]
+  const [isGroupOpen, setIsGrpupOpen] = useState(true)
+
+  const handlerHideGroup = () => {
+    setIsGrpupOpen(!isGroupOpen)
+  }
+
   return (
     <>
-      <tr className={`calendar-team calendar-table--indentation ${mainTheme} ${THEMES[themeIndex % THEMES.length][1]}`}>
+      <tr
+        className={`calendar-team calendar-table--indentation ${mainTheme} ${THEMES[themeIndex % THEMES.length][1]} ${
+          isGroupOpen ? "" : "is-group-closed"
+        }`}
+      >
         <td className="team team--common">
           <span className="team__name">{nameTeam}</span>
           <div className="team__other">
@@ -35,7 +45,10 @@ const Team: React.FC<ITeamComponent> = ({
               <span className="users__count">{members.length}</span>
             </div>
             <div className="team__weekend-percent weekend-percent">{percentageOfAbsent[date.getMonth()]}%</div>
-            <button className="button-arrow-up"></button>
+            <button
+              className={`button-arrow-up ${isGroupOpen ? "is-group-open-btn" : "is-group-closed-btn"}`}
+              onClick={() => handlerHideGroup()}
+            ></button>
           </div>
         </td>
         {new Array(allDaysInMonth).fill(0).map((_, day: number) => (
@@ -43,8 +56,16 @@ const Team: React.FC<ITeamComponent> = ({
         ))}
         <td className="calendar-team__cell cell-gray"></td>
       </tr>
-      {members.map(({ name: nameMember }: IMember, day: number) => (
-        <TeamMember key={day} date={date} allDaysInMonth={allDaysInMonth} name={nameMember} theme={mainTheme} />
+      {members.map(({ name: nameMember, vacations: arrayOfVacations }: IMember, day: number) => (
+        <TeamMember
+          key={day}
+          date={date}
+          allDaysInMonth={allDaysInMonth}
+          name={nameMember}
+          vacations={arrayOfVacations}
+          theme={mainTheme}
+          isGroupOpen={isGroupOpen}
+        />
       ))}
     </>
   )

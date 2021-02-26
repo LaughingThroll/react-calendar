@@ -5,7 +5,7 @@ interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   classNames?: string[]
   type?: "button" | "submit" | "reset"
   iconPlus?: boolean
-  onClick?: () => void
+  onClick?: (...args: any) => any
   children?: string | ReactElement
   disabled?: boolean
 }
