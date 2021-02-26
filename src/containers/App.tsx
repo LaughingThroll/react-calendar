@@ -11,9 +11,8 @@ import InputDate from "./../components/InputDate"
 import { Select, Option } from "../components/Select/"
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "../components/Modal"
 
-import { LOCALE_STORAGE_TEAMS } from "../constant"
 import { countDayFromTimeStamp, dateKebabFormat, daysInMonth, formatDateViaDots } from "../utils/date"
-import { TVacation, ITeam } from "../types/DB"
+import { TVacation, ITeam, IVacation } from "../types/DB"
 import { ID } from "../types/utilsTypes"
 
 interface IAppState {
@@ -64,16 +63,13 @@ class App extends Component {
   componentDidMount() {
     // Симуляция GET запроса
     const selectsData = Object.assign({}, this.state.selectsData)
-    const dataWithLocalStorage = JSON.parse(localStorage.getItem(LOCALE_STORAGE_TEAMS) || "")
 
     this.setState({
-      teams: dataWithLocalStorage ? dataWithLocalStorage : departmentParts.teams,
+      teams: departmentParts.teams,
       selectsData: {
         ...selectsData,
-        currentTeamId: dataWithLocalStorage ? dataWithLocalStorage[0].teamId : departmentParts.teams[0].teamId,
-        currentMemberId: dataWithLocalStorage
-          ? dataWithLocalStorage[0].members[0].memberId
-          : departmentParts.teams[0].members[0].memberId,
+        currentTeamId: departmentParts.teams[0].teamId,
+        currentMemberId: departmentParts.teams[0].members[0].memberId,
       },
     })
   }
@@ -104,7 +100,7 @@ class App extends Component {
       .find(({ teamId }) => teamId === +currentTeamId)
       ?.members.find(({ memberId }) => memberId === +currentMemberId)
 
-    const requestVacation = {
+    const requestVacation: IVacation = {
       startDate: formatDateViaDots(startDateOld.split("-")),
       endDate: formatDateViaDots(endDateOld.split("-")),
       type: currentType,
@@ -114,7 +110,6 @@ class App extends Component {
       member?.vacations.push(requestVacation)
 
       this.setState({ teams: departmentParts.teams })
-      localStorage.setItem(LOCALE_STORAGE_TEAMS, JSON.stringify(departmentParts.teams))
       window.alert("Отпуск установлен")
     } else {
       window.alert("Такой уже существует")
