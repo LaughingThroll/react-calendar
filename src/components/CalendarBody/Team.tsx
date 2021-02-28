@@ -7,7 +7,7 @@ import TeamMember from "./TeamMember"
 
 import { THEMES } from "../../constant"
 import { formatDayInBinaryString } from "../../utils/date"
-
+import { createArray } from "../../utils/createArray"
 import { IMember, ITeam } from "../../types/DB"
 
 interface ITeamComponent {
@@ -24,10 +24,10 @@ const Team: React.FC<ITeamComponent> = ({
   themeIndex = 0,
 }) => {
   const mainTheme = THEMES[themeIndex % THEMES.length][0]
-  const [isGroupOpen, setIsGrpupOpen] = useState(true)
+  const [isGroupOpen, setIsGroupOpen] = useState(true)
 
   const handlerHideGroup = () => {
-    setIsGrpupOpen(!isGroupOpen)
+    setIsGroupOpen(!isGroupOpen)
   }
 
   return (
@@ -47,11 +47,11 @@ const Team: React.FC<ITeamComponent> = ({
             <div className="team__weekend-percent weekend-percent">{percentageOfAbsent[date.getMonth()]}%</div>
             <button
               className={`button-arrow-up ${isGroupOpen ? "is-group-open-btn" : "is-group-closed-btn"}`}
-              onClick={() => handlerHideGroup()}
+              onClick={handlerHideGroup}
             ></button>
           </div>
         </td>
-        {new Array(allDaysInMonth).fill(0).map((_, day: number) => (
+        {createArray(allDaysInMonth).map((_, day: number) => (
           <TeamCell key={day} dayString={formatDayInBinaryString(date, day + 1)} />
         ))}
         <td className="calendar-team__cell cell-gray"></td>

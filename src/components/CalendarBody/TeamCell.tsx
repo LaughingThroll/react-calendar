@@ -1,26 +1,20 @@
 import React from "react"
 import { IVacation } from "../../types/DB"
-import { checkVacationsDate } from "../../utils/date"
+import { checkVacationsDate, isWeekend } from "../../utils/date"
 
 interface ITeamCell {
   dayString: string
-  vacations?: Array<IVacation>
-  date?: Date
-  day?: number
+  vacations?: IVacation[]
+  dateCell?: Date
 }
 
-const TeamCell: React.FC<ITeamCell> = ({ dayString, vacations, day, date }) => {
-  let isVacation
-  if (vacations !== undefined && date !== undefined && day !== undefined) {
-    let dateForCell = new Date(date.getFullYear(), date.getMonth(), day + 1)
-    isVacation = checkVacationsDate(vacations, dateForCell)
-  }
-
+const TeamCell: React.FC<ITeamCell> = ({ dayString, vacations, dateCell }) => {
   return (
     <td
-      className={`calendar-team__cell ${dayString === "Sa" || dayString === "Su" ? "cell-gray" : ""} ${
-        isVacation ? "cell-vacations" : ""
-      }`}
+      className={`calendar-team__cell 
+      ${isWeekend(dayString) && "cell-gray"} 
+      ${vacations && dateCell && checkVacationsDate(vacations, dateCell) && "cell-vacations"}
+      `}
     ></td>
   )
 }

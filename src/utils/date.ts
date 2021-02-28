@@ -8,10 +8,7 @@ export const formatDayInBinaryString = (date: Date, day: number): string => {
     .substring(-1, 2)
 }
 
-export const formatDateViaDots = (arr: string[]): string => {
-  arr[0] = [arr[2], (arr[2] = arr[0])][0]
-  return arr.join(".")
-}
+export const formatDate = (arr: string[], separator: string = "."): string => arr.reverse().join(separator)
 
 export const countDayFromTimeStamp = (timestamp: number): number => {
   const oneDay: number = 1000 * 60 * 60 * 24
@@ -26,16 +23,14 @@ export const dateKebabFormat = (day: number): string => {
   return formatDateInKebabCase(new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + day))
 }
 
-export const checkVacationsDate = (vacations: Array<IVacation>, currentCellDate: Date): boolean => {
-  let result = false
-  vacations.forEach((item) => {
-    const startDateNumbers = item.startDate.split(".")
-    const startDate = `${startDateNumbers[2]}/${startDateNumbers[1]}/${startDateNumbers[0]}`
-    const endDateNumbers = item.endDate.split(".")
-    const endDate = `${endDateNumbers[2]}/${endDateNumbers[1]}/${endDateNumbers[0]}`
-    if (currentCellDate >= new Date(startDate) && currentCellDate <= new Date(endDate)) {
-      result = true
-    }
-  })
-  return result
+export const checkVacationsDate = (vacations: IVacation[], cellDate: Date): boolean => {
+  return vacations
+    .map(({ startDate, endDate }) => {
+      return (
+        cellDate >= new Date(formatDate(startDate.split("."))) && cellDate <= new Date(formatDate(endDate.split(".")))
+      )
+    })
+    .some(Boolean)
 }
+
+export const isWeekend = (day: string): boolean => day === "Sa" || day === "Su"

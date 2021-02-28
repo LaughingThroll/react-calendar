@@ -5,12 +5,12 @@ import Navigation from "../components/CalendarNavigation"
 import CalendarHeader from "../components/CalendarHeader/CalendarHeader"
 import Team from "../components/CalendarBody/Team"
 import { Button } from "./../components/common"
-import FormDates from "./../components/FormDates"
-import InputDate from "./../components/InputDate"
-import { Select, Option } from "../components/Select/"
+import FormDates from "../components/common/FormDates"
+import InputDate from "../components/common/InputDate"
+import { Select, Option } from "../components/common/Select"
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "../components/Modal"
 
-import { countDayFromTimeStamp, dateKebabFormat, daysInMonth, formatDateViaDots } from "../utils/date"
+import { countDayFromTimeStamp, dateKebabFormat, daysInMonth, formatDate } from "../utils/date"
 import { TVacation, ITeam, IVacation, IDepartmentTeams } from "../types/DB"
 import { ID } from "../types/utilsTypes"
 import makeRequest from "../utils/makeRequest"
@@ -104,8 +104,8 @@ class App extends Component {
       ?.members.find(({ memberId }) => +memberId === currentMemberId)
 
     const requestVacation: IVacation = {
-      startDate: formatDateViaDots(startDateOld.split("-")),
-      endDate: formatDateViaDots(endDateOld.split("-")),
+      startDate: formatDate(startDateOld.split("-")),
+      endDate: formatDate(endDateOld.split("-")),
       type: currentType,
     }
 
