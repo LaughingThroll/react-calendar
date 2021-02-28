@@ -55,7 +55,7 @@ const departmentTeams = {
           ],
         },
         {
-          name: "BE_Team_User2",
+          name: "Santa Claus",
           memberId: 19,
           vacations: [
             { startDate: "20.02.2020", endDate: "22.02.2020", type: "UnPaid" },
