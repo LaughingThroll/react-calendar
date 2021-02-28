@@ -1,6 +1,5 @@
 import React, { Component } from "react"
-
-import departmentParts from "../api/DB"
+import departmentTeams from "../api/DB"
 
 import Navigation from "../components/CalendarNavigation"
 import CalendarHeader from "../components/CalendarHeader/CalendarHeader"
@@ -12,8 +11,10 @@ import { Select, Option } from "../components/Select/"
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "../components/Modal"
 
 import { countDayFromTimeStamp, dateKebabFormat, daysInMonth, formatDateViaDots } from "../utils/date"
-import { TVacation, ITeam, IVacation } from "../types/DB"
+import { TVacation, ITeam, IVacation, IDepartmentTeams } from "../types/DB"
 import { ID } from "../types/utilsTypes"
+import makeRequest from "../utils/makeRequest"
+import { TEAMS_URL, OPTIONS_FOR_GET_REQUEST } from "../constant"
 
 interface IAppState {
   currentDate: Date
@@ -61,16 +62,20 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // Симуляция GET запроса
     const selectsData = Object.assign({}, this.state.selectsData)
 
-    this.setState({
-      teams: departmentParts.teams,
-      selectsData: {
-        ...selectsData,
-        currentTeamId: departmentParts.teams[0].teamId,
-        currentMemberId: departmentParts.teams[0].members[0].memberId,
-      },
+    makeRequest(TEAMS_URL, {
+      ...OPTIONS_FOR_GET_REQUEST,
+      body: JSON.stringify(departmentTeams),
+    }).then(({ teams }: IDepartmentTeams) => {
+      this.setState({
+        teams,
+        selectsData: {
+          ...selectsData,
+          currentTeamId: teams[0].teamId,
+          currentMemberId: teams[0].members[0].memberId,
+        },
+      })
     })
   }
 
@@ -93,8 +98,8 @@ class App extends Component {
       inputsData: { startDate: startDateOld, endDate: endDateOld },
       selectsData: { currentType, currentMemberId, currentTeamId },
     } = this.state
-    // Симуляция POST запроса
-    const member = departmentParts.teams
+
+    const member = departmentTeams.teams
       .find(({ teamId }) => +teamId === currentTeamId)
       ?.members.find(({ memberId }) => +memberId === currentMemberId)
 
@@ -103,10 +108,14 @@ class App extends Component {
       endDate: formatDateViaDots(endDateOld.split("-")),
       type: currentType,
     }
+
     if (!member?.vacations.some((el) => JSON.stringify(requestVacation) === JSON.stringify(el))) {
       member?.vacations.push(requestVacation)
 
-      this.setState({ teams: departmentParts.teams })
+      makeRequest(TEAMS_URL, {
+        ...OPTIONS_FOR_GET_REQUEST,
+        body: JSON.stringify(departmentTeams),
+      }).then(({ teams }: IDepartmentTeams) => this.setState({ teams }))
     } else {
       window.alert("Такой уже существует")
     }
