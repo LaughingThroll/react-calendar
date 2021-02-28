@@ -19,7 +19,7 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-    "pretty": "prettier --write src/",
+    "pretty": "prettier --write \"./src/**/*.{ts,tsx,d.ts}\"",
     "lint": "lint-staged",
     "start": "react-scripts start",
     "build": "react-scripts build",

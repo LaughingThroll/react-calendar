@@ -86,31 +86,27 @@ class App extends Component {
     this.setState({ modal: { ...modal, isOpen: bool } })
   }
 
-  onSumbit = (e: React.MouseEvent) => {
+  onSubmit = (e: React.MouseEvent) => {
     e.preventDefault()
 
     const {
       inputsData: { startDate: startDateOld, endDate: endDateOld },
       selectsData: { currentType, currentMemberId, currentTeamId },
     } = this.state
-
     // Симуляция POST запроса
-
     const member = departmentParts.teams
-      .find(({ teamId }) => teamId === +currentTeamId)
-      ?.members.find(({ memberId }) => memberId === +currentMemberId)
+      .find(({ teamId }) => +teamId === currentTeamId)
+      ?.members.find(({ memberId }) => +memberId === currentMemberId)
 
     const requestVacation: IVacation = {
       startDate: formatDateViaDots(startDateOld.split("-")),
       endDate: formatDateViaDots(endDateOld.split("-")),
       type: currentType,
     }
-
     if (!member?.vacations.some((el) => JSON.stringify(requestVacation) === JSON.stringify(el))) {
       member?.vacations.push(requestVacation)
 
       this.setState({ teams: departmentParts.teams })
-      window.alert("Отпуск установлен")
     } else {
       window.alert("Такой уже существует")
     }
@@ -135,10 +131,35 @@ class App extends Component {
   }
 
   handleChangeSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectsData = Object.assign({}, this.state.selectsData)
-    const name = e.target.name.replace(/^./g, (match) => match.toUpperCase())
+    const { teams, selectsData } = this.state
+    const cpSelectsData = Object.assign({}, selectsData)
 
-    this.setState({ selectsData: { ...selectsData, ["current" + name]: e.target.value } })
+    const name = `current${e.target.name.replace(/^./g, (match) => match.toUpperCase())}`
+
+    switch (name) {
+      case "currentType": {
+        this.setState({ selectsData: { ...cpSelectsData, [name]: e.target.value } })
+        break
+      }
+      case "currentTeamId": {
+        const value = +e.target.value
+        this.setState({
+          selectsData: {
+            ...cpSelectsData,
+            currentTeamId: value,
+            currentMemberId: teams.find(({ teamId }) => +teamId === value)?.members[0].memberId,
+          },
+        })
+        break
+      }
+      case "currentMemberId": {
+        this.setState({ selectsData: { ...cpSelectsData, [name]: +e.target.value } })
+        break
+      }
+      default: {
+        break
+      }
+    }
   }
 
   render() {
@@ -193,10 +214,10 @@ class App extends Component {
             <FormDates title="User">
               <Select value={currentMemberId} name="memberId" onChange={this.handleChangeSelect}>
                 {teams
-                  .find((el) => el.teamId === +currentTeamId)
-                  ?.members.map(({ name, memberId }) => {
-                    return <Option key={memberId} title={name} value={memberId} />
-                  })}
+                  .find(({ teamId }) => +teamId === +currentTeamId)
+                  ?.members.map(({ name, memberId }) => (
+                    <Option key={memberId} title={name} value={memberId} />
+                  ))}
               </Select>
             </FormDates>
 
@@ -211,7 +232,7 @@ class App extends Component {
             <Button secondary onClick={this.changeModalVisible.bind(null, false)}>
               Cancel
             </Button>
-            <Button type="submit" disabled={disabledBtn} onClick={this.onSumbit}>
+            <Button type="submit" disabled={disabledBtn} onClick={this.onSubmit}>
               Send
             </Button>
           </ModalFooter>
