@@ -1,35 +1,57 @@
-import React from "react"
+import React, { useRef } from "react"
 
 import TeamCell from "./TeamCell"
+import SummCell from "./SummCell"
 
-import { formatDayInBinaryString } from "../../utils/date"
-import { createArray } from "../../utils/createArray"
+import { exsistTypeVacation, splitVacations, summDays, isFirstOrLastDay } from "../../utils/vacations"
+
 import { IVacation } from "../../types/DB"
+import classNames from "classnames"
 
 interface ITeamMember {
-  date: Date
-  allDaysInMonth: number
+  allDays: Date[]
   name: string
   theme?: string
   vacations: Array<IVacation>
   isGroupOpen: boolean
 }
 
-const TeamMember: React.FC<ITeamMember> = ({ date, allDaysInMonth, theme, name, vacations, isGroupOpen }) => {
+const TeamMember: React.FC<ITeamMember> = ({ allDays, theme, name, vacations, isGroupOpen }) => {
+  const countRef = useRef<number>(0)
+  const newVacations = splitVacations(vacations, allDays.length)
+
   return (
-    <tr className={`calendar-body ${theme}${isGroupOpen ? "" : "is-team-member-closed"}`}>
-      <td className="team team--member calendar-team__cell">
+    <tr
+      className={`${theme} ${classNames({
+        "calendar-body__member": true,
+        "is-team-member-closed": !isGroupOpen,
+      })}`}
+    >
+      <td className="team team--member calendar-body__cell">
         <span className="team__name">{name}</span>
       </td>
-      {createArray(allDaysInMonth).map((_, day) => (
-        <TeamCell
-          key={day}
-          dayString={formatDayInBinaryString(date, day + 1)}
-          dateCell={new Date(date.getFullYear(), date.getMonth(), day + 1)}
-          vacations={vacations}
-        />
-      ))}
-      <td className="calendar-team__cell cell-gray">4</td>
+
+      {allDays.map((date, index) => {
+        countRef.current = summDays(newVacations, date)
+
+        const isStartDay = isFirstOrLastDay(newVacations, date, "start")
+        const isEndDay = isFirstOrLastDay(newVacations, date, "end")
+
+        const isPaidCell = exsistTypeVacation(newVacations, date, "Paid")
+        const isUnPaidCell = exsistTypeVacation(newVacations, date, "UnPaid")
+
+        return (
+          <TeamCell
+            key={index}
+            date={date}
+            isPaidCell={isPaidCell}
+            isUnPaidCell={isUnPaidCell}
+            isStartDay={isStartDay}
+            isEndDay={isEndDay}
+          />
+        )
+      })}
+      <SummCell count={countRef.current} />
     </tr>
   )
 }

@@ -14,7 +14,28 @@
     }
 
     .cell-vacations {
-      background-color: $themes-main;
+      &--paid,
+      &--unpaid {
+        &::before {
+          background-color: inherit;
+        }
+      }
+      &--paid {
+        color: $themes-text-color;
+        background-color: $themes-main;
+      }
+      &--unpaid {
+        border-top: 1px solid $themes-main;
+        border-bottom: 1px solid $themes-main;
+        background-color: #{$themes-main + "19"};
+        color: $themes-main;
+        &-start-vac {
+          border-left: 1px solid $themes-main;
+        }
+        &-end-vac {
+          border-right: 1px solid $themes-main;
+        }
+      }
     }
   }
 }

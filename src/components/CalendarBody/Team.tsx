@@ -7,19 +7,19 @@ import TeamMember from "./TeamMember"
 
 import { THEMES } from "../../constant"
 import { formatDayInBinaryString } from "../../utils/date"
-import { createArray } from "../../utils/createArray"
 import { IMember, ITeam } from "../../types/DB"
+import classNames from "classnames"
 
 interface ITeamComponent {
   team: ITeam
   date: Date
-  allDaysInMonth: number
+  allDays: Date[]
   themeIndex?: number
 }
 
 const Team: React.FC<ITeamComponent> = ({
   team: { members, percentageOfAbsent, name: nameTeam },
-  allDaysInMonth,
+  allDays,
   date,
   themeIndex = 0,
 }) => {
@@ -33,9 +33,14 @@ const Team: React.FC<ITeamComponent> = ({
   return (
     <>
       <tr
-        className={`calendar-team calendar-table--indentation ${mainTheme} ${THEMES[themeIndex % THEMES.length][1]} ${
-          isGroupOpen ? "" : "is-group-closed"
-        }`}
+        className={`
+        ${mainTheme} 
+        ${THEMES[themeIndex % THEMES.length][1]} 
+        ${classNames({
+          "calendar-body__team": true,
+          "calendar-table--indentation": true,
+          "is-group-closed": !isGroupOpen,
+        })}`}
       >
         <td className="team team--common">
           <span className="team__name">{nameTeam}</span>
@@ -51,16 +56,15 @@ const Team: React.FC<ITeamComponent> = ({
             ></button>
           </div>
         </td>
-        {createArray(allDaysInMonth).map((_, day: number) => (
-          <TeamCell key={day} dayString={formatDayInBinaryString(date, day + 1)} />
+        {allDays.map((date, index) => (
+          <TeamCell key={index} date={date} />
         ))}
-        <td className="calendar-team__cell cell-gray"></td>
+        <td className="calendar-body__cell cell-gray"></td>
       </tr>
       {members.map(({ name: nameMember, vacations: arrayOfVacations }: IMember, day: number) => (
         <TeamMember
           key={day}
-          date={date}
-          allDaysInMonth={allDaysInMonth}
+          allDays={allDays}
           name={nameMember}
           vacations={arrayOfVacations}
           theme={mainTheme}

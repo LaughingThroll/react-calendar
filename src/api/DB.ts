@@ -31,7 +31,7 @@ const departmentTeams = {
           memberId: 24,
           vacations: [
             { startDate: "19.01.2021", endDate: "19.02.2021", type: "Paid" },
-            { startDate: "19.02.2021", endDate: "22.02.2021", type: "UnPaid" },
+            { startDate: "20.02.2021", endDate: "22.02.2021", type: "UnPaid" },
           ],
         },
       ],
@@ -55,7 +55,7 @@ const departmentTeams = {
           ],
         },
         {
-          name: "Santa Claus",
+          name: "Isaac Newton",
           memberId: 19,
           vacations: [
             { startDate: "20.02.2020", endDate: "22.02.2020", type: "UnPaid" },
@@ -82,7 +82,7 @@ const departmentTeams = {
           memberId: 6,
           vacations: [
             { startDate: "30.02.2021", endDate: "12.03.2021", type: "Paid" },
-            { startDate: "15.01.2021", endDate: "30.02.2021", type: "UnPaid" },
+            { startDate: "15.01.2021", endDate: "28.02.2021", type: "UnPaid" },
           ],
         },
       ],

@@ -10,7 +10,7 @@ import InputDate from "../components/common/InputDate"
 import { Select, Option } from "../components/common/Select"
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "../components/Modal"
 
-import { countDayFromTimeStamp, dateKebabFormat, daysInMonth, formatDate } from "../utils/date"
+import { countDayFromTimeStamp, dateKebabFormat, createArrayWithDate, formatDate } from "../utils/date"
 import { TVacation, ITeam, IVacation, IDepartmentTeams } from "../types/DB"
 import { ID } from "../types/utilsTypes"
 import makeRequest from "../utils/makeRequest"
@@ -18,7 +18,7 @@ import { TEAMS_URL, OPTIONS_FOR_GET_REQUEST } from "../constant"
 
 interface IAppState {
   currentDate: Date
-  daysInMonth: number
+  allDays: Date[]
   teams: ITeam[]
   modal: {
     isOpen: boolean
@@ -41,7 +41,7 @@ interface IAppState {
 class App extends Component {
   state: IAppState = {
     currentDate: new Date(),
-    daysInMonth: daysInMonth(new Date()),
+    allDays: createArrayWithDate(new Date()),
     teams: [],
     modal: {
       isOpen: false,
@@ -83,7 +83,7 @@ class App extends Component {
     const currentDate = new Date(
       this.state.currentDate.setMonth(this.state.currentDate.getMonth() + parseInt(symbol + value, 10)),
     )
-    this.setState({ currentDate, daysInMonth: daysInMonth(currentDate) })
+    this.setState({ currentDate, allDays: createArrayWithDate(currentDate) })
   }
 
   changeModalVisible = (bool: boolean) => {
@@ -174,7 +174,7 @@ class App extends Component {
   render() {
     const {
       currentDate,
-      daysInMonth,
+      allDays,
       teams,
       modal: { isOpen, countDays, disabledBtn },
       inputsData: { startDate, endDate },
@@ -186,21 +186,11 @@ class App extends Component {
         <div className="container">
           <Navigation date={currentDate} changeCurrentMonth={this.changeCurrentMonth} />
           <table className="calendar-table">
-            <CalendarHeader
-              date={currentDate}
-              daysInMonth={daysInMonth}
-              handleClick={this.changeModalVisible.bind(null, true)}
-            />
+            <CalendarHeader allDays={allDays} handleClick={this.changeModalVisible.bind(null, true)} />
 
-            <tbody>
+            <tbody className="calendar-body">
               {teams.map((team: ITeam, index: number) => (
-                <Team
-                  key={team.teamId}
-                  team={team}
-                  date={currentDate}
-                  allDaysInMonth={daysInMonth}
-                  themeIndex={index}
-                />
+                <Team key={team.teamId} team={team} date={currentDate} allDays={allDays} themeIndex={index} />
               ))}
             </tbody>
           </table>

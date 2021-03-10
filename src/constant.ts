@@ -1,6 +1,7 @@
 import { TTheme } from "./types/constant"
 
 export const TEAMS_URL: string = "https://jsonplaceholder.typicode.com/posts/1"
+export const BACKEND_SEPARATOR = "."
 
 export const THEMES: TTheme[] = [
   ["melrose-theme", "melrose-theme--background"],

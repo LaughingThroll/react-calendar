@@ -3,6 +3,7 @@ import { ID } from "./utilsTypes"
 export type TVacation = "Paid" | "UnPaid"
 
 export interface IVacation {
+  [key: string]: string
   startDate: string
   endDate: string
   type: TVacation

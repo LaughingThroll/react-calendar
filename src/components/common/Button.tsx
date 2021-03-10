@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react"
+import classnames from "classnames"
 
 interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   secondary?: boolean
@@ -14,10 +15,14 @@ const Button = ({ type = "button", children, secondary, disabled, classNames = [
   return (
     <button
       type={type}
-      className={`button 
-      ${iconPlus ? "button--icon-plus" : ""} 
-      ${secondary ? "button--secondary" : disabled ? "button--disabled" : "button--primary"} 
-      ${classNames.join(" ")}`}
+      className={`
+        ${classnames({
+          button: true,
+          "button--icon-plus": iconPlus,
+          "button--secondary": secondary,
+          "button--primary": !secondary,
+          "button--disabled": disabled,
+        })} ${classNames.join(" ")}`}
       {...rest}
     >
       {children}

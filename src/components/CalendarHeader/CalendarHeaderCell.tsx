@@ -1,16 +1,17 @@
 import React from "react"
 
-import { isWeekend } from "../../utils/date"
+import { isWeekend } from "../../utils/vacations"
+import { formatDayInBinaryString } from "../../utils/date"
 
 interface ICalendarHeaderCell {
-  dayString: string
+  date: Date
   dayNumber: number
 }
 
-const CalendarHeaderCell: React.FC<ICalendarHeaderCell> = ({ dayString, dayNumber }) => {
+const CalendarHeaderCell: React.FC<ICalendarHeaderCell> = ({ date, dayNumber }) => {
   return (
-    <th className={`calendar-header__cell ${isWeekend(dayString) && "cell-gray"}`}>
-      <span className="calendar-header__day">{dayString}</span>
+    <th className={`calendar-header__cell ${isWeekend(date) ? "cell-gray" : ""}`}>
+      <span className="calendar-header__day">{formatDayInBinaryString(date)}</span>
       <span className="calendar-header__number">{dayNumber}</span>
     </th>
   )
