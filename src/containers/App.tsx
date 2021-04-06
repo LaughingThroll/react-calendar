@@ -1,20 +1,20 @@
-import React, { Component } from "react"
-import departmentTeams from "../api/DB"
+import React, { Component } from 'react'
 
-import Navigation from "../components/CalendarNavigation"
-import CalendarHeader from "../components/CalendarHeader/CalendarHeader"
-import Team from "../components/CalendarBody/Team"
-import { Button } from "./../components/common"
-import FormDates from "./../components/FormDates"
-import InputDate from "./../components/InputDate"
-import { Select, Option } from "../components/Select/"
-import { Modal, ModalBody, ModalFooter, ModalHeader } from "../components/Modal"
+import Navigation from '../components/CalendarNavigation'
+import CalendarHeader from '../components/CalendarHeader/CalendarHeader'
+import Team from '../components/CalendarBody/Team'
+import { Button } from './../components/common'
+import FormDates from './../components/FormDates'
+import InputDate from './../components/InputDate'
+import { Select, Option } from '../components/Select/'
+import { Modal, ModalBody, ModalFooter, ModalHeader } from '../components/Modal'
 
-import { countDayFromTimeStamp, dateKebabFormat, daysInMonth, formatDateViaDots } from "../utils/date"
-import { TVacation, ITeam, IVacation, IDepartmentTeams } from "../types/DB"
-import { ID } from "../types/utilsTypes"
-import makeRequest from "../utils/makeRequest"
-import { TEAMS_URL, OPTIONS_FOR_GET_REQUEST } from "../constant"
+import { countDayFromTimeStamp, dateKebabFormat, daysInMonth, formatDateViaDots } from '../utils/date'
+
+import { ITeam } from '../types/model/team'
+import { EVacation, TVacation } from '../types/model/vacation'
+import { ID } from '../types/utilsTypes'
+import { getTeams } from '../api/teams'
 
 interface IAppState {
   currentDate: Date
@@ -55,31 +55,28 @@ class App extends Component {
       endDateTimeStamp: Date.parse(dateKebabFormat(8)),
     },
     selectsData: {
-      currentTeamId: "",
-      currentMemberId: "",
-      currentType: "UnPaid",
+      currentTeamId: '',
+      currentMemberId: '',
+      currentType: EVacation.UN_PAID,
     },
   }
 
   componentDidMount() {
     const selectsData = Object.assign({}, this.state.selectsData)
 
-    makeRequest(TEAMS_URL, {
-      ...OPTIONS_FOR_GET_REQUEST,
-      body: JSON.stringify(departmentTeams),
-    }).then(({ teams }: IDepartmentTeams) => {
-      this.setState({
-        teams,
-        selectsData: {
-          ...selectsData,
-          currentTeamId: teams[0].teamId,
-          currentMemberId: teams[0].members[0].memberId,
-        },
-      })
+    getTeams().then((teams) => {
+      this.setState({ teams })
     })
+
+    // this.setState({
+    // teams,
+    // selectsData: {
+    // ...selectsData,
+    // currentTeamId: teams[0].teamId,
+    // currentMemberId: teams[0].members[0].memberId
   }
 
-  changeCurrentMonth = (symbol: "-" | "+", value: number) => {
+  changeCurrentMonth = (symbol: '-' | '+', value: number) => {
     const currentDate = new Date(
       this.state.currentDate.setMonth(this.state.currentDate.getMonth() + parseInt(symbol + value, 10)),
     )
@@ -99,26 +96,26 @@ class App extends Component {
       selectsData: { currentType, currentMemberId, currentTeamId },
     } = this.state
 
-    const member = departmentTeams.teams
-      .find(({ teamId }) => +teamId === currentTeamId)
-      ?.members.find(({ memberId }) => +memberId === currentMemberId)
+    // const member = departmentTeams.teams
+    // .find(({ teamId }) => +teamId === currentTeamId)
+    // ?.members.find(({ memberId }) => +memberId === currentMemberId)
 
-    const requestVacation: IVacation = {
-      startDate: formatDateViaDots(startDateOld.split("-")),
-      endDate: formatDateViaDots(endDateOld.split("-")),
-      type: currentType,
-    }
+    // const requestVacation: IVacation = {
+    // startDate: formatDateViaDots(startDateOld.split('-')),
+    // endDate: formatDateViaDots(endDateOld.split('-')),
+    // type: currentType,
+    // }
 
-    if (!member?.vacations.some((el) => JSON.stringify(requestVacation) === JSON.stringify(el))) {
-      member?.vacations.push(requestVacation)
+    // if (!member?.vacations.some((el) => JSON.stringify(requestVacation) === JSON.stringify(el))) {
+    // member?.vacations.push(requestVacation)
 
-      makeRequest(TEAMS_URL, {
-        ...OPTIONS_FOR_GET_REQUEST,
-        body: JSON.stringify(departmentTeams),
-      }).then(({ teams }: IDepartmentTeams) => this.setState({ teams }))
-    } else {
-      window.alert("Такой уже существует")
-    }
+    // makeRequest(TEAMS_URL, {
+    // ...OPTIONS_FOR_GET_REQUEST,
+    // body: JSON.stringify(departmentTeams),
+    // }).then(({ teams }: IDepartmentTeams) => this.setState({ teams }))
+    // } else {
+    // window.alert('Такой уже существует')
+    // }
 
     this.changeModalVisible(false)
   }
@@ -127,7 +124,7 @@ class App extends Component {
     const inputsData = Object.assign({}, this.state.inputsData)
     const { name, value } = e.target
 
-    this.setState({ inputsData: { ...inputsData, [name]: value, [name + "TimeStamp"]: Date.parse(value) } }, () => {
+    this.setState({ inputsData: { ...inputsData, [name]: value, [name + 'TimeStamp']: Date.parse(value) } }, () => {
       const modal = Object.assign({}, this.state.modal)
 
       const { endDateTimeStamp, startDateTimeStamp } = this.state.inputsData
@@ -135,7 +132,7 @@ class App extends Component {
       const diff = endDateTimeStamp - startDateTimeStamp
 
       if (diff > 0) this.setState({ modal: { ...modal, disabledBtn: false, countDays: countDayFromTimeStamp(diff) } })
-      if (diff <= 0) this.setState({ modal: { ...modal, disabledBtn: true, countDays: "is Not Valid" } })
+      if (diff <= 0) this.setState({ modal: { ...modal, disabledBtn: true, countDays: 'is Not Valid' } })
     })
   }
 
@@ -146,22 +143,22 @@ class App extends Component {
     const name = `current${e.target.name.replace(/^./g, (match) => match.toUpperCase())}`
 
     switch (name) {
-      case "currentType": {
+      case 'currentType': {
         this.setState({ selectsData: { ...cpSelectsData, [name]: e.target.value } })
         break
       }
-      case "currentTeamId": {
+      case 'currentTeamId': {
         const value = +e.target.value
         this.setState({
           selectsData: {
             ...cpSelectsData,
             currentTeamId: value,
-            currentMemberId: teams.find(({ teamId }) => +teamId === value)?.members[0].memberId,
+            // currentMemberId: teams.find(({ teamId }) => +teamId === value)?.members[0].memberId,
           },
         })
         break
       }
-      case "currentMemberId": {
+      case 'currentMemberId': {
         this.setState({ selectsData: { ...cpSelectsData, [name]: +e.target.value } })
         break
       }
@@ -192,17 +189,17 @@ class App extends Component {
               handleClick={this.changeModalVisible.bind(null, true)}
             />
 
-            <tbody>
-              {teams.map((team: ITeam, index: number) => (
-                <Team
-                  key={team.teamId}
-                  team={team}
-                  date={currentDate}
-                  allDaysInMonth={daysInMonth}
-                  themeIndex={index}
-                />
-              ))}
-            </tbody>
+            {/* <tbody> */}
+            {/* {teams.map((team: ITeam, index: number) => ( */}
+            {/* <Team */}
+            {/* key={team.teamId} */}
+            {/* team={team} */}
+            {/* date={currentDate} */}
+            {/* allDaysInMonth={daysInMonth} */}
+            {/* themeIndex={index} */}
+            {/* /> */}
+            {/* ))} */}
+            {/* </tbody> */}
           </table>
         </div>
 
@@ -215,18 +212,18 @@ class App extends Component {
             </FormDates>
             <FormDates title="Team">
               <Select value={currentTeamId} name="teamId" onChange={this.handleChangeSelect}>
-                {teams.map(({ name, teamId }: ITeam, index) => (
-                  <Option key={index} title={name} value={teamId} />
-                ))}
+                {/* {teams.map(({ name, teamId }: ITeam, index) => ( */}
+                {/* <Option key={index} title={name} value={teamId} /> */}
+                {/* ))} */}
               </Select>
             </FormDates>
             <FormDates title="User">
               <Select value={currentMemberId} name="memberId" onChange={this.handleChangeSelect}>
-                {teams
-                  .find(({ teamId }) => +teamId === +currentTeamId)
-                  ?.members.map(({ name, memberId }) => (
-                    <Option key={memberId} title={name} value={memberId} />
-                  ))}
+                {/* {teams */}
+                {/* .find(({ teamId }) => +teamId === +currentTeamId) */}
+                {/* ?.members.map(({ name, memberId }) => ( */}
+                {/* <Option key={memberId} title={name} value={memberId} /> */}
+                {/* ))} */}
               </Select>
             </FormDates>
 

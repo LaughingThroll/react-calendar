@@ -1,14 +1,16 @@
-import React, { useState } from "react"
+import React, { useState } from 'react'
 
-import iconUsers from "./../../assets/images/icons/users.svg"
+import iconUsers from './../../assets/images/icons/users.svg'
 
-import TeamCell from "./TeamCell"
-import TeamMember from "./TeamMember"
+import TeamCell from './TeamCell'
+import TeamMember from './TeamMember'
 
-import { THEMES } from "../../constant"
-import { formatDayInBinaryString } from "../../utils/date"
+import { THEMES } from '../../constant'
+import { formatDayInBinaryString } from '../../utils/date'
 
-import { IMember, ITeam } from "../../types/DB"
+import { ITeam } from '../../types/model/team'
+import { IMember } from '../../types/model/member'
+// import { IMember, ITeam } from '../../types/DB'
 
 interface ITeamComponent {
   team: ITeam
@@ -34,7 +36,7 @@ const Team: React.FC<ITeamComponent> = ({
     <>
       <tr
         className={`calendar-team calendar-table--indentation ${mainTheme} ${THEMES[themeIndex % THEMES.length][1]} ${
-          isGroupOpen ? "" : "is-group-closed"
+          isGroupOpen ? '' : 'is-group-closed'
         }`}
       >
         <td className="team team--common">
@@ -46,7 +48,7 @@ const Team: React.FC<ITeamComponent> = ({
             </div>
             <div className="team__weekend-percent weekend-percent">{percentageOfAbsent[date.getMonth()]}%</div>
             <button
-              className={`button-arrow-up ${isGroupOpen ? "is-group-open-btn" : "is-group-closed-btn"}`}
+              className={`button-arrow-up ${isGroupOpen ? 'is-group-open-btn' : 'is-group-closed-btn'}`}
               onClick={() => handlerHideGroup()}
             ></button>
           </div>
