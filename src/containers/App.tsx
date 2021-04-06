@@ -17,7 +17,7 @@ import { ID } from '../types/utilsTypes'
 import { getTeams } from '../api/teams'
 
 interface IAppState {
-  currentDate: Date
+  date: Date
   daysInMonth: number
   teams: ITeam[]
   modal: {
@@ -40,7 +40,7 @@ interface IAppState {
 
 class App extends Component {
   state: IAppState = {
-    currentDate: new Date(),
+    date: new Date(),
     daysInMonth: daysInMonth(new Date()),
     teams: [],
     modal: {
@@ -76,11 +76,8 @@ class App extends Component {
     // currentMemberId: teams[0].members[0].memberId
   }
 
-  changeCurrentMonth = (symbol: '-' | '+', value: number) => {
-    const currentDate = new Date(
-      this.state.currentDate.setMonth(this.state.currentDate.getMonth() + parseInt(symbol + value, 10)),
-    )
-    this.setState({ currentDate, daysInMonth: daysInMonth(currentDate) })
+  handleOnChangeMonth = (date: Date) => {
+    this.setState({ date })
   }
 
   changeModalVisible = (bool: boolean) => {
@@ -170,7 +167,7 @@ class App extends Component {
 
   render() {
     const {
-      currentDate,
+      date,
       daysInMonth,
       teams,
       modal: { isOpen, countDays, disabledBtn },
@@ -181,13 +178,13 @@ class App extends Component {
     return (
       <>
         <div className="container">
-          <Navigation date={currentDate} changeCurrentMonth={this.changeCurrentMonth} />
+          <Navigation date={date} onChangeMonth={this.handleOnChangeMonth} />
           <table className="calendar-table">
-            <CalendarHeader
-              date={currentDate}
-              daysInMonth={daysInMonth}
-              handleClick={this.changeModalVisible.bind(null, true)}
-            />
+            {/* <CalendarHeader */}
+            {/* date={date} */}
+            {/* daysInMonth={daysInMonth} */}
+            {/* handleClick={this.changeModalVisible.bind(null, true)} */}
+            {/* /> */}
 
             {/* <tbody> */}
             {/* {teams.map((team: ITeam, index: number) => ( */}
