@@ -1,16 +1,16 @@
-import { IVacation } from "../types/DB"
+import { IVacation } from '../types/model/vacation'
 
 export const daysInMonth = (date: Date): number => new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()
 
 export const formatDayInBinaryString = (date: Date, day: number): string => {
   return new Date(date.getFullYear(), date.getMonth(), day)
-    .toLocaleString("en-US", { weekday: "short" })
+    .toLocaleString('en-US', { weekday: 'short' })
     .substring(-1, 2)
 }
 
 export const formatDateViaDots = (arr: string[]): string => {
   arr[0] = [arr[2], (arr[2] = arr[0])][0]
-  return arr.join(".")
+  return arr.join('.')
 }
 
 export const countDayFromTimeStamp = (timestamp: number): number => {
@@ -29,9 +29,9 @@ export const dateKebabFormat = (day: number): string => {
 export const checkVacationsDate = (vacations: Array<IVacation>, currentCellDate: Date): boolean => {
   let result = false
   vacations.forEach((item) => {
-    const startDateNumbers = item.startDate.split(".")
+    const startDateNumbers = item.startDate.split('.')
     const startDate = `${startDateNumbers[2]}/${startDateNumbers[1]}/${startDateNumbers[0]}`
-    const endDateNumbers = item.endDate.split(".")
+    const endDateNumbers = item.endDate.split('.')
     const endDate = `${endDateNumbers[2]}/${endDateNumbers[1]}/${endDateNumbers[0]}`
     if (currentCellDate >= new Date(startDate) && currentCellDate <= new Date(endDate)) {
       result = true

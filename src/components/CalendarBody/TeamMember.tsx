@@ -1,7 +1,7 @@
-import React from "react"
-import TeamCell from "./TeamCell"
-import { formatDayInBinaryString } from "../../utils/date"
-import { IVacation } from "../../types/DB"
+import React from 'react'
+import TeamCell from './TeamCell'
+import { formatDayInBinaryString } from '../../utils/date'
+import { IVacation } from '../../types/model/vacation'
 
 interface ITeamMember {
   date: Date
@@ -14,7 +14,7 @@ interface ITeamMember {
 
 const TeamMember: React.FC<ITeamMember> = ({ date, allDaysInMonth, theme, name, vacations, isGroupOpen }) => {
   return (
-    <tr className={`calendar-body ${theme}${isGroupOpen ? "" : " is-team-member-closed"}`}>
+    <tr className={`calendar-body ${theme} ${isGroupOpen ? '' : 'is-team-member-closed'}`}>
       <td className="team team--member calendar-team__cell">
         <span className="team__name">{name}</span>
       </td>

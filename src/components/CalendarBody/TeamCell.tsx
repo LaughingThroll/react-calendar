@@ -1,6 +1,6 @@
-import React from "react"
-import { IVacation } from "../../types/DB"
-import { checkVacationsDate } from "../../utils/date"
+import React from 'react'
+import { IVacation } from '../../types/model/vacation'
+import { checkVacationsDate } from '../../utils/date'
 
 interface ITeamCell {
   dayString: string
@@ -18,8 +18,8 @@ const TeamCell: React.FC<ITeamCell> = ({ dayString, vacations, day, date }) => {
 
   return (
     <td
-      className={`calendar-team__cell ${dayString === "Sa" || dayString === "Su" ? "cell-gray" : ""} ${
-        isVacation ? "cell-vacations" : ""
+      className={`calendar-team__cell ${dayString === 'Sa' || dayString === 'Su' ? 'cell-gray' : ''} ${
+        isVacation ? 'cell-vacations' : ''
       }`}
     ></td>
   )
