@@ -9,7 +9,7 @@ import InputDate from './../components/InputDate'
 import { Select, Option } from '../components/Select/'
 import { Modal, ModalBody, ModalFooter, ModalHeader } from '../components/Modal'
 
-import { countDayFromTimeStamp, dateKebabFormat, daysInMonth, formatDateViaDots } from '../utils/date'
+import { countDayFromTimeStamp, dateKebabFormat, lastDayInMonth, formatDateViaDots } from '../utils/date'
 
 import { ITeam } from '../types/model/team'
 import { EVacation, TVacation } from '../types/model/vacation'
@@ -41,7 +41,7 @@ interface IAppState {
 class App extends Component {
   state: IAppState = {
     date: new Date(),
-    daysInMonth: daysInMonth(new Date()),
+    daysInMonth: lastDayInMonth(new Date()),
     teams: [],
     modal: {
       isOpen: false,
@@ -62,7 +62,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const selectsData = Object.assign({}, this.state.selectsData)
+    // const selectsData = Object.assign({}, this.state.selectsData)
 
     getTeams().then((teams) => {
       this.setState({ teams })
@@ -80,9 +80,9 @@ class App extends Component {
     this.setState({ date })
   }
 
-  changeModalVisible = (bool: boolean) => {
+  changeModalVisible = () => {
     const modal = Object.assign({}, this.state.modal)
-    this.setState({ modal: { ...modal, isOpen: bool } })
+    this.setState({ modal: { ...modal, isOpen: !modal.isOpen } })
   }
 
   onSubmit = (e: React.MouseEvent) => {
@@ -114,7 +114,7 @@ class App extends Component {
     // window.alert('Такой уже существует')
     // }
 
-    this.changeModalVisible(false)
+    // this.changeModalVisible(false)
   }
 
   handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -180,11 +180,11 @@ class App extends Component {
         <div className="container">
           <Navigation date={date} onChangeMonth={this.handleOnChangeMonth} />
           <table className="calendar-table">
-            {/* <CalendarHeader */}
-            {/* date={date} */}
-            {/* daysInMonth={daysInMonth} */}
-            {/* handleClick={this.changeModalVisible.bind(null, true)} */}
-            {/* /> */}
+            <CalendarHeader date={date}>
+              <Button iconPlus onClick={this.changeModalVisible}>
+                Add Vacation
+              </Button>
+            </CalendarHeader>
 
             {/* <tbody> */}
             {/* {teams.map((team: ITeam, index: number) => ( */}
@@ -200,7 +200,7 @@ class App extends Component {
           </table>
         </div>
 
-        <Modal open={isOpen} onClose={this.changeModalVisible.bind(null, false)}>
+        <Modal open={isOpen} onClose={this.changeModalVisible}>
           <ModalHeader title="Vacation Request" countDays={countDays} />
           <ModalBody>
             <FormDates title="Dates" inner>

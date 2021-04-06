@@ -6,7 +6,7 @@ import TeamCell from './TeamCell'
 import TeamMember from './TeamMember'
 
 import { THEMES } from '../../constant'
-import { formatDayInBinaryString } from '../../utils/date'
+import { getDayInBinaryString } from '../../utils/date'
 
 import { ITeam } from '../../types/model/team'
 import { IMember } from '../../types/model/member'
@@ -53,9 +53,9 @@ const Team: React.FC<ITeamComponent> = ({
             ></button>
           </div>
         </td>
-        {new Array(allDaysInMonth).fill(0).map((_, day: number) => (
-          <TeamCell key={day} dayString={formatDayInBinaryString(date, day + 1)} />
-        ))}
+        {/* {new Array(allDaysInMonth).fill(0).map((_, day: number) => ( */}
+        {/* <TeamCell key={day} dayString={formatDayInBinaryString(date)} /> */}
+        {/* ))} */}
         <td className="calendar-team__cell cell-gray"></td>
       </tr>
       {members.map(({ name: nameMember, vacations: arrayOfVacations }: IMember, day: number) => (

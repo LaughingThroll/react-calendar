@@ -1,9 +1,18 @@
 import { IVacation } from '../types/model/vacation'
+import { createArrayFromNumber } from './forArrays'
 
-export const daysInMonth = (date: Date): number => new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()
+export const lastDayInMonth = (date: Date): number => new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()
 
-export const formatDayInBinaryString = (date: Date, day: number): string => {
-  return new Date(date.getFullYear(), date.getMonth(), day)
+export const getAllDayInMonth = (date: Date): Date[] => {
+  return createArrayFromNumber(lastDayInMonth(date)).map(
+    (day: number) => new Date(new Date(date.getFullYear(), date.getMonth(), day)),
+  )
+}
+
+export const isWeekend = (date: Date) => date.getDay() === 6 || date.getDay() === 0
+
+export const getDayInBinaryString = (date: Date): string => {
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate())
     .toLocaleString('en-US', { weekday: 'short' })
     .substring(-1, 2)
 }
