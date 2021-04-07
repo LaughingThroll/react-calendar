@@ -4,9 +4,12 @@
       background-color: $themes-bg;
     }
 
-    .team {
+    .team,
+    .member {
       border-left: 4px solid $themes-main;
+    }
 
+    .team-info {
       &__weekend-percent {
         background-color: $themes-main;
         color: $themes-text-color;
@@ -14,7 +17,30 @@
     }
 
     .cell-vacations {
-      background-color: $themes-main;
+      &--paid,
+      &--unpaid {
+        &::before {
+          background-color: inherit;
+        }
+      }
+      &--paid {
+        background-color: $themes-main;
+        color: $themes-text-color;
+      }
+      &--unpaid {
+        $alpha-channel: '19';
+
+        border-top: 1px solid $themes-main;
+        border-bottom: 1px solid $themes-main;
+        background-color: #{$themes-main + $alpha-channel};
+        &-start-vac {
+          color: $themes-main;
+          border-left: 1px solid $themes-main;
+        }
+        &-end-vac {
+          border-right: 1px solid $themes-main;
+        }
+      }
     }
   }
 }

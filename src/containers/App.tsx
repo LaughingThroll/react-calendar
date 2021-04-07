@@ -2,23 +2,22 @@ import React, { Component } from 'react'
 
 import Navigation from '../components/CalendarNavigation'
 import CalendarHeader from '../components/CalendarHeader/CalendarHeader'
-import Team from '../components/CalendarBody/Team'
+import Team from '../components/Team/Team'
 import { Button } from './../components/common'
-import FormDates from './../components/FormDates'
-import InputDate from './../components/InputDate'
-import { Select, Option } from '../components/Select/'
-import { Modal, ModalBody, ModalFooter, ModalHeader } from '../components/Modal'
+import FormDates from '../components/common/FormDates'
+import InputDate from '../components/common/InputDate'
+import { Select, Option } from '../components/common/Select'
+import { Modal, ModalBody, ModalFooter, ModalHeader } from '../components/common/Modal'
 
-import { countDayFromTimeStamp, dateKebabFormat, lastDayInMonth, formatDateViaDots } from '../utils/date'
+import { countDayFromTimeStamp, dateKebabFormat, getAllDaysInMonth } from '../utils/date'
 
 import { ITeam } from '../types/model/team'
-import { EVacation, TVacation } from '../types/model/vacation'
+import { EVacationType, TVacation } from '../types/model/vacation'
 import { ID } from '../types/utilsTypes'
 import { getTeams } from '../api/teams'
 
 interface IAppState {
   date: Date
-  daysInMonth: number
   teams: ITeam[]
   modal: {
     isOpen: boolean
@@ -41,7 +40,6 @@ interface IAppState {
 class App extends Component {
   state: IAppState = {
     date: new Date(),
-    daysInMonth: lastDayInMonth(new Date()),
     teams: [],
     modal: {
       isOpen: false,
@@ -57,16 +55,20 @@ class App extends Component {
     selectsData: {
       currentTeamId: '',
       currentMemberId: '',
-      currentType: EVacation.UN_PAID,
+      currentType: EVacationType.UN_PAID,
     },
   }
 
   componentDidMount() {
     // const selectsData = Object.assign({}, this.state.selectsData)
 
-    getTeams().then((teams) => {
-      this.setState({ teams })
-    })
+    getTeams()
+      .then((teams) => {
+        this.setState({ teams })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
 
     // this.setState({
     // teams,
@@ -168,7 +170,6 @@ class App extends Component {
   render() {
     const {
       date,
-      daysInMonth,
       teams,
       modal: { isOpen, countDays, disabledBtn },
       inputsData: { startDate, endDate },
@@ -186,17 +187,11 @@ class App extends Component {
               </Button>
             </CalendarHeader>
 
-            {/* <tbody> */}
-            {/* {teams.map((team: ITeam, index: number) => ( */}
-            {/* <Team */}
-            {/* key={team.teamId} */}
-            {/* team={team} */}
-            {/* date={currentDate} */}
-            {/* allDaysInMonth={daysInMonth} */}
-            {/* themeIndex={index} */}
-            {/* /> */}
-            {/* ))} */}
-            {/* </tbody> */}
+            <tbody className="calendar-body">
+              {teams.map((team, index) => (
+                <Team key={team.id} team={team} date={date} themeIndex={index} />
+              ))}
+            </tbody>
           </table>
         </div>
 

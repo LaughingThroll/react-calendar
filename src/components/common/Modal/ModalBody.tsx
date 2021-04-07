@@ -1,5 +1,5 @@
-import React from "react"
-import { TChildren } from "../../types/utilsTypes"
+import React from 'react'
+import { TChildren } from '../../../types/utilsTypes'
 
 interface IModalBody {
   children?: TChildren

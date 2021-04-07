@@ -8,10 +8,3 @@ export const THEMES: TTheme[] = [
   ['mona-lisa-theme', 'mona-lisa-theme--background'],
   ['atomic-tangerine-theme', 'atomic-tangerine-theme--background'],
 ]
-
-export const OPTIONS_FOR_GET_REQUEST = {
-  method: 'PUT',
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-}

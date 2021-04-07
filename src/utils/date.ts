@@ -1,9 +1,8 @@
-import { IVacation } from '../types/model/vacation'
 import { createArrayFromNumber } from './forArrays'
 
 export const lastDayInMonth = (date: Date): number => new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()
 
-export const getAllDayInMonth = (date: Date): Date[] => {
+export const getAllDaysInMonth = (date: Date): Date[] => {
   return createArrayFromNumber(lastDayInMonth(date)).map(
     (day: number) => new Date(new Date(date.getFullYear(), date.getMonth(), day)),
   )
@@ -17,10 +16,11 @@ export const getDayInBinaryString = (date: Date): string => {
     .substring(-1, 2)
 }
 
-export const formatDateViaDots = (arr: string[]): string => {
-  arr[0] = [arr[2], (arr[2] = arr[0])][0]
-  return arr.join('.')
+export const reverseDate = (dateInString: string, separator: string = '.'): string => {
+  return dateInString.split(separator).reverse().join('-')
 }
+
+export const normalizeUTCDate = (dateInString: string): string => `${dateInString}T00:00:00`
 
 export const countDayFromTimeStamp = (timestamp: number): number => {
   const oneDay: number = 1000 * 60 * 60 * 24
@@ -33,18 +33,4 @@ const formatDateInKebabCase = (date: Date): string => date.toISOString().match(/
 
 export const dateKebabFormat = (day: number): string => {
   return formatDateInKebabCase(new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + day))
-}
-
-export const checkVacationsDate = (vacations: Array<IVacation>, currentCellDate: Date): boolean => {
-  let result = false
-  vacations.forEach((item) => {
-    const startDateNumbers = item.startDate.split('.')
-    const startDate = `${startDateNumbers[2]}/${startDateNumbers[1]}/${startDateNumbers[0]}`
-    const endDateNumbers = item.endDate.split('.')
-    const endDate = `${endDateNumbers[2]}/${endDateNumbers[1]}/${endDateNumbers[0]}`
-    if (currentCellDate >= new Date(startDate) && currentCellDate <= new Date(endDate)) {
-      result = true
-    }
-  })
-  return result
 }
