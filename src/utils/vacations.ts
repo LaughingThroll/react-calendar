@@ -108,3 +108,13 @@ export const getSumVacationsDaysByMonth = (vacations: IVacation[], cellDate: Dat
   console.log(filteredArray)
   return filteredArray.reduce((acc, vacation) => (acc += getDaysInVacation(vacation)), 0)
 }
+
+export const getSumVacationsDaysByDay = (vacations: IVacation[], cellDate: Date, separator: string = '.'): number => {
+  const filteredVacations = getFilteredVacationsByMonth(vacations, cellDate)
+
+  return filteredVacations.reduce((acc, { startDate, endDate }) => {
+    const [startDay] = startDate.split(separator).map(Number)
+    const [endDay] = endDate.split(separator).map(Number)
+    return (acc += +(cellDate.getDate() >= startDay && cellDate.getDate() <= endDay))
+  }, 0)
+}

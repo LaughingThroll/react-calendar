@@ -3,22 +3,30 @@ import React, { Component } from 'react'
 import Navigation from '../components/CalendarNavigation'
 import CalendarHeader from '../components/CalendarHeader/CalendarHeader'
 import Team from '../components/Team/Team'
+import CalendarFooter from '../components/CalendarFooter/CalendarFooter'
+
+import { getSplitVacations } from '../utils/vacations'
+
 import { Button } from './../components/common'
 import FormDates from '../components/common/FormDates'
 import InputDate from '../components/common/InputDate'
 import { Select, Option } from '../components/common/Select'
 import { Modal, ModalBody, ModalFooter, ModalHeader } from '../components/common/Modal'
 
-import { countDayFromTimeStamp, dateKebabFormat, getAllDaysInMonth } from '../utils/date'
+import { countDayFromTimeStamp, dateKebabFormat, getAllDaysInMonth, lastDayInMonth } from '../utils/date'
+import { getPercentageOfAbsentCount } from '../utils/teams'
 
 import { ITeam } from '../types/model/team'
 import { EVacationType, TVacation } from '../types/model/vacation'
 import { ID } from '../types/utilsTypes'
 import { getTeams } from '../api/teams'
+import Summary from '../components/Summary'
 
 interface IAppState {
   date: Date
   teams: ITeam[]
+  countUsers: number
+  percent: number
   modal: {
     isOpen: boolean
     countDays: number
@@ -41,6 +49,8 @@ class App extends Component {
   state: IAppState = {
     date: new Date(),
     teams: [],
+    countUsers: 0,
+    percent: 0,
     modal: {
       isOpen: false,
       countDays: countDayFromTimeStamp(Date.parse(dateKebabFormat(8)) - Date.parse(dateKebabFormat(1))),
@@ -64,7 +74,9 @@ class App extends Component {
 
     getTeams()
       .then((teams) => {
-        this.setState({ teams })
+        const countUsers = teams.reduce((acc, team) => (acc += team.members.length), 0)
+        const percent = this.getPercent()
+        this.setState({ teams, countUsers, percent })
       })
       .catch((err) => {
         console.log(err)
@@ -79,7 +91,12 @@ class App extends Component {
   }
 
   handleOnChangeMonth = (date: Date) => {
-    this.setState({ date })
+    const percent = this.getPercent()
+    this.setState({ date, percent })
+  }
+
+  getPercent(): number {
+    return this.state.teams.reduce((acc, team) => (acc += getPercentageOfAbsentCount(team, this.state.date)), 0)
   }
 
   changeModalVisible = () => {
@@ -171,10 +188,15 @@ class App extends Component {
     const {
       date,
       teams,
+      countUsers,
+      percent,
       modal: { isOpen, countDays, disabledBtn },
       inputsData: { startDate, endDate },
       selectsData: { currentTeamId, currentMemberId, currentType },
     } = this.state
+
+    const vacations = teams.flatMap(({ members }) => members).flatMap(({ vacations }) => vacations)
+    const newVacations = getSplitVacations(vacations, lastDayInMonth(date))
 
     return (
       <>
@@ -192,7 +214,9 @@ class App extends Component {
                 <Team key={team.id} team={team} date={date} themeIndex={index} />
               ))}
             </tbody>
+            <CalendarFooter date={date} vacations={newVacations} />
           </table>
+          <Summary date={date} countUsers={countUsers} percent={percent} />
         </div>
 
         <Modal open={isOpen} onClose={this.changeModalVisible}>
