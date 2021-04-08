@@ -3,13 +3,17 @@ import React, { Component } from 'react'
 import Navigation from '../components/CalendarNavigation'
 import CalendarHeader from '../components/CalendarHeader/CalendarHeader'
 import Team from '../components/Team/Team'
+import CalendarFooter from '../components/CalendarFooter/CalendarFooter'
+
+import { getSplitVacations } from '../utils/vacations'
+
 import { Button } from './../components/common'
 import FormDates from '../components/common/FormDates'
 import InputDate from '../components/common/InputDate'
 import { Select, Option } from '../components/common/Select'
 import { Modal, ModalBody, ModalFooter, ModalHeader } from '../components/common/Modal'
 
-import { countDayFromTimeStamp, dateKebabFormat, getAllDaysInMonth } from '../utils/date'
+import { countDayFromTimeStamp, dateKebabFormat, getAllDaysInMonth, lastDayInMonth } from '../utils/date'
 
 import { ITeam } from '../types/model/team'
 import { EVacationType, TVacation } from '../types/model/vacation'
@@ -176,6 +180,9 @@ class App extends Component {
       selectsData: { currentTeamId, currentMemberId, currentType },
     } = this.state
 
+    const vacations = teams.flatMap(({ members }) => members).flatMap(({ vacations }) => vacations)
+    const newVacations = getSplitVacations(vacations, lastDayInMonth(date))
+
     return (
       <>
         <div className="container">
@@ -192,6 +199,7 @@ class App extends Component {
                 <Team key={team.id} team={team} date={date} themeIndex={index} />
               ))}
             </tbody>
+            <CalendarFooter date={date} vacations={newVacations} />
           </table>
         </div>
 
