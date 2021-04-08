@@ -89,3 +89,22 @@ export const getDaysInVacation = ({ startDate, endDate }: IVacation, separator: 
   const [endDay] = endDate.split(separator).map(Number)
   return endDay - startDay + 1
 }
+
+const getFilteredVacationsByMonth = (vacations: IVacation[], cellDate: Date, separator: string = '.'): IVacation[] => {
+  return vacations.filter(({ startDate, endDate }) => {
+    const [, startMonth, startYear] = startDate.split(separator).map(Number)
+    const [, endMonth, endYear] = endDate.split(separator).map(Number)
+    const currentMonth = cellDate.getMonth() + 1
+    const currentYear = cellDate.getFullYear()
+    return (
+      (currentMonth === startMonth || currentMonth === endMonth) &&
+      (currentYear === startYear || currentYear === endYear)
+    )
+  })
+}
+
+export const getSumVacationsDaysByMonth = (vacations: IVacation[], cellDate: Date): number => {
+  const filteredArray = getFilteredVacationsByMonth(vacations, cellDate)
+  console.log(filteredArray)
+  return filteredArray.reduce((acc, vacation) => (acc += getDaysInVacation(vacation)), 0)
+}

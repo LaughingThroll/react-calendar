@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import classnames from 'classnames'
+
+import { useToggle } from '../../hooks'
 
 import TeamInfo from './TeamInfo'
 import TeamCell from './TeamCell'
@@ -17,21 +20,17 @@ interface ITeamComponent {
 
 const Team: React.FC<ITeamComponent> = ({ team, date, themeIndex = 0 }) => {
   const mainTheme = THEMES[themeIndex % THEMES.length][0]
-  const [isGroupOpen, setIsGrpupOpen] = useState(true)
-
-  const handlerHideGroup = () => {
-    setIsGrpupOpen(!isGroupOpen)
-  }
+  const { isOpen, toggleOpen } = useToggle(true)
 
   return (
     <>
       <tr
         className={`calendar-body__row calendar-table--indentation ${mainTheme} ${
           THEMES[themeIndex % THEMES.length][1]
-        } ${isGroupOpen ? '' : 'is-group-closed'}`}
+        } ${classnames({ 'calendar-table--closed': !isOpen })} `}
       >
         <td className="team">
-          <TeamInfo date={date} {...team} />
+          <TeamInfo date={date} {...team} isOpen={isOpen} toggleOpen={toggleOpen} />
         </td>
         {getAllDaysInMonth(date).map((date, index) => (
           <TeamCell key={index} date={date} />
@@ -40,9 +39,7 @@ const Team: React.FC<ITeamComponent> = ({ team, date, themeIndex = 0 }) => {
         <td className="calendar-body__cell cell-gray"></td>
       </tr>
 
-      {team.members.map((member) => (
-        <Member key={member.id} date={date} theme={mainTheme} isGroupOpen={isGroupOpen} {...member} />
-      ))}
+      {isOpen && team.members.map((member) => <Member key={member.id} date={date} theme={mainTheme} {...member} />)}
     </>
   )
 }
