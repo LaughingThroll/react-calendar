@@ -1,15 +1,20 @@
 import { useState } from 'react'
 
-const useToggle = (initialValue: boolean = false) => {
+interface IUseToggle {
+  isOpen: boolean
+  toggleOpen: () => void
+}
+
+const useToggle = (initialValue: boolean = false): IUseToggle => {
   const [isOpen, setIsOpen] = useState(initialValue)
 
-  const changeOpen = () => {
+  const toggleOpen = () => {
     setIsOpen(!isOpen)
   }
 
   return {
     isOpen,
-    changeOpen,
+    toggleOpen,
   }
 }
 

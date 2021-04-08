@@ -19,7 +19,7 @@ $pseudo-border: 0.5px;
   &--indentation:not(:first-child) {
     td::before,
     td::after {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       width: 100%;
@@ -33,6 +33,11 @@ $pseudo-border: 0.5px;
 
     td::after {
       top: -$indentation + -$pseudo-border;
+    }
+  }
+  &--closed {
+    td {
+      border-bottom: 1px;
     }
   }
 }

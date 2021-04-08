@@ -9,11 +9,11 @@ import { ITeam } from '../../types/model/team'
 
 interface ITeamInfo extends ITeam {
   date: Date
+  isOpen?: boolean
+  toggleOpen?: () => void
 }
 
-const TeamInfo: React.FC<ITeamInfo> = ({ date, name, members, percentageOfAbsent }) => {
-  const { isOpen, changeOpen } = useToggle()
-
+const TeamInfo: React.FC<ITeamInfo> = ({ date, name, members, percentageOfAbsent, isOpen, toggleOpen }) => {
   const getPercentageOfAbsentCount = (percentageOfAbsent: number[], date: Date): number => {
     return date.getFullYear() === new Date().getFullYear() ? percentageOfAbsent[date.getMonth()] : 0
   }
@@ -32,10 +32,9 @@ const TeamInfo: React.FC<ITeamInfo> = ({ date, name, members, percentageOfAbsent
         <button
           className={classnames({
             'button-arrow-up': true,
-            'is-group-open-btn': isOpen,
-            'is-group-closed-btn': !isOpen,
+            'button-arrow-up--active': isOpen,
           })}
-          onClick={changeOpen}
+          onClick={toggleOpen}
         ></button>
       </div>
     </div>
