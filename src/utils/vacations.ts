@@ -1,4 +1,4 @@
-import { reverseDate, normalizeUTCDate } from './date'
+import { reverseDate, normalizeUTCDate, getCountDays } from './date'
 
 import { EVacationType, IVacation, IVacationDate } from '../types/model/vacation'
 
@@ -119,5 +119,13 @@ export const getSumVacationsDaysByDay = (vacations: IVacation[], cellDate: Date,
 }
 
 export const vacationIncludesVacation = ({ startDate, endDate }: IVacationDate, vacation: IVacation): boolean => {
-  return checkVacation(new Date(reverseDate(vacation.startDate)), { startDate, endDate })
+  const isOuterVacation =
+    checkVacation(new Date(normalizeUTCDate(reverseDate(vacation.startDate))), { startDate, endDate }) ||
+    checkVacation(new Date(normalizeUTCDate(reverseDate(vacation.endDate))), { startDate, endDate })
+
+  const isInVacation =
+    new Date(startDate) >= new Date(normalizeUTCDate(reverseDate(vacation.startDate))) &&
+    new Date(endDate) <= new Date(normalizeUTCDate(reverseDate(vacation.endDate)))
+
+  return isOuterVacation || isInVacation
 }
