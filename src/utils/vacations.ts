@@ -105,7 +105,6 @@ const getFilteredVacationsByMonth = (vacations: IVacation[], cellDate: Date, sep
 
 export const getSumVacationsDaysByMonth = (vacations: IVacation[], cellDate: Date): number => {
   const filteredArray = getFilteredVacationsByMonth(vacations, cellDate)
-  console.log(filteredArray)
   return filteredArray.reduce((acc, vacation) => (acc += getDaysInVacation(vacation)), 0)
 }
 
@@ -117,4 +116,8 @@ export const getSumVacationsDaysByDay = (vacations: IVacation[], cellDate: Date,
     const [endDay] = endDate.split(separator).map(Number)
     return (acc += +(cellDate.getDate() >= startDay && cellDate.getDate() <= endDay))
   }, 0)
+}
+
+export const vacationIncludesVacation = ({ startDate, endDate }: IVacationDate, vacation: IVacation): boolean => {
+  return checkVacation(new Date(reverseDate(vacation.startDate)), { startDate, endDate })
 }

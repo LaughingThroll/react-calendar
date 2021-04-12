@@ -1,3 +1,5 @@
+import { ID } from './../utilsTypes'
+
 export enum EVacationType {
   PAID = 'Paid',
   UN_PAID = 'UnPaid',
@@ -12,4 +14,9 @@ export interface IVacationDate {
 
 export interface IVacation extends IVacationDate {
   type: TVacation
+}
+
+export interface ISubmitVacation extends IVacation {
+  currentTeamID: ID
+  currentMemberID: ID
 }

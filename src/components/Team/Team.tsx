@@ -7,7 +7,7 @@ import TeamInfo from './TeamInfo'
 import TeamCell from './TeamCell'
 import Member from '../Member/Member'
 
-import { THEMES } from '../../constant'
+import { THEMES } from '../../theme'
 import { getAllDaysInMonth } from '../../utils/date'
 
 import { ITeam } from '../../types/model/team'

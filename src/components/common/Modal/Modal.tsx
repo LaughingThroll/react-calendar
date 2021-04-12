@@ -1,16 +1,13 @@
 import React from 'react'
 
-import { TChildren } from '../../../types/utilsTypes'
-
 interface IModalProps {
-  open?: boolean
-  children?: TChildren
-  onClose?: () => void
+  open: boolean
+  onClose: () => void
 }
 
 const Modal: React.FC<IModalProps> = ({ children, open, onClose }) => {
   const handleClick = (e: React.MouseEvent) => {
-    const target = e.target as HTMLElement
+    const target = e.target as HTMLDivElement
     if (!target.closest('.modal') && onClose) {
       onClose()
     }

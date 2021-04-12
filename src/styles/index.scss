@@ -9,10 +9,12 @@
 @import './sub-modules/select';
 @import './sub-modules/form-dates';
 @import './sub-modules/input-date';
-@import './sub-modules/modal/modal-footer';
-@import './sub-modules/modal/modal-header';
-@import './sub-modules/modal/modal-body';
-@import './sub-modules/modal/overlay';
+
+@import './modules/modal/overlay';
+@import './modules/modal/modal';
+@import './modules/modal/modal-header';
+@import './modules/modal/modal-footer';
+@import './modules/modal/modal-body';
 
 @import './sub-modules/cells';
 @import './sub-modules/button';
@@ -29,4 +31,4 @@
 @import './modules/calendar-table';
 @import './modules/calendar-footer';
 @import './modules/summary';
-@import './modules/modal';
+@import './modules/calendar-modal';
