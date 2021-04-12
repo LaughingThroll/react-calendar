@@ -1,17 +1,11 @@
 import React from 'react'
 
 interface IModalHeader {
-  title?: string
-  countDays?: number
+  className?: string[]
 }
 
-const ModalHeader: React.FC<IModalHeader> = ({ title, countDays = 0 }) => {
-  return (
-    <div className="modal-header">
-      <h4 className="modal-header__title">{title}</h4>
-      <div className="modal-header__days">{countDays} Days</div>
-    </div>
-  )
+const ModalHeader: React.FC<IModalHeader> = ({ className = [], children }) => {
+  return <div className={`modal-header ${className.join(' ')}`}>{children}</div>
 }
 
 export default ModalHeader

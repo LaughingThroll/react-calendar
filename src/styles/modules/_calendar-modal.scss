@@ -1,0 +1,13 @@
+.calendar-modal {
+  justify-content: space-between;
+  &__title {
+    text-transform: capitalize;
+    color: $modal-title-color;
+  }
+  &__days {
+    color: $modal-days-color;
+    font-weight: 600;
+    line-height: 22px;
+    font-size: 14px;
+  }
+}

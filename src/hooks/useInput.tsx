@@ -53,9 +53,7 @@ const useInput = (initialValue = '', validators: IValidators = {}): IUseInput =>
 
   const changeValue = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setValue(e.target.value)
-    if (isDirty) {
-      setDirty(true)
-    }
+    if (!isDirty) setDirty(true)
   }
 
   return {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { Button } from './../components/common'
 import Navigation from '../components/CalendarNavigation'
@@ -9,7 +9,7 @@ import Summary from '../components/Summary'
 import CalendarModal from '../components/CalendarModal'
 
 import { getTeams } from '../api/teams'
-import { countDayFromTimeStamp, dateKebabFormat, getAllDaysInMonth, lastDayInMonth } from '../utils/date'
+import { getAllDaysInMonth, lastDayInMonth } from '../utils/date'
 import { getSplitVacations } from '../utils/vacations'
 import { getPercentageOfAbsentCount } from '../utils/teams'
 
@@ -17,29 +17,6 @@ import { ITeam } from '../types/model/team'
 import { EVacationType, TVacation } from '../types/model/vacation'
 import { ID } from '../types/utilsTypes'
 import { useToggle } from '../hooks'
-
-// interface IApp {
-// date: Date
-// teams: ITeam[]
-// countUsers: number
-// percent: number
-// modal: {
-//   isOpen: boolean
-//   countDays: number
-//   disabledBtn: boolean
-// }
-// inputsData: {
-//   startDate: string
-//   startDateTimeStamp: number
-//   endDate: string
-//   endDateTimeStamp: number
-// }
-// selectsData: {
-//   currentTeamId: ID
-//   currentMemberId: ID
-//   currentType: TVacation
-// }
-// }
 
 const App = () => {
   const [date, setDate] = useState<Date>(new Date())
@@ -74,28 +51,6 @@ const App = () => {
     setPercent(getPercent())
   }, [date, teams])
 
-  // modal: {
-  //
-  // },
-  // inputsData: {
-
-  // },
-  // selectsData: {
-  //   currentTeamId: '',
-  //   currentMemberId: '',
-  //   currentType: EVacationType.UN_PAID,
-  // },
-  // }
-
-  // const selectsData = Object.assign({}, this.state.selectsData)
-
-  // this.setState({
-  // teams,
-  // selectsData: {
-  // ...selectsData,
-  // currentTeamId: teams[0].teamId,
-  // currentMemberId: teams[0].members[0].memberId
-
   // onSubmit = (e: React.MouseEvent) => {
   // e.preventDefault()
 
@@ -128,54 +83,6 @@ const App = () => {
   // this.changeModalVisible(false)
   // }
 
-  // handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-  // const inputsData = Object.assign({}, this.state.inputsData)
-  // const { name, value } = e.target
-
-  // this.setState({ inputsData: { ...inputsData, [name]: value, [name + 'TimeStamp']: Date.parse(value) } }, () => {
-  // const modal = Object.assign({}, this.state.modal)
-
-  // const { endDateTimeStamp, startDateTimeStamp } = this.state.inputsData
-
-  // const diff = endDateTimeStamp - startDateTimeStamp
-
-  // if (diff > 0) this.setState({ modal: { ...modal, disabledBtn: false, countDays: countDayFromTimeStamp(diff) } })
-  // if (diff <= 0) this.setState({ modal: { ...modal, disabledBtn: true, countDays: 'is Not Valid' } })
-  // })
-  // }
-
-  // handleChangeSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-  // const { teams, selectsData } = this.state
-  // const cpSelectsData = Object.assign({}, selectsData)
-
-  // const name = `current${e.target.name.replace(/^./g, (match) => match.toUpperCase())}`
-
-  // switch (name) {
-  // case 'currentType': {
-  // this.setState({ selectsData: { ...cpSelectsData, [name]: e.target.value } })
-  // break
-  // }
-  // case 'currentTeamId': {
-  // const value = +e.target.value
-  // this.setState({
-  // selectsData: {
-  // ...cpSelectsData,
-  // currentTeamId: value,
-  // currentMemberId: teams.find(({ teamId }) => +teamId === value)?.members[0].memberId,
-  // },
-  // })
-  // break
-  // }
-  // case 'currentMemberId': {
-  // this.setState({ selectsData: { ...cpSelectsData, [name]: +e.target.value } })
-  // break
-  // }/
-  // default: {
-  // break
-  // }
-  // }
-  // }
-
   return (
     <>
       <div className="container">
@@ -197,14 +104,14 @@ const App = () => {
         <Summary date={date} countUsers={countUsers} percent={percent} />
       </div>
 
-      <CalendarModal isOpen={calendarModal.isOpen} onClose={calendarModal.toggleOpen} onSubmit={() => {}} />
+      <CalendarModal
+        teams={teams}
+        isOpen={calendarModal.isOpen}
+        onClose={calendarModal.toggleOpen}
+        onSubmit={() => {}}
+      />
     </>
   )
-
-  // modal: { isOpen, countDays, disabledBtn },
-  // inputsData: { startDate, endDate },
-  // selectsData: { currentTeamId, currentMemberId, currentType },
-  // }
 }
 
 export default App
