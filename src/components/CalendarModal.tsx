@@ -19,9 +19,10 @@ interface ICalendarModal {
   teams: ITeam[]
   isOpen: boolean
   onClose: () => void
+  getTeams: () => void
 }
 
-const CalendarModal: React.FC<ICalendarModal> = ({ teams, isOpen, onClose }) => {
+const CalendarModal: React.FC<ICalendarModal> = ({ teams, isOpen, onClose, getTeams }) => {
   const [countDays, setCountDays] = useState(0)
   const [isValidDays, setIsValidDays] = useState(true)
   const [isDisabled, setIsDisabled] = useState(false)
@@ -79,7 +80,7 @@ const CalendarModal: React.FC<ICalendarModal> = ({ teams, isOpen, onClose }) => 
       patchVacation(submitVacation)
         .then((res) => {
           if (res) {
-            currentVacations?.push(currentVacation)
+            getTeams()
             onClose()
             setIsDisabled(false)
           }

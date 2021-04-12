@@ -26,9 +26,8 @@ const Navigation: React.FC<INavigation> = ({ date, onChangeMonth }) => {
       if (value === EMonthNavigation.NEXT) num = 1
       if (value === EMonthNavigation.PREV) num = -1
       onChangeMonth(new Date(date.setMonth(date.getMonth() + num)))
-      // this.setState({ currentDate, daysInMonth: daysInMonth(currentDate) })
     },
-    [date, onChangeMonth],
+    [date, onChangeMonth]
   )
 
   const switchMonthOnKey = useCallback(
@@ -36,7 +35,7 @@ const Navigation: React.FC<INavigation> = ({ date, onChangeMonth }) => {
       if (e.key === ENavigationDirection.ARROW_LEFT) changeMonth(EMonthNavigation.PREV)
       if (e.key === ENavigationDirection.ARROW_RIGHT) changeMonth(EMonthNavigation.NEXT)
     },
-    [changeMonth],
+    [changeMonth]
   )
 
   useEffect(() => {
