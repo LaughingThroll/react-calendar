@@ -8,15 +8,12 @@ import CalendarFooter from '../components/CalendarFooter/CalendarFooter'
 import Summary from '../components/Summary'
 import CalendarModal from '../components/CalendarModal'
 
+import { useToggle } from '../hooks'
+
 import { getTeams } from '../api/teams'
-import { getAllDaysInMonth, lastDayInMonth } from '../utils/date'
-import { getSplitVacations } from '../utils/vacations'
 import { getPercentageOfAbsentCount } from '../utils/teams'
 
 import { ITeam } from '../types/model/team'
-import { EVacationType, TVacation } from '../types/model/vacation'
-import { ID } from '../types/utilsTypes'
-import { useToggle } from '../hooks'
 
 const App = () => {
   const [date, setDate] = useState<Date>(new Date())
@@ -51,38 +48,6 @@ const App = () => {
     setPercent(getPercent())
   }, [date, teams])
 
-  // onSubmit = (e: React.MouseEvent) => {
-  // e.preventDefault()
-
-  // const {
-  // inputsData: { startDate: startDateOld, endDate: endDateOld },
-  // selectsData: { currentType, currentMemberId, currentTeamId },
-  // } = this.state
-
-  // const member = departmentTeams.teams
-  // .find(({ teamId }) => +teamId === currentTeamId)
-  // ?.members.find(({ memberId }) => +memberId === currentMemberId)
-
-  // const requestVacation: IVacation = {
-  // startDate: formatDateViaDots(startDateOld.split('-')),
-  // endDate: formatDateViaDots(endDateOld.split('-')),
-  // type: currentType,
-  // }
-
-  // if (!member?.vacations.some((el) => JSON.stringify(requestVacation) === JSON.stringify(el))) {
-  // member?.vacations.push(requestVacation)
-
-  // makeRequest(TEAMS_URL, {
-  // ...OPTIONS_FOR_GET_REQUEST,
-  // body: JSON.stringify(departmentTeams),
-  // }).then(({ teams }: IDepartmentTeams) => this.setState({ teams }))
-  // } else {
-  // window.alert('Такой уже существует')
-  // }
-
-  // this.changeModalVisible(false)
-  // }
-
   return (
     <>
       <div className="container">
@@ -104,12 +69,7 @@ const App = () => {
         <Summary date={date} countUsers={countUsers} percent={percent} />
       </div>
 
-      <CalendarModal
-        teams={teams}
-        isOpen={calendarModal.isOpen}
-        onClose={calendarModal.toggleOpen}
-        onSubmit={() => {}}
-      />
+      <CalendarModal teams={teams} isOpen={calendarModal.isOpen} onClose={calendarModal.toggleOpen} />
     </>
   )
 }

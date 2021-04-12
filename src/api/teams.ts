@@ -1,4 +1,4 @@
-import { MAIN_URL } from '../constant'
+import { MAIN_URL } from './URLS'
 import { makeRequest } from '../utils/makeRequest'
 
 import { IMember } from '../types/model/member'

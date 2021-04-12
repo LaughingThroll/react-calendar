@@ -17,8 +17,12 @@ export const getDayInBinaryString = (date: Date): string => {
     .substring(-1, 2)
 }
 
-export const reverseDate = (dateInString: string, separator: string = '.'): string => {
-  return dateInString.split(separator).reverse().join('-')
+export const reverseDate = (
+  dateInString: string,
+  splitSeparator: string = '.',
+  joinSeparator: string = '-',
+): string => {
+  return dateInString.split(splitSeparator).reverse().join(joinSeparator)
 }
 
 export const normalizeUTCDate = (dateInString: string): string => `${dateInString}T00:00:00`

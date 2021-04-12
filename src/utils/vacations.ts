@@ -117,3 +117,7 @@ export const getSumVacationsDaysByDay = (vacations: IVacation[], cellDate: Date,
     return (acc += +(cellDate.getDate() >= startDay && cellDate.getDate() <= endDay))
   }, 0)
 }
+
+export const vacationIncludesVacation = ({ startDate, endDate }: IVacationDate, vacation: IVacation): boolean => {
+  return checkVacation(new Date(reverseDate(vacation.startDate)), { startDate, endDate })
+}

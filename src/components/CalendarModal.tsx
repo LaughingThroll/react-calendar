@@ -7,20 +7,21 @@ import { Modal, ModalBody, ModalFooter, ModalHeader } from './common/Modal'
 import Button from './common/Button'
 
 import { useInput, useSelect } from '../hooks'
-import { getFutureDate, getCountDays } from '../utils/date'
+import { getFutureDate, getCountDays, reverseDate } from '../utils/date'
 import { findByID } from '../utils/forArrays'
+import { vacationIncludesVacation } from '../utils/vacations'
 
-import { EVacationType } from '../types/model/vacation'
+import { EVacationType, TVacation, ISubmitVacation, IVacation } from '../types/model/vacation'
 import { ITeam } from '../types/model/team'
+import { patchVacation } from '../api/vacations'
 
 interface ICalendarModal {
   teams: ITeam[]
   isOpen: boolean
   onClose: () => void
-  onSubmit: () => void
 }
 
-const CalendarModal: React.FC<ICalendarModal> = ({ teams, isOpen, onClose, onSubmit }) => {
+const CalendarModal: React.FC<ICalendarModal> = ({ teams, isOpen, onClose }) => {
   const [countDays, setCountDays] = useState(0)
   const [isValidDays, setIsValidDays] = useState(true)
   const [isDisabled, setIsDisabled] = useState(false)
@@ -52,6 +53,47 @@ const CalendarModal: React.FC<ICalendarModal> = ({ teams, isOpen, onClose, onSub
       membersSelect.setValue(currentMember?.id || currentTeam?.members[0]?.id)
     }
   }, [teams, teamsSelect, membersSelect])
+
+  const onSubmit = () => {
+    const currentVacation: IVacation = {
+      startDate: reverseDate(startDate.value, '-', '.'),
+      endDate: reverseDate(endDate.value, '-', '.'),
+      type: typesSelect.value as TVacation,
+    }
+
+    const submitVacation: ISubmitVacation = {
+      currentTeamID: teamsSelect.value,
+      currentMemberID: membersSelect.value,
+      ...currentVacation,
+    }
+
+    const currentVacations = teams.flatMap(({ members }) => members).find(({ id }) => id === membersSelect.value)
+      ?.vacations
+    const hasExistVacation = currentVacations
+      ?.map((vacation) => {
+        return vacationIncludesVacation({ startDate: startDate.value, endDate: endDate.value }, vacation)
+      })
+      .some(Boolean)
+
+    if (!hasExistVacation) {
+      setIsDisabled(true)
+
+      patchVacation(submitVacation)
+        .then((res) => {
+          if (res) {
+            currentVacations?.push(currentVacation)
+            onClose()
+            setIsDisabled(false)
+          }
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    } else {
+      window.alert('Такой отпуск включает другой отпуск и есть недопустимым в данной системе')
+      return
+    }
+  }
 
   return (
     <Modal open={isOpen} onClose={onClose}>
