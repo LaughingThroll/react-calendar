@@ -29,4 +29,4 @@ const Member: React.FC<ITeamMember> = ({ date, theme, name, vacations }) => {
   )
 }
 
-export default Member
+export default React.memo(Member)

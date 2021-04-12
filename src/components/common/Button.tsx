@@ -37,4 +37,4 @@ const Button: React.FC<IButton> = ({
   )
 }
 
-export default Button
+export default React.memo(Button)

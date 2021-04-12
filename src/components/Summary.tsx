@@ -22,4 +22,4 @@ const Summary: React.FC<ISummary> = ({ date, countUsers, percent }) => {
   )
 }
 
-export default Summary
+export default React.memo(Summary)

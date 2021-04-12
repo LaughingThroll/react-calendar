@@ -25,4 +25,4 @@ const FooterCell: React.FC<IFooterCell> = ({ vacations, date }) => {
   )
 }
 
-export default FooterCell
+export default React.memo(FooterCell)

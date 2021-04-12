@@ -12,4 +12,4 @@ const Option: React.FC<IOption> = ({ title, ...rest }) => {
   )
 }
 
-export default Option
+export default React.memo(Option)

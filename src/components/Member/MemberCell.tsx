@@ -58,4 +58,4 @@ const MemberCell: React.FC<IMemberCell> = ({ date, vacations }) => {
   )
 }
 
-export default MemberCell
+export default React.memo(MemberCell)

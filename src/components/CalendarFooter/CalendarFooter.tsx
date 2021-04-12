@@ -34,4 +34,4 @@ const CalendarFooter: React.FC<ICalendarFooter> = ({ teams, date }) => {
   )
 }
 
-export default CalendarFooter
+export default React.memo(CalendarFooter)

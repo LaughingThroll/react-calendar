@@ -62,4 +62,4 @@ const Navigation: React.FC<INavigation> = ({ date, onChangeMonth }) => {
   )
 }
 
-export default Navigation
+export default React.memo(Navigation)

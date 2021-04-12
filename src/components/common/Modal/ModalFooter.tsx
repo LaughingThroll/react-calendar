@@ -6,4 +6,4 @@ interface IModalFooter {
 
 const ModalFooter: React.FC<IModalFooter> = ({ children }) => <div className="modal-footer">{children}</div>
 
-export default ModalFooter
+export default React.memo(ModalFooter)

@@ -3,9 +3,11 @@ import React from 'react'
 import CalendarHeaderCell from './CalendarHeaderCell'
 
 import { getAllDaysInMonth } from '../../utils/date'
+import { TChildren } from '../../types/utilsTypes'
 
 interface ICalendarHeader {
   date: Date
+  children: TChildren
 }
 
 const CalendarHeader: React.FC<ICalendarHeader> = ({ date, children }) => {
@@ -22,4 +24,4 @@ const CalendarHeader: React.FC<ICalendarHeader> = ({ date, children }) => {
   )
 }
 
-export default CalendarHeader
+export default React.memo(CalendarHeader)

@@ -26,7 +26,7 @@ const App = () => {
     setDate(date)
   }
 
-  useEffect(() => {
+  const handleGetTeams = () => {
     getTeams()
       .then((teams) => {
         setTeams(teams)
@@ -34,6 +34,10 @@ const App = () => {
       .catch((err) => {
         console.log(err)
       })
+  }
+
+  useEffect(() => {
+    handleGetTeams()
   }, [])
 
   useEffect(() => {
@@ -69,9 +73,14 @@ const App = () => {
         <Summary date={date} countUsers={countUsers} percent={percent} />
       </div>
 
-      <CalendarModal teams={teams} isOpen={calendarModal.isOpen} onClose={calendarModal.toggleOpen} />
+      <CalendarModal
+        teams={teams}
+        getTeams={handleGetTeams}
+        isOpen={calendarModal.isOpen}
+        onClose={calendarModal.toggleOpen}
+      />
     </>
   )
 }
 
-export default App
+export default React.memo(App)

@@ -1,8 +1,10 @@
 import React from 'react'
+import { TChildren } from '../../../types/utilsTypes'
 
 interface IModalProps {
   open: boolean
   onClose: () => void
+  children: TChildren
 }
 
 const Modal: React.FC<IModalProps> = ({ children, open, onClose }) => {
@@ -24,4 +26,4 @@ const Modal: React.FC<IModalProps> = ({ children, open, onClose }) => {
   )
 }
 
-export default Modal
+export default React.memo(Modal)
