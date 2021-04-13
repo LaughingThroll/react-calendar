@@ -1,4 +1,4 @@
-import { reverseDate, normalizeUTCDate, getCountDays } from './date'
+import { reverseDate, normalizeUTCDate } from './date'
 
 import { EVacationType, IVacation, IVacationDate } from '../types/model/vacation'
 
@@ -10,8 +10,8 @@ const checkVacation = (cellDate: Date, { startDate, endDate }: IVacationDate, se
 }
 
 const getCheckedDay = (date: Date, dateArr: string[]): boolean => {
-  const [day, month] = dateArr.map(Number)
-  return date.getDate() === day && date.getMonth() + 1 === month
+  const [day, month, year] = dateArr.map(Number)
+  return date.getDate() === day && date.getMonth() + 1 === month && date.getFullYear() === year
 }
 
 const getBinaryNumber = (number: number): string => {
@@ -67,10 +67,10 @@ export const getSplitVacations = (vacations: IVacation[], lastDay: number, separ
 export const getExsistingTypeVacation = (
   vacations: IVacation[],
   cellDate: Date,
-  type: EVacationType.PAID | EVacationType.UN_PAID = EVacationType.PAID,
+  type: EVacationType.PAID | EVacationType.UN_PAID = EVacationType.PAID
 ): boolean => {
   const arr = vacations.map(({ startDate, endDate, type }) =>
-    checkVacation(cellDate, { startDate, endDate }) ? type : null,
+    checkVacation(cellDate, { startDate, endDate }) ? type : null
   )
   return arr.some((el) => el === type)
 }
