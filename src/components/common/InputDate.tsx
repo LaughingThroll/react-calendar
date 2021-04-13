@@ -13,4 +13,4 @@ const InputDate: React.FC<IInputDate> = ({ title, ...rest }) => {
   )
 }
 
-export default InputDate
+export default React.memo(InputDate)

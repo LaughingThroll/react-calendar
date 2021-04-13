@@ -18,4 +18,4 @@ const FormDates: React.FC<IFormDates> = ({ title, inner, children }) => {
   )
 }
 
-export default FormDates
+export default React.memo(FormDates)

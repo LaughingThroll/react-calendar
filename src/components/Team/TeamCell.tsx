@@ -18,4 +18,4 @@ const TeamCell: React.FC<ITeamCell> = ({ date }) => {
   )
 }
 
-export default TeamCell
+export default React.memo(TeamCell)

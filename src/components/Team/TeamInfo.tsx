@@ -41,4 +41,4 @@ const TeamInfo: React.FC<ITeamInfo> = ({ date, name, members, percentageOfAbsent
   )
 }
 
-export default TeamInfo
+export default React.memo(TeamInfo)

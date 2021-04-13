@@ -44,4 +44,4 @@ const Team: React.FC<ITeamComponent> = ({ team, date, themeIndex = 0 }) => {
   )
 }
 
-export default Team
+export default React.memo(Team)

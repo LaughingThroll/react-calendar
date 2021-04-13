@@ -16,4 +16,4 @@ const Select: React.FC<ISelect> = ({ children, value, ...rest }) => {
   )
 }
 
-export default Select
+export default React.memo(Select)

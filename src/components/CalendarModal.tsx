@@ -139,4 +139,4 @@ const CalendarModal: React.FC<ICalendarModal> = ({ teams, isOpen, onClose, getTe
   )
 }
 
-export default CalendarModal
+export default React.memo(CalendarModal)

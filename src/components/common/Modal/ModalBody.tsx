@@ -20,4 +20,4 @@ const ModalBody: React.FC<IModalBody> = ({ children }: IModalBody) => {
   )
 }
 
-export default ModalBody
+export default React.memo(ModalBody)

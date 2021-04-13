@@ -21,4 +21,4 @@ const CalendarHeaderCell: React.FC<ICalendarHeaderCell> = ({ date }) => {
   )
 }
 
-export default CalendarHeaderCell
+export default React.memo(CalendarHeaderCell)
