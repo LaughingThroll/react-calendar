@@ -75,10 +75,8 @@ const CalendarModal: React.FC<ICalendarModal> = ({ teams, isOpen, onClose, getTe
         return vacationIncludesVacation({ startDate: startDate.value, endDate: endDate.value }, vacation)
       })
       .some(Boolean)
-
     if (!hasExistVacation) {
       setIsDisabled(true)
-
       patchVacation(submitVacation)
         .then((res) => {
           if (res) {

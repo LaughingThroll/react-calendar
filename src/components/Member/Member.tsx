@@ -13,8 +13,9 @@ interface ITeamMember extends IMember {
 
 const Member: React.FC<ITeamMember> = ({ date, theme, name, vacations }) => {
   const allDays = getAllDaysInMonth(date)
-  const newVacation = getSplitVacations(vacations, allDays.length)
-  const summVacationsInMonth = getSumVacationsDaysByMonth(newVacation, date)
+  const newVacations = getSplitVacations(vacations, allDays.length)
+  console.log(name, newVacations)
+  const summVacationsInMonth = getSumVacationsDaysByMonth(newVacations, date)
 
   return (
     <tr className={`calendar-body__row  ${theme}`}>
@@ -22,7 +23,7 @@ const Member: React.FC<ITeamMember> = ({ date, theme, name, vacations }) => {
         <span className="member__name">{name}</span>
       </td>
       {allDays.map((date, index) => (
-        <MemberCell key={index} date={date} vacations={newVacation} />
+        <MemberCell key={index} date={date} vacations={newVacations} />
       ))}
       <td className="calendar-body__cell cell-gray cell-summ">{summVacationsInMonth}</td>
     </tr>

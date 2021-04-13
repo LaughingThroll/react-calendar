@@ -10,8 +10,8 @@ const checkVacation = (cellDate: Date, { startDate, endDate }: IVacationDate, se
 }
 
 const getCheckedDay = (date: Date, dateArr: string[]): boolean => {
-  const [day, month] = dateArr.map(Number)
-  return date.getDate() === day && date.getMonth() + 1 === month
+  const [day, month, year] = dateArr.map(Number)
+  return date.getDate() === day && date.getMonth() + 1 === month && date.getFullYear() === year
 }
 
 const getBinaryNumber = (number: number): string => {
@@ -67,10 +67,10 @@ export const getSplitVacations = (vacations: IVacation[], lastDay: number, separ
 export const getExsistingTypeVacation = (
   vacations: IVacation[],
   cellDate: Date,
-  type: EVacationType.PAID | EVacationType.UN_PAID = EVacationType.PAID,
+  type: EVacationType.PAID | EVacationType.UN_PAID = EVacationType.PAID
 ): boolean => {
   const arr = vacations.map(({ startDate, endDate, type }) =>
-    checkVacation(cellDate, { startDate, endDate }) ? type : null,
+    checkVacation(cellDate, { startDate, endDate }) ? type : null
   )
   return arr.some((el) => el === type)
 }
@@ -119,5 +119,13 @@ export const getSumVacationsDaysByDay = (vacations: IVacation[], cellDate: Date,
 }
 
 export const vacationIncludesVacation = ({ startDate, endDate }: IVacationDate, vacation: IVacation): boolean => {
-  return checkVacation(new Date(reverseDate(vacation.startDate)), { startDate, endDate })
+  const isOuterVacation =
+    checkVacation(new Date(normalizeUTCDate(reverseDate(vacation.startDate))), { startDate, endDate }) ||
+    checkVacation(new Date(normalizeUTCDate(reverseDate(vacation.endDate))), { startDate, endDate })
+
+  const isInVacation =
+    new Date(startDate) >= new Date(normalizeUTCDate(reverseDate(vacation.startDate))) &&
+    new Date(endDate) <= new Date(normalizeUTCDate(reverseDate(vacation.endDate)))
+
+  return isOuterVacation || isInVacation
 }
