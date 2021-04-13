@@ -12,11 +12,17 @@
   &--primary {
     background-color: $button--primary;
     color: $white;
+    &:hover {
+      background-color: darken($color: $button--primary, $amount: 5);
+    }
   }
 
   &--secondary {
     border: 1px solid $button--secondary-border;
     color: $scorpion;
+    &:hover {
+      background-color: lighten($color: $button--secondary-border, $amount: 10);
+    }
   }
 
   &--disabled {
@@ -26,8 +32,8 @@
 
   &--icon-plus {
     &::before {
-      content: "";
-      background-image: url("../../assets/images/icons/plus.svg");
+      content: '';
+      background-image: url('../../assets/images/icons/plus.svg');
       background-position: center center;
       background-size: cover;
       background-repeat: no-repeat;

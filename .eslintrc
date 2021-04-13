@@ -17,7 +17,7 @@
       "error",
       "never"
     ],
-    "quotes": 1,
+    "quotes": ["warn", "single"],
     "indent": [
       "warn",
       2
