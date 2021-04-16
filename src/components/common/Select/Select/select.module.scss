@@ -1,0 +1,28 @@
+@import 'styles/utils/variables';
+
+.select {
+  position: relative;
+  &::before {
+    content: '';
+    width: 12px;
+    height: 5px;
+    position: absolute;
+    top: 50%;
+    right: 18px;
+    transform: translate(0, -50%);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('../../../../assets/images/icons/arrow--down.svg');
+    cursor: pointer;
+  }
+  &__main {
+    border-radius: 3px;
+    background-color: $select-bg;
+    width: 100%;
+    padding: 12px 18px 11px 17px;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+  }
+}

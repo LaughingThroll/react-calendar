@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal render Modal default init 1`] = `<Fragment />`;
+
+exports[`Modal render Modal opened 1`] = `
+<Fragment>
+  <div
+    className="overlay"
+    id="overlay"
+    onClick={[Function]}
+  >
+    <div
+      className="modal"
+    />
+  </div>
+</Fragment>
+`;

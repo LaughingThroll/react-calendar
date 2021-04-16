@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select render default render 1`] = `
+<div
+  className="select"
+>
+  <select
+    className="select__main"
+    onChange={[MockFunction]}
+    value={1}
+  />
+</div>
+`;

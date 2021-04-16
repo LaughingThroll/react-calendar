@@ -14,7 +14,6 @@ interface ITeamMember extends IMember {
 const Member: React.FC<ITeamMember> = ({ date, theme, name, vacations }) => {
   const allDays = getAllDaysInMonth(date)
   const newVacations = getSplitVacations(vacations, allDays.length)
-  console.log(name, newVacations)
   const summVacationsInMonth = getSumVacationsDaysByMonth(newVacations, date)
 
   return (

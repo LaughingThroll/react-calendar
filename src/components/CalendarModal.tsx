@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
-import FormDates from './common/FormDates'
-import InputDate from './common/InputDate'
-import { Select, Option } from './common/Select'
+import { Select, Option } from './common/Select/index'
 import { Modal, ModalBody, ModalFooter, ModalHeader } from './common/Modal'
-import Button from './common/Button'
+import { Button, FormDates, InputDate } from './common'
 
 import { useInput, useSelect } from '../hooks'
 import { getFutureDate, getCountDays, reverseDate } from '../utils/date'
@@ -102,8 +100,8 @@ const CalendarModal: React.FC<ICalendarModal> = ({ teams, isOpen, onClose, getTe
       </ModalHeader>
       <ModalBody>
         <FormDates title="Dates" inner>
-          <InputDate title="From" onChange={startDate.changeValue} value={startDate.value} name="startDate" />
-          <InputDate title="To" onChange={endDate.changeValue} value={endDate.value} name="endDate" />
+          <InputDate label="From" onChange={startDate.changeValue} value={startDate.value} name="startDate" />
+          <InputDate label="To" onChange={endDate.changeValue} value={endDate.value} name="endDate" />
         </FormDates>
         <FormDates title="Team">
           <Select value={teamsSelect.value} onChange={teamsSelect.changeValue} name="teams">
