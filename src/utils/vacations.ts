@@ -1,5 +1,4 @@
-import { reverseDate, normalizeUTCDate } from './date'
-
+import { reverseDate, normalizeUTCDate, isEqualDate } from './date'
 import { EVacationType, IVacation, IVacationDate } from '../types/model/vacation'
 
 const checkVacation = (cellDate: Date, { startDate, endDate }: IVacationDate, separator: string = '.'): boolean => {
@@ -7,11 +6,6 @@ const checkVacation = (cellDate: Date, { startDate, endDate }: IVacationDate, se
     cellDate >= new Date(normalizeUTCDate(reverseDate(startDate, separator))) &&
     cellDate <= new Date(normalizeUTCDate(reverseDate(endDate, separator)))
   )
-}
-
-const getCheckedDay = (date: Date, dateArr: string[]): boolean => {
-  const [day, month, year] = dateArr.map(Number)
-  return date.getDate() === day && date.getMonth() + 1 === month && date.getFullYear() === year
 }
 
 const getBinaryNumber = (number: number): string => {
@@ -76,12 +70,13 @@ export const getExsistingTypeVacation = (
 }
 
 // TODO: need think up new name and combine this function
+
 export const isFirstDay = (vacations: IVacation[], date: Date, separator: string = '.'): boolean => {
-  return vacations.map(({ startDate }) => getCheckedDay(date, startDate.split(separator))).some(Boolean)
+  return vacations.map(({ startDate }) => isEqualDate(date, startDate.split(separator))).some(Boolean)
 }
 
 export const isLastDay = (vacations: IVacation[], date: Date, separator: string = '.'): boolean => {
-  return vacations.map(({ endDate }) => getCheckedDay(date, endDate.split(separator))).some(Boolean)
+  return vacations.map(({ endDate }) => isEqualDate(date, endDate.split(separator))).some(Boolean)
 }
 
 export const getDaysInVacation = ({ startDate, endDate }: IVacation, separator: string = '.') => {

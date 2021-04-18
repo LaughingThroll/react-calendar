@@ -15,11 +15,17 @@
   &_primary {
     background-color: $button--primary;
     color: $white;
+    &:hover {
+      background-color: darken($color: $button--primary, $amount: 5);
+    }
   }
 
   &_secondary {
     border: 1px solid $button--secondary-border;
     color: $scorpion;
+    &:hover {
+      background-color: lighten($color: $button--secondary-border, $amount: 10);
+    }
   }
 
   &_disabled {

@@ -1,3 +1,18 @@
+import { createArrayFromNumber } from './forArrays'
+
+export const lastDayInMonth = (date: Date): number => new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()
+
+export const getAllDaysInMonth = (date: Date): Date[] => {
+  return createArrayFromNumber(lastDayInMonth(date)).map(
+    (day: number) => new Date(new Date(date.getFullYear(), date.getMonth(), day))
+  )
+}
+
+export const isEqualDate = (date: Date, dateArr: string[]): boolean => {
+  const [day, month, year] = dateArr.map(Number)
+  return date.getDate() === day && date.getMonth() + 1 === month && date.getFullYear() === year
+}
+
 export const isWeekend = (date: Date) => date.getDay() === 6 || date.getDay() === 0
 
 export const getDayInBinaryString = (date: Date): string => {
@@ -21,7 +36,7 @@ export const getCountDays = (firstDate: string, secondDate: string): number => {
   return Math.round((Date.parse(secondDate) - Date.parse(firstDate)) / SECONDS_IN_DAY)
 }
 
-const formatDateInKebabCase = (date: Date): string => date.toISOString().match(/\d{4}-\d{2}-\d{2}/)![0]
+export const formatDateInKebabCase = (date: Date): string => date.toISOString().match(/\d{4}-\d{2}-\d{2}/)![0]
 
 export const getFutureDate = (day: number): string => {
   return formatDateInKebabCase(new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + day))
