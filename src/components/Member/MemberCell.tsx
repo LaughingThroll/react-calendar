@@ -2,7 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 
 import { useCalucateWidth } from '../../hooks'
-import { isWeekend } from '../../utils/date'
+import { isWeekend, isEqualDate } from '../../utils/date'
 import { getExsistingTypeVacation, isFirstDay, isLastDay, getDaysInVacation } from '../../utils/vacations'
 import { EVacationType, IVacation } from '../../types/model/vacation'
 
@@ -18,10 +18,9 @@ const MemberCell: React.FC<IMemberCell> = ({ date, vacations }) => {
   const isStartDay = isFirstDay(vacations, date)
   const isEndDay = isLastDay(vacations, date)
 
-  const currentStartVacation = vacations.find(({ startDate }): boolean | undefined => {
-    return date.toLocaleString().split(',')[0] === startDate
-  })
-
+  const currentStartVacation: IVacation | undefined = vacations.find(({ startDate }) =>
+    isEqualDate(date, startDate.split('.'))
+  )
   const countDayInVacation = currentStartVacation && getDaysInVacation(currentStartVacation)
 
   return (
@@ -44,11 +43,8 @@ const MemberCell: React.FC<IMemberCell> = ({ date, vacations }) => {
             'cell-vacations--unpaid-end-vac': isEndDay && isUnPaid,
           })}
         >
-          {isStartDay && (
-            <span
-              style={{ width: countDayInVacation ? vacationElement.width * countDayInVacation : 100 }}
-              className="cell-vacations__text"
-            >
+          {countDayInVacation && (
+            <span style={{ width: vacationElement.width * countDayInVacation }} className="cell-vacations__text">
               Pd
             </span>
           )}
