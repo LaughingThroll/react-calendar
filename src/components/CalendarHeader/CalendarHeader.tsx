@@ -2,7 +2,7 @@ import React from 'react'
 
 import CalendarHeaderCell from './CalendarHeaderCell'
 
-import { getAllDaysInMonth } from '../../utils/date'
+import { getAllDaysInMonth } from '../../utils/date/index'
 import { TChildren } from '../../types/utilsTypes'
 
 interface ICalendarHeader {

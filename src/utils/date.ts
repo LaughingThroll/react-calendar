@@ -1,14 +1,3 @@
-import { createArrayFromNumber } from './forArrays'
-import { getDaysInVacation } from './vacations'
-
-export const lastDayInMonth = (date: Date): number => new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()
-
-export const getAllDaysInMonth = (date: Date): Date[] => {
-  return createArrayFromNumber(lastDayInMonth(date)).map(
-    (day: number) => new Date(new Date(date.getFullYear(), date.getMonth(), day)),
-  )
-}
-
 export const isWeekend = (date: Date) => date.getDay() === 6 || date.getDay() === 0
 
 export const getDayInBinaryString = (date: Date): string => {
@@ -20,7 +9,7 @@ export const getDayInBinaryString = (date: Date): string => {
 export const reverseDate = (
   dateInString: string,
   splitSeparator: string = '.',
-  joinSeparator: string = '-',
+  joinSeparator: string = '-'
 ): string => {
   return dateInString.split(splitSeparator).reverse().join(joinSeparator)
 }

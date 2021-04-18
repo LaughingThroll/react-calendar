@@ -6,7 +6,7 @@ import { Button, FormDates, InputDate } from './common'
 
 import { useInput, useSelect } from '../hooks'
 import { getFutureDate, getCountDays, reverseDate } from '../utils/date'
-import { findByID } from '../utils/forArrays'
+import { findByID } from '../utils/forArrays/index'
 import { vacationIncludesVacation } from '../utils/vacations'
 
 import { EVacationType, TVacation, ISubmitVacation, IVacation } from '../types/model/vacation'
