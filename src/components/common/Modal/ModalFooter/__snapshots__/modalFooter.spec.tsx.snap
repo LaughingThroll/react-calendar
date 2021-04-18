@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalFooter render render default 1`] = `
+<div
+  className="modalFooter "
+/>
+`;
+
+exports[`ModalFooter render render with children 1`] = `
+<div
+  className="modalFooter "
+>
+  <span>
+    Test
+  </span>
+</div>
+`;

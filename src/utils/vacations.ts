@@ -1,5 +1,4 @@
 import { reverseDate, normalizeUTCDate, isEqualDate } from './date'
-
 import { EVacationType, IVacation, IVacationDate } from '../types/model/vacation'
 
 const checkVacation = (cellDate: Date, { startDate, endDate }: IVacationDate, separator: string = '.'): boolean => {

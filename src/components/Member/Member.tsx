@@ -1,7 +1,7 @@
 import React from 'react'
 import MemberCell from './MemberCell'
 
-import { getAllDaysInMonth } from '../../utils/date'
+import { getAllDaysInMonth } from '../../utils/date/index'
 import { getSplitVacations, getSumVacationsDaysByMonth } from '../../utils/vacations'
 
 import { IMember } from '../../types/model/member'

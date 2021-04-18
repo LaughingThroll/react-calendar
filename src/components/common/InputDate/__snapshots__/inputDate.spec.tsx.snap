@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputDate render default render 1`] = `
+<label
+  className="inputDate"
+>
+   
+  <input
+    className="inputDate__field"
+    onChange={[MockFunction]}
+    type="date"
+  />
+</label>
+`;

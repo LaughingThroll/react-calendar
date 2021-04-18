@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalHeader render render default 1`] = `
+<div
+  className="modalHeader "
+/>
+`;
+
+exports[`ModalHeader render render with children 1`] = `
+<div
+  className="modalHeader "
+>
+  <span>
+    Test
+  </span>
+</div>
+`;

@@ -18,9 +18,9 @@ const MemberCell: React.FC<IMemberCell> = ({ date, vacations }) => {
   const isStartDay = isFirstDay(vacations, date)
   const isEndDay = isLastDay(vacations, date)
 
-  const currentStartVacation: IVacation | undefined = vacations.find(({ startDate }) =>
-    isEqualDate(date, startDate.split('.'))
-  )
+  const currentStartVacation: IVacation | undefined = vacations.find(({ startDate }) => {
+    return isEqualDate(date, startDate.split('.'))
+  })
   const countDayInVacation = currentStartVacation && getDaysInVacation(currentStartVacation)
 
   return (

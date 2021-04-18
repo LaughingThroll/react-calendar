@@ -1,0 +1,23 @@
+@import 'styles/utils/variables';
+
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: $overlay;
+  z-index: 100;
+}
+
+.modal {
+  min-width: 400px;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: $modal-bg;
+}
