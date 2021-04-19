@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 
-import { isWeekend } from '../../utils/date'
+import { isWeekend } from '../../utils/date/index'
 import { getSumVacationsDaysByDay } from '../../utils/vacations'
 
 import { IVacation } from '../../types/model/vacation'

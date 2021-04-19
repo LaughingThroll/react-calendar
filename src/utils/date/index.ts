@@ -1,2 +1,7 @@
 export { default as lastDayInMonth } from './lastDayInMonth'
+export { default as isEqualDate } from './isEqualDate'
+export { default as isWeekend } from './isWeekend'
+export { default as getDayInBinaryString } from './getDayInBinaryString'
+export { default as reverseDate } from './reverseDate'
+export { default as normalizeDate } from './normalizeDate'
 export { default as getAllDaysInMonth } from './getAllDaysInMonth'

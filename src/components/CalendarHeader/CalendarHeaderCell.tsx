@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 
-import { isWeekend, getDayInBinaryString } from '../../utils/date'
+import { isWeekend, getDayInBinaryString } from '../../utils/date/index'
 
 interface ICalendarHeaderCell {
   date: Date

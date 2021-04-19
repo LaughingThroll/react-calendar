@@ -1,4 +1,4 @@
-import { createArrayFromNumber } from './../../forArrays/index'
+import { createArrayFromNumber } from '../../forArrays/index'
 import lastDayInMonth from '../lastDayInMonth'
 
 const getAllDaysInMonth = (date: Date): Date[] => {

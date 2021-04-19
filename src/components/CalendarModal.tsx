@@ -5,7 +5,8 @@ import { Modal, ModalBody, ModalFooter, ModalHeader } from './common/Modal'
 import { Button, FormDates, InputDate } from './common'
 
 import { useInput, useSelect } from '../hooks'
-import { getFutureDate, getCountDays, reverseDate } from '../utils/date'
+import { getFutureDate, getCountDays } from '../utils/date'
+import { reverseDate } from '../utils/date/index'
 import { findByID } from '../utils/forArrays/index'
 import { vacationIncludesVacation } from '../utils/vacations'
 

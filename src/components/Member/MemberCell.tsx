@@ -2,7 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 
 import { useCalucateWidth } from '../../hooks'
-import { isWeekend, isEqualDate } from '../../utils/date'
+import { isWeekend, isEqualDate } from '../../utils/date/index'
 import { getExsistingTypeVacation, isFirstDay, isLastDay, getDaysInVacation } from '../../utils/vacations'
 import { EVacationType, IVacation } from '../../types/model/vacation'
 

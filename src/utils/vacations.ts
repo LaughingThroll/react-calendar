@@ -1,10 +1,14 @@
-import { reverseDate, normalizeUTCDate, isEqualDate } from './date'
+import { reverseDate, normalizeDate, isEqualDate } from './date/index'
 import { EVacationType, IVacation, IVacationDate } from '../types/model/vacation'
 
 const checkVacation = (cellDate: Date, { startDate, endDate }: IVacationDate, separator: string = '.'): boolean => {
+  // const normalCellDate = new Date(normalizeDate(cellDate.toISOString()))
+
+  // console.log('normal', new Date(normalizeDate(reverseDate(startDate, separator))))
+  // console.log('cell', normalCellDate)
   return (
-    cellDate >= new Date(normalizeUTCDate(reverseDate(startDate, separator))) &&
-    cellDate <= new Date(normalizeUTCDate(reverseDate(endDate, separator)))
+    cellDate >= new Date(normalizeDate(reverseDate(startDate, separator))) &&
+    cellDate <= new Date(normalizeDate(reverseDate(endDate, separator)))
   )
 }
 
@@ -70,7 +74,6 @@ export const getExsistingTypeVacation = (
 }
 
 // TODO: need think up new name and combine this function
-
 export const isFirstDay = (vacations: IVacation[], date: Date, separator: string = '.'): boolean => {
   return vacations.map(({ startDate }) => isEqualDate(date, startDate.split(separator))).some(Boolean)
 }
@@ -115,12 +118,12 @@ export const getSumVacationsDaysByDay = (vacations: IVacation[], cellDate: Date,
 
 export const vacationIncludesVacation = ({ startDate, endDate }: IVacationDate, vacation: IVacation): boolean => {
   const isOuterVacation =
-    checkVacation(new Date(normalizeUTCDate(reverseDate(vacation.startDate))), { startDate, endDate }) ||
-    checkVacation(new Date(normalizeUTCDate(reverseDate(vacation.endDate))), { startDate, endDate })
+    checkVacation(new Date(normalizeDate(reverseDate(vacation.startDate))), { startDate, endDate }) ||
+    checkVacation(new Date(normalizeDate(reverseDate(vacation.endDate))), { startDate, endDate })
 
   const isInVacation =
-    new Date(startDate) >= new Date(normalizeUTCDate(reverseDate(vacation.startDate))) &&
-    new Date(endDate) <= new Date(normalizeUTCDate(reverseDate(vacation.endDate)))
+    new Date(startDate) >= new Date(normalizeDate(reverseDate(vacation.startDate))) &&
+    new Date(endDate) <= new Date(normalizeDate(reverseDate(vacation.endDate)))
 
   return isOuterVacation || isInVacation
 }
