@@ -7,13 +7,13 @@ describe('utils/getFilteredVaationsByMonth', () => {
     const date = new Date('2021-01-01')
     const answer = [
       {
-        startDate: '15.01.2021',
-        endDate: '18.01.2021',
+        startDate: '2021-01-15',
+        endDate: '2021-01-18',
         type: VacationType.PAID,
       },
       {
-        startDate: '28.01.2021',
-        endDate: '01.02.2021',
+        startDate: '2021-01-28',
+        endDate: '2021-02-01',
         type: VacationType.PAID,
       },
     ]
@@ -32,13 +32,13 @@ describe('utils/getFilteredVaationsByMonth', () => {
     const date = new Date('01.01.2021')
     const answer = [
       {
-        startDate: '15.01.2021',
-        endDate: '18.01.2021',
+        startDate: '2021-01-15',
+        endDate: '2021-01-18',
         type: VacationType.PAID,
       },
       {
-        startDate: '28.01.2021',
-        endDate: '01.02.2021',
+        startDate: '2021-01-28',
+        endDate: '2021-02-01',
         type: VacationType.PAID,
       },
     ]
@@ -51,13 +51,13 @@ describe('utils/getFilteredVaationsByMonth', () => {
     const date = new Date('01.09.2021')
     const answer = [
       {
-        startDate: '15.01.2021',
-        endDate: '18.01.2021',
+        startDate: '2021-01-15',
+        endDate: '2021-01-18',
         type: VacationType.PAID,
       },
       {
-        startDate: '28.01.2021',
-        endDate: '01.02.2021',
+        startDate: '2021-01-28',
+        endDate: '2021-02-01',
         type: VacationType.PAID,
       },
     ]

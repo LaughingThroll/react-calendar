@@ -1,28 +1,28 @@
 import { VacationType } from '../../types/model/vacation'
 const vacations = [
   {
-    startDate: '15.01.2021',
-    endDate: '18.01.2021',
+    startDate: '2021-01-15',
+    endDate: '2021-01-18',
     type: VacationType.PAID,
   },
   {
-    startDate: '28.01.2021',
-    endDate: '01.02.2021',
+    startDate: '2021-01-28',
+    endDate: '2021-02-01',
     type: VacationType.PAID,
   },
   {
-    startDate: '12.02.2021',
-    endDate: '15.02.2021',
+    startDate: '2021-02-12',
+    endDate: '2021-02-15',
     type: VacationType.PAID,
   },
   {
-    startDate: '22.02.2021',
-    endDate: '22.03.2021',
+    startDate: '2021-02-22',
+    endDate: '2021-03-22',
     type: VacationType.UN_PAID,
   },
   {
-    startDate: '25.03.2021',
-    endDate: '28.03.2021',
+    startDate: '2021-03-25',
+    endDate: '2021-03-28',
     type: VacationType.PAID,
   },
 ]

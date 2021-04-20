@@ -4,6 +4,7 @@ import { makeRequest } from '../utils'
 import { IMember } from '../types/model/member'
 import { ITeam } from '../types/model/team'
 import { ITeamsResponse } from '../types/model/teams'
+import { reverseDate } from '../utils/date'
 
 export const getTeams = (): Promise<ITeam[]> => {
   return (
@@ -14,7 +15,11 @@ export const getTeams = (): Promise<ITeam[]> => {
         teams.forEach((team: ITeam) => {
           team.members = Object.values(team.members)
           team.members.forEach((member: IMember) => {
-            member.vacations = Object.values(member.vacations)
+            member.vacations = Object.values(member.vacations).map(({ startDate, endDate, type }) => ({
+              startDate: reverseDate(startDate),
+              endDate: reverseDate(endDate),
+              type,
+            }))
           })
         })
         return teams

@@ -11,17 +11,17 @@ interface SplitedFullMonthArgs {
   lastDay: number
 }
 
-export const getSplitedVacation = (vacation: IVacation, lastDay: number, separator: string = '.'): IVacation[] => {
+export const getSplitedVacation = (vacation: IVacation, lastDay: number, separator: string = '-'): IVacation[] => {
   const { startDate, endDate, type } = vacation
   const { startMonth, endMonth, startYear, endYear } = getDetailedVacation(vacation, separator)
   return [
     {
       startDate,
-      endDate: [lastDay, getBinaryNumber(startMonth), startYear].join(separator),
+      endDate: [startYear, getBinaryNumber(startMonth), lastDay].join(separator),
       type,
     },
     {
-      startDate: ['01', getBinaryNumber(endMonth), endYear].join(separator),
+      startDate: [endYear, getBinaryNumber(endMonth), '01'].join(separator),
       endDate,
       type,
     },
@@ -30,17 +30,17 @@ export const getSplitedVacation = (vacation: IVacation, lastDay: number, separat
 
 export const getSplitedFullMonth = (
   { month, endYear, type, lastDay }: SplitedFullMonthArgs,
-  separator: string = '.'
+  separator: string = '-'
 ): IVacation => ({
-  startDate: ['01', getBinaryNumber(month), endYear].join(separator),
-  endDate: [lastDay, getBinaryNumber(month), endYear].join(separator),
+  startDate: [endYear, getBinaryNumber(month), '01'].join(separator),
+  endDate: [endYear, getBinaryNumber(month), lastDay].join(separator),
   type,
 })
 
 export const getIntermediatesSplitVacation = (
   vacation: IVacation,
   lastDay: number,
-  separator: string = '.'
+  separator: string = '-'
 ): IVacation[] => {
   let { startDay, startMonth, endMonth, startYear, endYear, type } = getDetailedVacation(vacation, separator)
   const arrVacations = getSplitedVacation(vacation, lastDay)
@@ -48,13 +48,13 @@ export const getIntermediatesSplitVacation = (
   while (startMonth !== endMonth - 1) {
     const lastDayForCurrentMonth = lastDayInMonth(new Date(startYear, startMonth, startDay))
     startMonth += 1
-    arrVacations.push(getSplitedFullMonth({ month: startMonth, lastDay: lastDayForCurrentMonth, endYear, type }, '.'))
+    arrVacations.push(getSplitedFullMonth({ month: startMonth, lastDay: lastDayForCurrentMonth, endYear, type }, '-'))
   }
 
   return arrVacations
 }
 
-const getSplitVacations = (vacations: IVacation[], lastDay: number, separator: string = '.'): IVacation[] => {
+const getSplitVacations = (vacations: IVacation[], lastDay: number, separator: string = '-'): IVacation[] => {
   return vacations.flatMap((vacation) => {
     const { endMonth, startMonth } = getDetailedVacation(vacation, separator)
     const diff = endMonth - startMonth

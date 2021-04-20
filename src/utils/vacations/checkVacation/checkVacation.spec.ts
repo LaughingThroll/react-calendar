@@ -31,8 +31,4 @@ describe('utils/checkVacation with additional args', () => {
   it('args [new Date("2021-04-19"), vacationDate: {startDate, endDate}] should return false', () => {
     expect(checkVacation(new Date('2021-04-19'), vacationDate)).toBe(false)
   })
-
-  it('args [new Date("2021-04-19"), vacationDate: {startDate, endDate}, "-"] should return true', () => {
-    expect(checkVacation(new Date('2021-04-19'), vacationDate, '-')).toBe(true)
-  })
 })

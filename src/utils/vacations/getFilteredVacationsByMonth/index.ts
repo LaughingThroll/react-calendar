@@ -4,7 +4,7 @@ import { getDetailedVacation } from '../getDetailedVacation'
 export const getFilteredVacationsByMonth = (
   vacations: IVacation[],
   cellDate: Date,
-  separator: string = '.'
+  separator: string = '-'
 ): IVacation[] => {
   return vacations.filter((vacation) => {
     const { startMonth, endMonth, startYear, endYear } = getDetailedVacation(vacation, separator)

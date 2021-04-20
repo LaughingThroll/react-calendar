@@ -1,11 +1,8 @@
-import { reverseDate, normalizeDate } from '../../date'
+import { normalizeDate } from '../../date'
 import { IVacationDate } from '../../../types/model/vacation'
 
-const checkVacation = (cellDate: Date, { startDate, endDate }: IVacationDate, separator: string = '.'): boolean => {
-  return (
-    cellDate >= new Date(normalizeDate(reverseDate(startDate, separator))) &&
-    cellDate <= new Date(normalizeDate(reverseDate(endDate, separator)))
-  )
+const checkVacation = (cellDate: Date, { startDate, endDate }: IVacationDate): boolean => {
+  return cellDate >= new Date(normalizeDate(startDate)) && cellDate <= new Date(normalizeDate(endDate))
 }
 
 export default checkVacation
