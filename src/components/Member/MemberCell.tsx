@@ -2,7 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 
 import { useCalucateWidth } from '../../hooks'
-import { isWeekend, isEqualDate, getCountDays, reverseDate } from '../../utils/date'
+import { isWeekend, isEqualDate, getCountDays } from '../../utils/date'
 import { getTypeVacation, isFirstDay, isLastDay } from '../../utils/vacations'
 import { VacationType, IVacation } from '../../types/model/vacation'
 
@@ -19,11 +19,10 @@ const MemberCell: React.FC<IMemberCell> = ({ date, vacations }) => {
   const isEndDay = isLastDay(vacations, date)
 
   const currentStartVacation: IVacation | undefined = vacations.find(({ startDate }) => {
-    return isEqualDate(date, startDate.split('.'))
+    return isEqualDate(date, startDate.split('-'))
   })
   const countDayInVacation =
-    currentStartVacation &&
-    getCountDays(reverseDate(currentStartVacation.startDate), reverseDate(currentStartVacation.endDate)) + 1
+    currentStartVacation && getCountDays(currentStartVacation.startDate, currentStartVacation.endDate) + 1
 
   return (
     <td

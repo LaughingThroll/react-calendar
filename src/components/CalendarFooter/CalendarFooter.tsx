@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 
 import FooterCell from './FooterCell'
 
-import { getAllDaysInMonth, lastDayInMonth } from '../../utils/date/index'
-import { getSplitVacations } from '../../utils/vacations/index'
+import { getAllDaysInMonth, lastDayInMonth } from '../../utils/date'
+import { getSplitVacations } from '../../utils/vacations'
 
 import { IVacation } from '../../types/model/vacation'
 import { ITeam } from '../../types/model/team'
