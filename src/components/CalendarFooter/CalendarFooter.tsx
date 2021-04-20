@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import FooterCell from './FooterCell'
 
 import { getAllDaysInMonth, lastDayInMonth } from '../../utils/date/index'
-import { getSplitVacations } from '../../utils/vacations'
+import { getSplitVacations } from '../../utils/vacations/index'
 
 import { IVacation } from '../../types/model/vacation'
 import { ITeam } from '../../types/model/team'

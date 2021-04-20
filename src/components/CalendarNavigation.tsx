@@ -1,16 +1,16 @@
 import React, { useEffect, useCallback } from 'react'
 
-enum ENavigationDirection {
+enum NavigationDirection {
   ARROW_LEFT = 'ArrowLeft',
   ARROW_RIGHT = 'ArrowRight',
 }
 
-enum EMonthNavigation {
+enum MonthNavigation {
   NEXT = 'next',
   PREV = 'prev',
 }
 
-type monthNavigation = EMonthNavigation.NEXT | EMonthNavigation.PREV
+type monthNavigationUnion = MonthNavigation.NEXT | MonthNavigation.PREV
 
 interface INavigation {
   date: Date
@@ -21,10 +21,10 @@ const Navigation: React.FC<INavigation> = ({ date, onChangeMonth }) => {
   const formatedDate = date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
 
   const changeMonth = useCallback(
-    (value: monthNavigation) => {
+    (value: monthNavigationUnion) => {
       let num = 0
-      if (value === EMonthNavigation.NEXT) num = 1
-      if (value === EMonthNavigation.PREV) num = -1
+      if (value === MonthNavigation.NEXT) num = 1
+      if (value === MonthNavigation.PREV) num = -1
       onChangeMonth(new Date(date.setMonth(date.getMonth() + num)))
     },
     [date, onChangeMonth]
@@ -32,8 +32,8 @@ const Navigation: React.FC<INavigation> = ({ date, onChangeMonth }) => {
 
   const switchMonthOnKey = useCallback(
     (e: KeyboardEvent) => {
-      if (e.key === ENavigationDirection.ARROW_LEFT) changeMonth(EMonthNavigation.PREV)
-      if (e.key === ENavigationDirection.ARROW_RIGHT) changeMonth(EMonthNavigation.NEXT)
+      if (e.key === NavigationDirection.ARROW_LEFT) changeMonth(MonthNavigation.PREV)
+      if (e.key === NavigationDirection.ARROW_RIGHT) changeMonth(MonthNavigation.NEXT)
     },
     [changeMonth]
   )
@@ -50,12 +50,12 @@ const Navigation: React.FC<INavigation> = ({ date, onChangeMonth }) => {
     <div className="calendar-nav">
       <button
         className="calendar-nav__btn calendar-nav__btn--prev-month"
-        onClick={() => changeMonth(EMonthNavigation.PREV)}
+        onClick={() => changeMonth(MonthNavigation.PREV)}
       ></button>
       <div className="calendar-nav__current-date">{formatedDate}</div>
       <button
         className="calendar-nav__btn calendar-nav__btn--next-month"
-        onClick={() => changeMonth(EMonthNavigation.NEXT)}
+        onClick={() => changeMonth(MonthNavigation.NEXT)}
       ></button>
     </div>
   )

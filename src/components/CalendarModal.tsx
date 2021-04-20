@@ -5,12 +5,11 @@ import { Modal, ModalBody, ModalFooter, ModalHeader } from './common/Modal'
 import { Button, FormDates, InputDate } from './common'
 
 import { useInput, useSelect } from '../hooks'
-import { getFutureDate, getCountDays } from '../utils/date'
-import { reverseDate } from '../utils/date/index'
-import { findByID } from '../utils/forArrays/index'
-import { vacationIncludesVacation } from '../utils/vacations'
+import { reverseDate, getCountDays, getFutureOrPastDate } from '../utils/date'
+import { findByID } from '../utils/forArrays'
+import { vacationIncludesVacation } from '../utils/vacations/index'
 
-import { EVacationType, TVacation, ISubmitVacation, IVacation } from '../types/model/vacation'
+import { VacationType, vacationUnion, ISubmitVacation, IVacation } from '../types/model/vacation'
 import { ITeam } from '../types/model/team'
 import { patchVacation } from '../api/vacations'
 
@@ -25,12 +24,12 @@ const CalendarModal: React.FC<ICalendarModal> = ({ teams, isOpen, onClose, getTe
   const [countDays, setCountDays] = useState(0)
   const [isValidDays, setIsValidDays] = useState(true)
   const [isDisabled, setIsDisabled] = useState(false)
-  const startDate = useInput(getFutureDate(1))
-  const endDate = useInput(getFutureDate(8))
+  const startDate = useInput(getFutureOrPastDate(0))
+  const endDate = useInput(getFutureOrPastDate(7))
 
   const teamsSelect = useSelect('')
   const membersSelect = useSelect('')
-  const typesSelect = useSelect(EVacationType.UN_PAID)
+  const typesSelect = useSelect(VacationType.UN_PAID)
 
   useEffect(() => {
     const localCountDays = getCountDays(startDate.value, endDate.value)
@@ -58,7 +57,7 @@ const CalendarModal: React.FC<ICalendarModal> = ({ teams, isOpen, onClose, getTe
     const currentVacation: IVacation = {
       startDate: reverseDate(startDate.value, '-', '.'),
       endDate: reverseDate(endDate.value, '-', '.'),
-      type: typesSelect.value as TVacation,
+      type: typesSelect.value as vacationUnion,
     }
 
     const submitVacation: ISubmitVacation = {
@@ -121,8 +120,8 @@ const CalendarModal: React.FC<ICalendarModal> = ({ teams, isOpen, onClose, getTe
 
         <FormDates title="Vac Type">
           <Select value={typesSelect.value} onChange={typesSelect.changeValue} name="types">
-            <Option title="Paid Day Off (PD)" value={EVacationType.UN_PAID} />
-            <Option title="Paid Day On (PD)" value={EVacationType.PAID} />
+            <Option title="Paid Day Off (PD)" value={VacationType.UN_PAID} />
+            <Option title="Paid Day On (PD)" value={VacationType.PAID} />
           </Select>
         </FormDates>
       </ModalBody>

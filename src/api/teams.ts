@@ -1,5 +1,5 @@
 import { MAIN_URL } from './URLS'
-import { makeRequest } from '../utils/makeRequest'
+import { makeRequest } from '../utils'
 
 import { IMember } from '../types/model/member'
 import { ITeam } from '../types/model/team'

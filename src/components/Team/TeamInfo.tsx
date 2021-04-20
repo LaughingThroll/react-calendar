@@ -1,9 +1,9 @@
 import React from 'react'
 import classnames from 'classnames'
 
-import { useToggle } from '../../hooks'
-
 import iconUsers from './../../assets/images/icons/users.svg'
+
+import { getPercentageOfAbsentCount } from '../../utils/teams'
 
 import { ITeam } from '../../types/model/team'
 
@@ -14,10 +14,6 @@ interface ITeamInfo extends ITeam {
 }
 
 const TeamInfo: React.FC<ITeamInfo> = ({ date, name, members, percentageOfAbsent, isOpen, toggleOpen }) => {
-  const getPercentageOfAbsentCount = (percentageOfAbsent: number[], date: Date): number => {
-    return date.getFullYear() === new Date().getFullYear() ? percentageOfAbsent[date.getMonth()] : 0
-  }
-
   return (
     <div className="team-info">
       <span className="team-info__name">{name}</span>
