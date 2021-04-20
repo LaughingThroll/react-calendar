@@ -18,7 +18,9 @@ describe('ModalBody render', () => {
   })
 
   it('render with children', () => {
-    const tree = render(<ModalBody children={[<span>Test</span>, <span>Test</span>, <span>Test</span>]} />)
+    const tree = render(
+      <ModalBody children={[<span key="1">Test</span>, <span key="2">Test</span>, <span key="3">Test</span>]} />
+    )
 
     expect(tree).toMatchSnapshot()
     expect(tree.find('div')).toHaveLength(3)

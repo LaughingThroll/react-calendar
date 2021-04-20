@@ -1,8 +1,8 @@
 import React from 'react'
 import MemberCell from './MemberCell'
 
-import { getAllDaysInMonth } from '../../utils/date/index'
-import { getSplitVacations, getSumVacationsDaysByMonth } from '../../utils/vacations'
+import { getAllDaysInMonth } from '../../utils/date'
+import { getSumVacationsDaysByMonth, getSplitVacations } from '../../utils/vacations'
 
 import { IMember } from '../../types/model/member'
 
@@ -14,6 +14,7 @@ interface ITeamMember extends IMember {
 const Member: React.FC<ITeamMember> = ({ date, theme, name, vacations }) => {
   const allDays = getAllDaysInMonth(date)
   const newVacations = getSplitVacations(vacations, allDays.length)
+
   const summVacationsInMonth = getSumVacationsDaysByMonth(newVacations, date)
 
   return (

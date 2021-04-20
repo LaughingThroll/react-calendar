@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { Button } from './../components/common'
+import { Button } from '../components/common'
 import Navigation from '../components/CalendarNavigation'
 import CalendarHeader from '../components/CalendarHeader/CalendarHeader'
 import Team from '../components/Team/Team'
@@ -47,7 +47,8 @@ const App = () => {
   }, [teams])
 
   useEffect(() => {
-    const getPercent = (): number => teams.reduce((acc, team) => (acc += getPercentageOfAbsentCount(team, date)), 0)
+    const getPercent = (): number =>
+      teams.reduce((acc, team) => (acc += getPercentageOfAbsentCount(team.percentageOfAbsent, date)), 0)
 
     setPercent(getPercent())
   }, [date, teams])

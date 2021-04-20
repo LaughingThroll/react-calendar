@@ -1,11 +1,11 @@
 import { ID } from './../utilsTypes'
 
-export enum EVacationType {
+export enum VacationType {
   PAID = 'Paid',
   UN_PAID = 'UnPaid',
 }
 
-export type TVacation = EVacationType.PAID | EVacationType.UN_PAID
+export type vacationUnion = VacationType.PAID | VacationType.UN_PAID
 
 export interface IVacationDate {
   startDate: string
@@ -13,7 +13,7 @@ export interface IVacationDate {
 }
 
 export interface IVacation extends IVacationDate {
-  type: TVacation
+  type: vacationUnion
 }
 
 export interface ISubmitVacation extends IVacation {
