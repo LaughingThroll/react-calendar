@@ -1,7 +1,7 @@
 import { normalizeDate } from '../../date'
-import { IVacationDate } from '../../../types/model/vacation'
+import { VacationDate } from '../../../types/model/vacation'
 
-const checkVacation = (cellDate: Date, { startDate, endDate }: IVacationDate): boolean => {
+const checkVacation = (cellDate: Date, { startDate, endDate }: VacationDate): boolean => {
   return cellDate >= new Date(normalizeDate(startDate)) && cellDate <= new Date(normalizeDate(endDate))
 }
 

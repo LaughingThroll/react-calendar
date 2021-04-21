@@ -5,16 +5,16 @@ import FooterCell from './FooterCell'
 import { getAllDaysInMonth, lastDayInMonth } from '../../utils/date'
 import { getSplitVacations } from '../../utils/vacations'
 
-import { IVacation } from '../../types/model/vacation'
-import { ITeam } from '../../types/model/team'
+import { Vacation } from '../../types/model/vacation'
+import { Team } from '../../types/model/team'
 
 interface ICalendarFooter {
-  teams: ITeam[]
+  teams: Team[]
   date: Date
 }
 
 const CalendarFooter: React.FC<ICalendarFooter> = ({ teams, date }) => {
-  const [vacations, setVacations] = useState<IVacation[]>([])
+  const [vacations, setVacations] = useState<Vacation[]>([])
 
   useEffect(() => {
     const vacations = teams.flatMap(({ members }) => members).flatMap(({ vacations }) => vacations)

@@ -1,9 +1,9 @@
 import { normalizeDate } from '../../date'
 import checkVacation from '../checkVacation'
 
-import { IVacationDate, IVacation } from '../../../types/model/vacation'
+import { VacationDate, Vacation } from '../../../types/model/vacation'
 
-const vacationIncludesVacation = ({ startDate, endDate }: IVacationDate, vacation: IVacation): boolean => {
+const vacationIncludesVacation = ({ startDate, endDate }: VacationDate, vacation: Vacation): boolean => {
   const isOuterVacation =
     checkVacation(new Date(normalizeDate(vacation.startDate)), { startDate, endDate }) ||
     checkVacation(new Date(normalizeDate(vacation.endDate)), { startDate, endDate })

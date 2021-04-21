@@ -4,14 +4,14 @@ import MemberCell from './MemberCell'
 import { getAllDaysInMonth } from '../../utils/date'
 import { getSumVacationsDaysByMonth, getSplitVacations } from '../../utils/vacations'
 
-import { IMember } from '../../types/model/member'
+import { Member } from '../../types/model/member'
 
-interface ITeamMember extends IMember {
+interface ITeamMember extends Member {
   date: Date
   theme?: string
 }
 
-const Member: React.FC<ITeamMember> = ({ date, theme, name, vacations }) => {
+const MemberComponent: React.FC<ITeamMember> = ({ date, theme, name, vacations }) => {
   const allDays = getAllDaysInMonth(date)
   const newVacations = getSplitVacations(vacations, allDays.length)
 
@@ -30,4 +30,4 @@ const Member: React.FC<ITeamMember> = ({ date, theme, name, vacations }) => {
   )
 }
 
-export default React.memo(Member)
+export default React.memo(MemberComponent)

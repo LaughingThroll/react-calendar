@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, render } from 'enzyme'
 import Select, { SelectProps } from './'
 
 const setUp = (props: SelectProps) => shallow(<Select {...props} />)
@@ -40,18 +40,18 @@ describe('Select props', () => {
 
   it('props children should be exception', () => {
     const props = { onChange: jest.fn(), value: 1 }
+
     const tree = shallow(
       <Select {...props}>
         <div>ds</div>
       </Select>
     )
-
     expect(() => tree.simulateError(Error)).toThrow()
   })
 
   it('props children with options', () => {
     const props = { onChange: jest.fn(), value: 1 }
-    const tree = shallow(
+    const tree = render(
       <Select {...props}>
         <option>ds</option>
       </Select>

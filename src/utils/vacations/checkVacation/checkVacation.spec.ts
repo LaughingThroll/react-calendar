@@ -1,9 +1,9 @@
 import checkVacation from './'
-import vacations from '../../__STUBS__/vacations'
-import { IVacationDate } from '../../../types/model/vacation'
+import vacations from '../../../__STUBS__/vacations'
+import { VacationDate } from '../../../types/model/vacation'
 
 describe('utils/checkVacation standard', () => {
-  let vacationDate: IVacationDate
+  let vacationDate: VacationDate
 
   beforeEach(() => {
     vacationDate = { startDate: vacations[0].startDate, endDate: vacations[0].endDate }

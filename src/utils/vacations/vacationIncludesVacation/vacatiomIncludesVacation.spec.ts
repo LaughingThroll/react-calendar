@@ -1,5 +1,5 @@
 import vacationIncludesVacation from './'
-import vacations from '../../__STUBS__/vacations'
+import vacations from '../../../__STUBS__/vacations'
 
 describe('utils/vacationIncludesVacation', () => {
   const vacation = vacations[0]

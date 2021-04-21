@@ -1,16 +1,16 @@
-import { IMember } from './member'
-import { IFirebaseResponse } from './firebase'
+import { Member } from './member'
+import { FirebaseResponse } from './firebase'
 
-export interface ITeamMain {
+export interface TeamMain {
   name: string
   percentageOfAbsent: number[]
   id: string
 }
 
-export interface ITeam extends ITeamMain {
-  members: IMember[]
+export interface Team extends TeamMain {
+  members: Member[]
 }
 
-export interface ITeamResponse extends ITeamMain {
-  members: IFirebaseResponse<IMember>
+export interface TeamResponse extends TeamMain {
+  members: FirebaseResponse<Member>
 }

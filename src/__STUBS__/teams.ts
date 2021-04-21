@@ -1,7 +1,7 @@
-import { VacationType } from '../../types/model/vacation'
-import { ITeam } from '../../types/model/team'
+import { VacationTypes } from '../types/model/vacation'
+import { Team } from '../types/model/team'
 
-const teams: ITeam[] = [
+const teams: Team[] = [
   {
     name: 'Frontend Team',
     percentageOfAbsent: [0, 2, 0, 0, 1, 22, 2, 2, 2, 2, 11, 1],
@@ -14,12 +14,12 @@ const teams: ITeam[] = [
           {
             startDate: '15.01.2021',
             endDate: '18.01.2021',
-            type: VacationType.PAID,
+            type: VacationTypes.PAID,
           },
           {
             startDate: '28.01.2021',
             endDate: '01.02.2021',
-            type: VacationType.PAID,
+            type: VacationTypes.PAID,
           },
         ],
       },
@@ -30,7 +30,7 @@ const teams: ITeam[] = [
           {
             startDate: '12.02.2021',
             endDate: '15.02.2021',
-            type: VacationType.PAID,
+            type: VacationTypes.PAID,
           },
         ],
       },
@@ -41,12 +41,12 @@ const teams: ITeam[] = [
           {
             startDate: '20.02.2021',
             endDate: '22.02.2021',
-            type: VacationType.PAID,
+            type: VacationTypes.PAID,
           },
           {
             startDate: '25.02.2021',
             endDate: '25.03.2021',
-            type: VacationType.PAID,
+            type: VacationTypes.PAID,
           },
         ],
       },
@@ -57,12 +57,12 @@ const teams: ITeam[] = [
           {
             startDate: '19.01.2021',
             endDate: '19.02.2021',
-            type: VacationType.PAID,
+            type: VacationTypes.PAID,
           },
           {
             startDate: '20.02.2021',
             endDate: '22.02.2021',
-            type: VacationType.UN_PAID,
+            type: VacationTypes.UN_PAID,
           },
         ],
       },
@@ -80,7 +80,7 @@ const teams: ITeam[] = [
           {
             startDate: '15.02.2021',
             endDate: '22.03.2021',
-            type: VacationType.UN_PAID,
+            type: VacationTypes.UN_PAID,
           },
         ],
       },
@@ -91,12 +91,12 @@ const teams: ITeam[] = [
           {
             startDate: '22.02.2021',
             endDate: '22.03.2021',
-            type: VacationType.UN_PAID,
+            type: VacationTypes.UN_PAID,
           },
           {
             startDate: '25.03.2021',
             endDate: '28.03.2021',
-            type: VacationType.PAID,
+            type: VacationTypes.PAID,
           },
         ],
       },
@@ -107,12 +107,12 @@ const teams: ITeam[] = [
           {
             startDate: '20.02.2020',
             endDate: '22.02.2020',
-            type: VacationType.UN_PAID,
+            type: VacationTypes.UN_PAID,
           },
           {
             startDate: '20.03.2020',
             endDate: '22.03.2020',
-            type: VacationType.UN_PAID,
+            type: VacationTypes.UN_PAID,
           },
         ],
       },
