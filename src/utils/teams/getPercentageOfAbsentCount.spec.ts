@@ -1,9 +1,9 @@
 import { getPercentageOfAbsentCount } from './'
-import teams from './../__STUBS__/teams'
-import { ITeam } from '../../types/model/team'
+import teams from '../../__STUBS__/teams'
+import { Team } from '../../types/model/team'
 
 describe('utils/getPercentageOfAbsentCount', () => {
-  let team: ITeam
+  let team: Team
   beforeEach(() => {
     team = teams[0]
   })

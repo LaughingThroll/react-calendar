@@ -5,15 +5,15 @@ import iconUsers from './../../assets/images/icons/users.svg'
 
 import { getPercentageOfAbsentCount } from '../../utils/teams'
 
-import { ITeam } from '../../types/model/team'
+import { Team } from '../../types/model/team'
 
-interface ITeamInfo extends ITeam {
+interface TeamInfo extends Team {
   date: Date
   isOpen?: boolean
   toggleOpen?: () => void
 }
 
-const TeamInfo: React.FC<ITeamInfo> = ({ date, name, members, percentageOfAbsent, isOpen, toggleOpen }) => {
+const TeamInfoComponent: React.FC<TeamInfo> = ({ date, name, members, percentageOfAbsent, isOpen, toggleOpen }) => {
   return (
     <div className="team-info">
       <span className="team-info__name">{name}</span>
@@ -37,4 +37,4 @@ const TeamInfo: React.FC<ITeamInfo> = ({ date, name, members, percentageOfAbsent
   )
 }
 
-export default React.memo(TeamInfo)
+export default React.memo(TeamInfoComponent)

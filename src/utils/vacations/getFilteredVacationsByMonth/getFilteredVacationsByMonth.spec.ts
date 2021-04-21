@@ -1,6 +1,6 @@
 import { getFilteredVacationsByMonth } from './'
-import vacations from '../../__STUBS__/vacations'
-import { VacationType } from '../../../types/model/vacation'
+import vacations from '../../../__STUBS__/vacations'
+import { VacationTypes } from '../../../types/model/vacation'
 
 describe('utils/getFilteredVaationsByMonth', () => {
   it('should retrun filtered vacations', () => {
@@ -9,12 +9,12 @@ describe('utils/getFilteredVaationsByMonth', () => {
       {
         startDate: '2021-01-15',
         endDate: '2021-01-18',
-        type: VacationType.PAID,
+        type: VacationTypes.PAID,
       },
       {
         startDate: '2021-01-28',
         endDate: '2021-02-01',
-        type: VacationType.PAID,
+        type: VacationTypes.PAID,
       },
     ]
 
@@ -34,12 +34,12 @@ describe('utils/getFilteredVaationsByMonth', () => {
       {
         startDate: '2021-01-15',
         endDate: '2021-01-18',
-        type: VacationType.PAID,
+        type: VacationTypes.PAID,
       },
       {
         startDate: '2021-01-28',
         endDate: '2021-02-01',
-        type: VacationType.PAID,
+        type: VacationTypes.PAID,
       },
     ]
 
@@ -53,12 +53,12 @@ describe('utils/getFilteredVaationsByMonth', () => {
       {
         startDate: '2021-01-15',
         endDate: '2021-01-18',
-        type: VacationType.PAID,
+        type: VacationTypes.PAID,
       },
       {
         startDate: '2021-01-28',
         endDate: '2021-02-01',
-        type: VacationType.PAID,
+        type: VacationTypes.PAID,
       },
     ]
 

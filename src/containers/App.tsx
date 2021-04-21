@@ -3,21 +3,24 @@ import React, { useState, useEffect } from 'react'
 import { Button } from '../components/common'
 import Navigation from '../components/CalendarNavigation'
 import CalendarHeader from '../components/CalendarHeader/CalendarHeader'
-import Team from '../components/Team/Team'
+import TeamComponent from '../components/Team/Team'
 import CalendarFooter from '../components/CalendarFooter/CalendarFooter'
 import Summary from '../components/Summary'
 import CalendarModal from '../components/CalendarModal'
 
-import { useToggle } from '../hooks'
+import { useToggle, useAsync } from '../hooks'
 
 import { getTeams } from '../api/teams'
+import { patchVacation } from '../api/vacations'
 import { getPercentageOfAbsentCount } from '../utils/teams'
 
-import { ITeam } from '../types/model/team'
+import { Team } from '../types/model/team'
+import { Vacation, VacationDTO } from '../types/model/vacation'
 
 const App = () => {
   const [date, setDate] = useState<Date>(new Date())
-  const [teams, setTeams] = useState<ITeam[]>([])
+  const { data: teams, loading: teamsLoading, error: teamsError, setData: setTeams } = useAsync<Team[]>([], getTeams)
+  const { asyncFn: asyncPathcVacation, error: vacationError } = useAsync<Vacation>({} as Vacation, patchVacation)
   const [countUsers, setCountUsers] = useState(0)
   const [percent, setPercent] = useState(0)
   const calendarModal = useToggle()
@@ -25,20 +28,6 @@ const App = () => {
   const handleOnChangeMonth = (date: Date) => {
     setDate(date)
   }
-
-  const handleGetTeams = () => {
-    getTeams()
-      .then((teams) => {
-        setTeams(teams)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }
-
-  useEffect(() => {
-    handleGetTeams()
-  }, [])
 
   useEffect(() => {
     const getCountUsers = (): number => teams.reduce((acc, team) => (acc += team.members.length), 0)
@@ -53,6 +42,14 @@ const App = () => {
     setPercent(getPercent())
   }, [date, teams])
 
+  const onSubmit = (submitVacation: VacationDTO): Promise<void> => {
+    return asyncPathcVacation(submitVacation).then((res) => {
+      if (res) {
+        getTeams().then((teams) => setTeams(teams))
+      }
+    })
+  }
+
   return (
     <>
       <div className="container">
@@ -66,7 +63,7 @@ const App = () => {
 
           <tbody className="calendar-body">
             {teams.map((team, index) => (
-              <Team key={team.id} team={team} date={date} themeIndex={index} />
+              <TeamComponent key={team.id} team={team} date={date} themeIndex={index} />
             ))}
           </tbody>
           <CalendarFooter date={date} teams={teams} />
@@ -76,9 +73,9 @@ const App = () => {
 
       <CalendarModal
         teams={teams}
-        getTeams={handleGetTeams}
         isOpen={calendarModal.isOpen}
         onClose={calendarModal.toggleOpen}
+        onSubmit={onSubmit}
       />
     </>
   )

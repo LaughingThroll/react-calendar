@@ -2,7 +2,7 @@ import { getBinaryNumber } from '../../getBinaryNumber'
 import { getDetailedVacation } from '../getDetailedVacation'
 import { lastDayInMonth } from '../../date'
 
-import { IVacation, vacationUnion } from '../../../types/model/vacation'
+import { Vacation, vacationUnion } from '../../../types/model/vacation'
 
 interface SplitedFullMonthArgs {
   month: number
@@ -11,7 +11,7 @@ interface SplitedFullMonthArgs {
   lastDay: number
 }
 
-export const getSplitedVacation = (vacation: IVacation, lastDay: number, separator: string = '-'): IVacation[] => {
+export const getSplitedVacation = (vacation: Vacation, lastDay: number, separator: string = '-'): Vacation[] => {
   const { startDate, endDate, type } = vacation
   const { startMonth, endMonth, startYear, endYear } = getDetailedVacation(vacation, separator)
   return [
@@ -31,17 +31,17 @@ export const getSplitedVacation = (vacation: IVacation, lastDay: number, separat
 export const getSplitedFullMonth = (
   { month, endYear, type, lastDay }: SplitedFullMonthArgs,
   separator: string = '-'
-): IVacation => ({
+): Vacation => ({
   startDate: [endYear, getBinaryNumber(month), '01'].join(separator),
   endDate: [endYear, getBinaryNumber(month), lastDay].join(separator),
   type,
 })
 
 export const getIntermediatesSplitVacation = (
-  vacation: IVacation,
+  vacation: Vacation,
   lastDay: number,
   separator: string = '-'
-): IVacation[] => {
+): Vacation[] => {
   let { startDay, startMonth, endMonth, startYear, endYear, type } = getDetailedVacation(vacation, separator)
   const arrVacations = getSplitedVacation(vacation, lastDay)
 
@@ -54,7 +54,7 @@ export const getIntermediatesSplitVacation = (
   return arrVacations
 }
 
-const getSplitVacations = (vacations: IVacation[], lastDay: number, separator: string = '-'): IVacation[] => {
+const getSplitVacations = (vacations: Vacation[], lastDay: number, separator: string = '-'): Vacation[] => {
   return vacations.flatMap((vacation) => {
     const { endMonth, startMonth } = getDetailedVacation(vacation, separator)
     const diff = endMonth - startMonth

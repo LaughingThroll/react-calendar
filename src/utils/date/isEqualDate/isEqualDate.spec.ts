@@ -7,19 +7,18 @@ describe('utils/isEqualDate', () => {
   })
 
   it('args [Date, dateArr] should return true', () => {
-    const dateArr = date.toLocaleString().split(',')[0].split('.')
-
+    const dateArr = date.toLocaleString().split(',')[0].split('.').reverse()
     expect(isEqualDate(date, dateArr)).toBe(true)
   })
 
   it('args [Date, [20, 4, 2021] should return false', () => {
-    const stubDateArr = ['19', '4', '2021']
+    const stubDateArr = ['2021', '4', '19']
 
     expect(isEqualDate(date, stubDateArr)).toBe(true)
   })
 
   it('args [Date, dateArr] should return false', () => {
-    const dateArr = new Date('2021-04-20').toLocaleString().split(',')[0].split('.')
+    const dateArr = new Date('2021-04-20').toLocaleString().split(',')[0].split('.').reverse()
 
     expect(isEqualDate(date, dateArr)).toBe(false)
   })

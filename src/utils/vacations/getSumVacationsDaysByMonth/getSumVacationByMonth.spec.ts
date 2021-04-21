@@ -1,6 +1,6 @@
 import getSumVacationsDaysByMonth from './'
 import getSplitVacations from '../getSplitVacations'
-import vacations from '../../__STUBS__/vacations'
+import vacations from '../../../__STUBS__/vacations'
 
 // It's fn maybe mistake but on interface all OK
 describe('utils/getSumVacationDaysByMonth', () => {

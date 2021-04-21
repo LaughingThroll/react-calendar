@@ -1,11 +1,11 @@
-import { IVacation } from '../../../types/model/vacation'
+import { Vacation } from '../../../types/model/vacation'
 import { getDetailedVacation } from '../getDetailedVacation'
 
 export const getFilteredVacationsByMonth = (
-  vacations: IVacation[],
+  vacations: Vacation[],
   cellDate: Date,
   separator: string = '-'
-): IVacation[] => {
+): Vacation[] => {
   return vacations.filter((vacation) => {
     const { startMonth, endMonth, startYear, endYear } = getDetailedVacation(vacation, separator)
     const currentMonth = cellDate.getMonth() + 1

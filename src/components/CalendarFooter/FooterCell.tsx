@@ -4,10 +4,10 @@ import classnames from 'classnames'
 import { isWeekend } from '../../utils/date'
 import { getSumVacationsDaysByDay } from '../../utils/vacations'
 
-import { IVacation } from '../../types/model/vacation'
+import { Vacation } from '../../types/model/vacation'
 
 interface IFooterCell {
-  vacations: IVacation[]
+  vacations: Vacation[]
   date: Date
 }
 

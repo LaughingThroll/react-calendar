@@ -1,16 +1,16 @@
-import { IVacation } from './vacation'
-import { IFirebaseResponse } from './firebase'
+import { Vacation } from './vacation'
+import { FirebaseResponse } from './firebase'
 import { ID } from '../utilsTypes'
 
-interface IMemberMain {
+interface MemberMain {
   name: string
   id: ID
 }
 
-export interface IMember extends IMemberMain {
-  vacations: IVacation[]
+export interface Member extends MemberMain {
+  vacations: Vacation[]
 }
 
-export interface IMemberResponse extends IMemberMain {
-  vacations: IFirebaseResponse<IVacation>
+export interface MemberResponse extends MemberMain {
+  vacations: FirebaseResponse<Vacation>
 }

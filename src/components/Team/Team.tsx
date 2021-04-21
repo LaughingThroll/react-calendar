@@ -10,15 +10,15 @@ import Member from '../Member/Member'
 import { THEMES } from '../../theme'
 import { getAllDaysInMonth } from '../../utils/date'
 
-import { ITeam } from '../../types/model/team'
+import { Team } from '../../types/model/team'
 
-interface ITeamComponent {
+interface TeamComponent {
   date: Date
-  team: ITeam
+  team: Team
   themeIndex?: number
 }
 
-const Team: React.FC<ITeamComponent> = ({ team, date, themeIndex = 0 }) => {
+const TeamComponent: React.FC<TeamComponent> = ({ team, date, themeIndex = 0 }) => {
   const mainTheme = THEMES[themeIndex % THEMES.length][0]
   const { isOpen, toggleOpen } = useToggle(true)
 
@@ -44,4 +44,4 @@ const Team: React.FC<ITeamComponent> = ({ team, date, themeIndex = 0 }) => {
   )
 }
 
-export default React.memo(Team)
+export default React.memo(TeamComponent)

@@ -4,21 +4,21 @@ import classnames from 'classnames'
 import { useCalucateWidth } from '../../hooks'
 import { isWeekend, isEqualDate, getCountDays } from '../../utils/date'
 import { getTypeVacation, isFirstDay, isLastDay } from '../../utils/vacations'
-import { VacationType, IVacation } from '../../types/model/vacation'
+import { VacationTypes, Vacation } from '../../types/model/vacation'
 
 interface IMemberCell {
   date: Date
-  vacations: IVacation[]
+  vacations: Vacation[]
 }
 
 const MemberCell: React.FC<IMemberCell> = ({ date, vacations }) => {
   const vacationElement = useCalucateWidth<Date, HTMLDivElement>(date)
-  const isPaid = getTypeVacation(vacations, date, VacationType.PAID)
-  const isUnPaid = getTypeVacation(vacations, date, VacationType.UN_PAID)
+  const isPaid = getTypeVacation(vacations, date, VacationTypes.PAID)
+  const isUnPaid = getTypeVacation(vacations, date, VacationTypes.UN_PAID)
   const isStartDay = isFirstDay(vacations, date)
   const isEndDay = isLastDay(vacations, date)
 
-  const currentStartVacation: IVacation | undefined = vacations.find(({ startDate }) => {
+  const currentStartVacation: Vacation | undefined = vacations.find(({ startDate }) => {
     return isEqualDate(date, startDate.split('-'))
   })
   const countDayInVacation =

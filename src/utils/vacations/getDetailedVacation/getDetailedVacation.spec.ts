@@ -1,10 +1,10 @@
 import { getDetailedVacation } from './'
 
-import { IVacation, VacationType } from '../../../types/model/vacation'
+import { Vacation, VacationTypes } from '../../../types/model/vacation'
 
 describe('utils/getDetailedVacation', () => {
   it('get standard response', () => {
-    const vacationStub: IVacation = { startDate: '2021-03-25', endDate: '2021-04-30', type: VacationType.PAID }
+    const vacationStub: Vacation = { startDate: '2021-03-25', endDate: '2021-04-30', type: VacationTypes.PAID }
     const answer = {
       startDay: 25,
       endDay: 30,
