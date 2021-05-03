@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarNavigation render default render 1`] = `
+<Memo(CalendarNavigation)
+  date={2021-04-21T00:00:00.000Z}
+  onChangeMonth={[Function]}
+>
+  <div
+    className="calendarNavigation"
+  >
+    <button
+      className="calendarNavigation__btn calendarNavigation__btn_prevMonth"
+      onClick={[Function]}
+    />
+    <div
+      className="calendarNavigation__currentDate"
+    >
+      April 2021
+    </div>
+    <button
+      className="calendarNavigation__btn calendarNavigation__btn_nextMonth"
+      onClick={[Function]}
+    />
+  </div>
+</Memo(CalendarNavigation)>
+`;
+
+exports[`CalendarNavigation render other date render 1`] = `
+<Memo(CalendarNavigation)
+  date={2021-06-21T00:00:00.000Z}
+  onChangeMonth={[MockFunction]}
+>
+  <div
+    className="calendarNavigation"
+  >
+    <button
+      className="calendarNavigation__btn calendarNavigation__btn_prevMonth"
+      onClick={[Function]}
+    />
+    <div
+      className="calendarNavigation__currentDate"
+    >
+      June 2021
+    </div>
+    <button
+      className="calendarNavigation__btn calendarNavigation__btn_nextMonth"
+      onClick={[Function]}
+    />
+  </div>
+</Memo(CalendarNavigation)>
+`;

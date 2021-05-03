@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormTeamsSelect render default render 1`] = `
+<Memo(FormItem)
+  classNames={Array []}
+  title="Teams"
+>
+  <Memo(Select)
+    name="teams"
+    onChange={[MockFunction]}
+    value=""
+  >
+    <Memo(Option)
+      key="asdksadowkd"
+      title="Frontend Team"
+      value="asdksadowkd"
+    />
+    <Memo(Option)
+      key="owkdowr"
+      title="Backend Team"
+      value="owkdowr"
+    />
+    <Memo(Option)
+      key="skfdgkgjgkdjg"
+      title="QA Team"
+      value="skfdgkgjgkdjg"
+    />
+    <Memo(Option)
+      key="wdwfetrrrt"
+      title="Manager Team"
+      value="wdwfetrrrt"
+    />
+    <Memo(Option)
+      key="xncmxnmv"
+      title="Design Team"
+      value="xncmxnmv"
+    />
+  </Memo(Select)>
+</Memo(FormItem)>
+`;

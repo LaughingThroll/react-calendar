@@ -1,0 +1,10 @@
+@import 'styles/utils/variables';
+
+.users {
+  display: flex;
+  color: $users-count;
+
+  &__count {
+    margin-left: 3px;
+  }
+}

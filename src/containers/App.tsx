@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 
 import { Button } from '../components/common'
-import Navigation from '../components/CalendarNavigation'
+import { CalendarNavigation, Summary, CalendarModal } from '../components'
+
 import CalendarHeader from '../components/CalendarHeader/CalendarHeader'
 import TeamComponent from '../components/Team/Team'
 import CalendarFooter from '../components/CalendarFooter/CalendarFooter'
-import Summary from '../components/Summary'
-import CalendarModal from '../components/CalendarModal'
 
 import { useToggle, useAsync } from '../hooks'
 
@@ -53,7 +52,7 @@ const App = () => {
   return (
     <>
       <div className="container">
-        <Navigation date={date} onChangeMonth={handleOnChangeMonth} />
+        <CalendarNavigation date={date} onChangeMonth={handleOnChangeMonth} classNames={['calendarNavigation']} />
         <table className="calendar-table">
           <CalendarHeader date={date}>
             <Button iconPlus onClick={calendarModal.toggleOpen}>
@@ -68,7 +67,7 @@ const App = () => {
           </tbody>
           <CalendarFooter date={date} teams={teams} />
         </table>
-        <Summary date={date} countUsers={countUsers} percent={percent} />
+        <Summary date={date} countUsers={countUsers} percent={percent} classNames={['calendar__summary']} />
       </div>
 
       <CalendarModal

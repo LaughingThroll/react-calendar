@@ -1,7 +1,7 @@
 import { Team } from '../types/model/team'
 import { VacationTypes } from '../types/model/vacation'
 
-export const teams: Team[] = [
+export const normalTeams: Team[] = [
   {
     id: 'asdksadowkd',
     members: [

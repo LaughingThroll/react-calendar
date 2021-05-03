@@ -3,19 +3,12 @@ import styles from './modalBody.module.scss'
 
 interface ModalBodyProps {
   children?: any
+  classNames?: string[]
 }
-const { modalBody, modalBody__item } = styles
+const { modalBody } = styles
 
-const ModalBody: React.FC<ModalBodyProps> = ({ children }) => {
-  return (
-    <form className={modalBody}>
-      {React.Children.map(children, (child, i) => (
-        <div key={i} className={modalBody__item}>
-          {child}
-        </div>
-      ))}
-    </form>
-  )
+const ModalBody: React.FC<ModalBodyProps> = ({ children, classNames = [] }) => {
+  return <div className={[modalBody, ...classNames].join(' ')}>{children}</div>
 }
 
 export default React.memo(ModalBody)

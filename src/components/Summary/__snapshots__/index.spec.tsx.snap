@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Summary render default render 1`] = `
+<div
+  className="summary"
+>
+  <div
+    className="summary__title"
+  >
+    April
+     teams Summary
+  </div>
+  <div
+    className="summary__inner"
+  >
+    <div
+      className="summary__text"
+    >
+      On vacation
+    </div>
+    <Memo(UsersComponent)
+      classNames={
+        Array [
+          "summary__users",
+        ]
+      }
+      countUsers={10}
+    />
+    <Memo(WeekendPercentsComponent)
+      classNames={
+        Array [
+          "summary__weekendPercent",
+        ]
+      }
+      percent={5}
+    />
+  </div>
+</div>
+`;

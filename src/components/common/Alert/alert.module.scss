@@ -1,0 +1,62 @@
+@import 'styles/utils/variables';
+
+.alertWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.alert {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 350px;
+  width: 100%;
+  background-color: $alert-bg;
+  border-radius: 4px;
+  padding: 20px 30px;
+  border: 1px solid $alert-border;
+  z-index: 10;
+  &__message {
+    max-width: 300px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.5em;
+    line-height: 1.3em;
+    &_error {
+      color: $alert-message-error;
+    }
+    &_success {
+      color: $alert-message-success;
+    }
+    &_warning {
+      color: $alert-message-warning;
+    }
+  }
+  &__button {
+    margin: 0 auto;
+
+    &_error {
+      background-color: $alert-message-error;
+      &:hover {
+        background-color: darken($alert-message-error, 10);
+      }
+    }
+    &_success {
+      background-color: $alert-message-success;
+      &:hover {
+        background-color: darken($alert-message-success, 10);
+      }
+    }
+    &_warning {
+      background-color: $alert-message-warning;
+      &:hover {
+        background-color: darken($alert-message-warning, 10);
+      }
+    }
+  }
+}
