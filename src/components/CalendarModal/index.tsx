@@ -38,6 +38,8 @@ const CalendarModal: React.FC<CalendarModalProps> = ({ teams, isOpen, onClose, o
   const membersSelect = useSelect('')
   const typesSelect = useSelect(VacationTypes.UN_PAID)
 
+  const [currentVacations, setCurrentVacations] = useState<Vacation[] | undefined>(undefined)
+
   useEffect(() => {
     setIsDisabled(!isValidDays)
   }, [isValidDays])
@@ -54,6 +56,10 @@ const CalendarModal: React.FC<CalendarModalProps> = ({ teams, isOpen, onClose, o
       membersSelect.setValue(defaultMemberID)
     }
   }, [teams, teamsSelect, membersSelect])
+
+  useEffect(() => {
+    setCurrentVacations(getMemberVacations(teams, membersSelect.value))
+  }, [teams, membersSelect.value])
 
   // It's bad fn need rebuild
   const handleOnSubmit = () => {
@@ -72,8 +78,6 @@ const CalendarModal: React.FC<CalendarModalProps> = ({ teams, isOpen, onClose, o
       currentMemberID: membersSelect.value,
       ...currentVacation,
     }
-
-    let currentVacations = getMemberVacations(teams, membersSelect.value)
 
     if (!currentVacations) {
       return setErrorMessage(ErrorsMessage.MEMBER_IS_UNDEFINED)

@@ -1,5 +1,6 @@
 import React from 'react'
 import MemberCell from './MemberCell'
+import { CellSumm } from './../common'
 
 import { getAllDaysInMonth } from '../../utils/date'
 import { getSumVacationsDaysByMonth, getSplitVacations } from '../../utils/vacations'
@@ -25,7 +26,8 @@ const MemberComponent: React.FC<ITeamMember> = ({ date, theme, name, vacations }
       {allDays.map((date, index) => (
         <MemberCell key={index} date={date} vacations={newVacations} />
       ))}
-      <td className="calendar-body__cell cell-gray cell-summ">{summVacationsInMonth}</td>
+
+      <CellSumm classNames={['calendar-body__cell']}>{summVacationsInMonth}</CellSumm>
     </tr>
   )
 }

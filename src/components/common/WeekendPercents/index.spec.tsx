@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme'
-import WeekendPercentsComponent, { WeekendPercents } from './'
+import WeekendPercents, { WeekendPercentsProps } from './'
 
-const setUp = (props: WeekendPercents) => shallow(<WeekendPercentsComponent {...props} />)
+const setUp = (props: WeekendPercentsProps) => shallow(<WeekendPercents {...props} />)
 
 describe('WeekendPercents render', () => {
   it('default render', () => {

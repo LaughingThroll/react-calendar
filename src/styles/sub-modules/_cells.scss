@@ -63,13 +63,3 @@ $vac-padding: 2px;
     transform: translateX(0);
   }
 }
-
-.cell-gray {
-  background-color: $weekend;
-}
-
-.cell-summ {
-  @extend %font-bold;
-
-  text-align: center;
-}

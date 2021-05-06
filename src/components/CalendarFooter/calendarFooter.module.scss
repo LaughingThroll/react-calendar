@@ -1,4 +1,6 @@
-.calendar-footer {
+@import 'styles/utils/variables';
+
+.calendarFooter {
   &__cell {
     border-bottom: 0 !important;
     background-color: $concrete;

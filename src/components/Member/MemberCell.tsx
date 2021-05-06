@@ -1,8 +1,10 @@
 import React from 'react'
 import classnames from 'classnames'
 
+import { Cell } from './../common'
+
 import { useCalucateWidth } from '../../hooks'
-import { isWeekend, isEqualDate, getCountDays } from '../../utils/date'
+import { isEqualDate, getCountDays } from '../../utils/date'
 import { getTypeVacation, isFirstDay, isLastDay } from '../../utils/vacations'
 import { VacationTypes, Vacation } from '../../types/model/vacation'
 
@@ -25,12 +27,7 @@ const MemberCell: React.FC<IMemberCell> = ({ date, vacations }) => {
     currentStartVacation && getCountDays(currentStartVacation.startDate, currentStartVacation.endDate) + 1
 
   return (
-    <td
-      className={classnames({
-        'calendar-body__cell': true,
-        'cell-gray': isWeekend(date),
-      })}
-    >
+    <Cell cellDate={date} classNames={['calendar-body__cell']}>
       {(isUnPaid || isPaid) && (
         <div
           ref={vacationElement.elementRef}
@@ -51,7 +48,7 @@ const MemberCell: React.FC<IMemberCell> = ({ date, vacations }) => {
           )}
         </div>
       )}
-    </td>
+    </Cell>
   )
 }
 

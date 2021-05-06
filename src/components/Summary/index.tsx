@@ -1,5 +1,5 @@
 import React from 'react'
-import { Users, WeekendPercents } from '../../components/common'
+import { CountUsers, WeekendPercents } from '../../components/common'
 import styles from './summary.module.scss'
 
 export interface Summary {
@@ -17,7 +17,7 @@ const SummaryComponent: React.FC<Summary> = ({ date, countUsers, percent, classN
       <div className={summary__title}>{date.toLocaleDateString('en-US', { month: 'long' })} teams Summary</div>
       <div className={summary__inner}>
         <div className={summary__text}>On vacation</div>
-        <Users countUsers={countUsers} classNames={[summary__users]} />
+        <CountUsers countUsers={countUsers} classNames={[summary__users]} />
         <WeekendPercents percent={percent} classNames={[summary__weekendPercent]} />
       </div>
     </div>

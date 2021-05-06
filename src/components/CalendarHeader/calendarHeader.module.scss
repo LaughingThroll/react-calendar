@@ -1,4 +1,6 @@
-.calendar-header {
+@import 'styles/utils/mixin';
+
+.calendarHeader {
   &__cell {
     &:first-child {
       border-top: 0;
@@ -8,6 +10,10 @@
     }
 
     &:not(:first-child) {
+      & span:first-child {
+        font-weight: 400;
+      }
+
       & > * {
         display: block;
       }

@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react'
 
 import { Button } from '../components/common'
-import { CalendarNavigation, Summary, CalendarModal } from '../components'
+import { CalendarNavigation, Summary, CalendarModal, CalendarHeader, CalendarFooter } from '../components'
 
-import CalendarHeader from '../components/CalendarHeader/CalendarHeader'
 import TeamComponent from '../components/Team/Team'
-import CalendarFooter from '../components/CalendarFooter/CalendarFooter'
 
 import { useToggle, useAsync } from '../hooks'
 
@@ -65,7 +63,7 @@ const App = () => {
               <TeamComponent key={team.id} team={team} date={date} themeIndex={index} />
             ))}
           </tbody>
-          <CalendarFooter date={date} teams={teams} />
+          <CalendarFooter date={date} teams={teams} classNames={['calendar-table--indentation']} />
         </table>
         <Summary date={date} countUsers={countUsers} percent={percent} classNames={['calendar__summary']} />
       </div>

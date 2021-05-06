@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme'
-import UsersComponent, { Users } from './'
+import CountUsers, { CountUsersProps } from '.'
 
-const setUp = (props: Users) => shallow(<UsersComponent {...props} />)
+const setUp = (props: CountUsersProps) => shallow(<CountUsers {...props} />)
 
 describe('Users render', () => {
   it('default render', () => {
