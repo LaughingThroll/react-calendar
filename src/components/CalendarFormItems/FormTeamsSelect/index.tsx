@@ -12,13 +12,10 @@ export interface FormTeamsSelectProps {
 }
 
 const FormTeamsSelect: React.FC<FormTeamsSelectProps> = ({ teams, select, classNames = [] }) => {
-  console.log('Teams in select', teams)
-
   return (
     <FormItem title="Teams" classNames={classNames}>
       <Select value={select.value} onChange={select.changeValue} name="teams">
         {teams.map(({ name, id }) => {
-          console.log('Select Team', id)
           return <Option key={id} title={name} value={id} />
         })}
       </Select>
