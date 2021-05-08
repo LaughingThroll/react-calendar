@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Users render default render 1`] = `
+<div
+  className="users"
+>
+  <img
+    alt=""
+    className="users__svg"
+    src="users.svg"
+  />
+  <span
+    className="users__count"
+  >
+    10
+  </span>
+</div>
+`;

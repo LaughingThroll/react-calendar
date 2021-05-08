@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 
 import { Button } from '../components/common'
-import Navigation from '../components/CalendarNavigation'
-import CalendarHeader from '../components/CalendarHeader/CalendarHeader'
-import TeamComponent from '../components/Team/Team'
-import CalendarFooter from '../components/CalendarFooter/CalendarFooter'
-import Summary from '../components/Summary'
-import CalendarModal from '../components/CalendarModal'
+import {
+  CalendarNavigation,
+  Summary,
+  CalendarModal,
+  CalendarHeader,
+  CalendarFooter,
+  Team as TeamComponent,
+} from '../components'
 
 import { useToggle, useAsync } from '../hooks'
 
@@ -53,7 +55,7 @@ const App = () => {
   return (
     <>
       <div className="container">
-        <Navigation date={date} onChangeMonth={handleOnChangeMonth} />
+        <CalendarNavigation date={date} onChangeMonth={handleOnChangeMonth} classNames={['calendarNavigation']} />
         <table className="calendar-table">
           <CalendarHeader date={date}>
             <Button iconPlus onClick={calendarModal.toggleOpen}>
@@ -63,12 +65,18 @@ const App = () => {
 
           <tbody className="calendar-body">
             {teams.map((team, index) => (
-              <TeamComponent key={team.id} team={team} date={date} themeIndex={index} />
+              <TeamComponent
+                key={team.id}
+                team={team}
+                date={date}
+                themeIndex={index}
+                classNames={['calendar-table--indentation']}
+              />
             ))}
           </tbody>
-          <CalendarFooter date={date} teams={teams} />
+          <CalendarFooter date={date} teams={teams} classNames={['calendar-table--indentation']} />
         </table>
-        <Summary date={date} countUsers={countUsers} percent={percent} />
+        <Summary date={date} countUsers={countUsers} percent={percent} classNames={['calendar__summary']} />
       </div>
 
       <CalendarModal

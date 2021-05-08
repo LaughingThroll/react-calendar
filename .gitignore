@@ -6,6 +6,7 @@
 .pnp.js
 .jshintrc
 .jshintignore
+.vscode
 # testing
 /coverage
 # production

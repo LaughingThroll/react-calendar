@@ -1,0 +1,1360 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Member render default 1`] = `
+<tr
+  className="calendar-body__row  undefined"
+>
+  <td
+    className="member calendar-body__cell"
+  >
+    <span
+      className="member__name"
+    >
+      Member
+    </span>
+  </td>
+  <Memo(MemberCell)
+    date={2021-07-31T21:00:00.000Z}
+    key="0"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-01T21:00:00.000Z}
+    key="1"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-02T21:00:00.000Z}
+    key="2"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-03T21:00:00.000Z}
+    key="3"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-04T21:00:00.000Z}
+    key="4"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-05T21:00:00.000Z}
+    key="5"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-06T21:00:00.000Z}
+    key="6"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-07T21:00:00.000Z}
+    key="7"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-08T21:00:00.000Z}
+    key="8"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-09T21:00:00.000Z}
+    key="9"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-10T21:00:00.000Z}
+    key="10"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-11T21:00:00.000Z}
+    key="11"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-12T21:00:00.000Z}
+    key="12"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-13T21:00:00.000Z}
+    key="13"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-14T21:00:00.000Z}
+    key="14"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-15T21:00:00.000Z}
+    key="15"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-16T21:00:00.000Z}
+    key="16"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-17T21:00:00.000Z}
+    key="17"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-18T21:00:00.000Z}
+    key="18"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-19T21:00:00.000Z}
+    key="19"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-20T21:00:00.000Z}
+    key="20"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-21T21:00:00.000Z}
+    key="21"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-22T21:00:00.000Z}
+    key="22"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-23T21:00:00.000Z}
+    key="23"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-24T21:00:00.000Z}
+    key="24"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-25T21:00:00.000Z}
+    key="25"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-26T21:00:00.000Z}
+    key="26"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-27T21:00:00.000Z}
+    key="27"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-28T21:00:00.000Z}
+    key="28"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-29T21:00:00.000Z}
+    key="29"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberCell)
+    date={2021-08-30T21:00:00.000Z}
+    key="30"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-31",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-02-01",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-31",
+          "startDate": "2021-02-22",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-22",
+          "startDate": "2021-03-01",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-03-28",
+          "startDate": "2021-03-25",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(CellSumm)
+    classNames={
+      Array [
+        "calendar-body__cell",
+        "cell-gray",
+      ]
+    }
+  >
+    0
+  </Memo(CellSumm)>
+</tr>
+`;

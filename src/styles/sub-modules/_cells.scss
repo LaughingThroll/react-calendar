@@ -67,9 +67,3 @@ $vac-padding: 2px;
 .cell-gray {
   background-color: $weekend;
 }
-
-.cell-summ {
-  @extend %font-bold;
-
-  text-align: center;
-}

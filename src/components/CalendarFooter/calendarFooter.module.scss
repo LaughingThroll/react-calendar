@@ -1,0 +1,15 @@
+@import 'styles/utils/variables';
+
+.calendarFooter {
+  &__cell {
+    border-bottom: 0 !important;
+    background-color: $concrete;
+    &::before {
+      display: none;
+    }
+
+    &:first-child {
+      padding: 7px 5px 7px 19px;
+    }
+  }
+}

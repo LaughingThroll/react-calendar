@@ -1,6 +1,7 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import classnames from 'classnames'
 import styles from './button.module.scss'
+import { TChildren } from '../../../types/utilsTypes'
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   type?: 'button' | 'submit' | 'reset'
@@ -9,7 +10,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   iconPlus?: boolean
   disabled?: boolean
   onClick?: (...args: any) => any
-  children?: string | ReactElement
+  children?: TChildren
 }
 
 const Button: React.FC<ButtonProps> = ({

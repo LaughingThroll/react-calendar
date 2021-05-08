@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarModalFooter render default render 1`] = `
+<Memo(ModalFooter)
+  className={Array []}
+>
+  <Memo(Button)
+    onClick={[MockFunction]}
+    secondary={true}
+  >
+    Cancel
+  </Memo(Button)>
+  <Memo(Button)
+    disabled={false}
+    onClick={[MockFunction]}
+    type="submit"
+  >
+    Send
+  </Memo(Button)>
+</Memo(ModalFooter)>
+`;

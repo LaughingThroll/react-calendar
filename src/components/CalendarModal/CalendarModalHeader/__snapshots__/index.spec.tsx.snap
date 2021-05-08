@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarModalHeader render default render 1`] = `
+<Memo(ModalHeader)
+  className={
+    Array [
+      "calendarModalHeader",
+    ]
+  }
+>
+  <h4
+    className="calendarModalHeader__title"
+  >
+    Vacation Request
+  </h4>
+  <div
+    className="calendarModalHeader__days"
+  >
+     
+    7
+     Days
+  </div>
+</Memo(ModalHeader)>
+`;
+
+exports[`CalendarModalHeader render invalid render 1`] = `
+<Memo(ModalHeader)
+  className={
+    Array [
+      "calendarModalHeader",
+    ]
+  }
+>
+  <h4
+    className="calendarModalHeader__title"
+  >
+    Vacation Request
+  </h4>
+  <div
+    className="calendarModalHeader__days"
+  >
+     
+    Is Not Valid
+     Days
+  </div>
+</Memo(ModalHeader)>
+`;
