@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TeamInfo render default 1`] = `
+<div
+  className="teamInfo"
+>
+  <span
+    className="teamInfo__name"
+  >
+    Team
+  </span>
+  <div
+    className="teamInfo__other"
+  >
+    <Memo(CountUsers)
+      classNames={
+        Array [
+          "teamInfo__countUsers",
+        ]
+      }
+      countUsers={4}
+    />
+    <Memo(WeekendPercents)
+      classNames={
+        Array [
+          "teamInfo__weekendPercent",
+        ]
+      }
+      percent={2}
+    />
+    <button
+      className="button-arrow-up"
+    />
+  </div>
+</div>
+`;

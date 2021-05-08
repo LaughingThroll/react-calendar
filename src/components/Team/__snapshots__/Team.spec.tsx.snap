@@ -1,0 +1,530 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Team render default 1`] = `
+<Fragment>
+  <tr
+    className="
+        calendar-body__row  
+        melrose-theme 
+        melrose-theme--background 
+         "
+  >
+    <td
+      className="team"
+    >
+      <Memo(TeamInfo)
+        date={2021-08-05T00:00:00.000Z}
+        id="asdksadowkd"
+        isOpen={true}
+        members={
+          Array [
+            Object {
+              "id": "asdffegegege",
+              "name": "Eric Meyer",
+              "vacations": Array [
+                Object {
+                  "endDate": "2021-02-15",
+                  "startDate": "2021-02-12",
+                  "type": "Paid",
+                },
+                Object {
+                  "endDate": "2021-04-29",
+                  "startDate": "2021-04-23",
+                  "type": "UnPaid",
+                },
+                Object {
+                  "endDate": "2021-04-21",
+                  "startDate": "2021-04-14",
+                  "type": "UnPaid",
+                },
+                Object {
+                  "endDate": "2021-04-08",
+                  "startDate": "2021-04-01",
+                  "type": "Paid",
+                },
+              ],
+            },
+            Object {
+              "id": "fllfhllkjj",
+              "name": "Chris Coyier",
+              "vacations": Array [
+                Object {
+                  "endDate": "2021-02-19",
+                  "startDate": "2021-01-19",
+                  "type": "Paid",
+                },
+                Object {
+                  "endDate": "2021-02-22",
+                  "startDate": "2021-02-20",
+                  "type": "UnPaid",
+                },
+                Object {
+                  "endDate": "2021-04-28",
+                  "startDate": "2021-04-18",
+                  "type": "UnPaid",
+                },
+                Object {
+                  "endDate": "2021-04-01",
+                  "startDate": "2021-03-29",
+                  "type": "Paid",
+                },
+              ],
+            },
+            Object {
+              "id": "sdaasdwdd",
+              "name": "Jack London",
+              "vacations": Array [
+                Object {
+                  "endDate": "2021-02-01",
+                  "startDate": "2021-01-28",
+                  "type": "Paid",
+                },
+                Object {
+                  "endDate": "2021-01-18",
+                  "startDate": "2021-01-15",
+                  "type": "Paid",
+                },
+              ],
+            },
+            Object {
+              "id": "wdwrtettete",
+              "name": "Paul Irish",
+              "vacations": Array [
+                Object {
+                  "endDate": "2021-02-22",
+                  "startDate": "2021-02-20",
+                  "type": "Paid",
+                },
+                Object {
+                  "endDate": "2021-03-25",
+                  "startDate": "2021-02-25",
+                  "type": "Paid",
+                },
+                Object {
+                  "endDate": "2021-04-28",
+                  "startDate": "2021-04-18",
+                  "type": "Paid",
+                },
+              ],
+            },
+          ]
+        }
+        name="Frontend Team"
+        percentageOfAbsent={
+          Array [
+            0,
+            2,
+            0,
+            0,
+            1,
+            22,
+            2,
+            2,
+            2,
+            2,
+            11,
+            1,
+          ]
+        }
+        toggleOpen={[Function]}
+      />
+    </td>
+    <Memo(Cell)
+      cellDate={2021-07-31T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="0"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-01T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="1"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-02T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="2"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-03T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="3"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-04T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="4"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-05T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="5"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-06T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="6"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-07T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="7"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-08T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="8"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-09T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="9"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-10T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="10"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-11T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="11"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-12T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="12"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-13T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="13"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-14T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="14"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-15T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="15"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-16T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="16"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-17T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="17"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-18T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="18"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-19T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="19"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-20T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="20"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-21T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="21"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-22T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="22"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-23T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="23"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-24T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="24"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-25T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="25"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-26T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="26"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-27T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="27"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-28T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="28"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-29T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="29"
+    />
+    <Memo(Cell)
+      cellDate={2021-08-30T21:00:00.000Z}
+      classNames={
+        Array [
+          "calendar-body__cell",
+        ]
+      }
+      key="30"
+    />
+    <Memo(Cell)
+      classNames={
+        Array [
+          "calendar-body__cell",
+          "cell-gray",
+        ]
+      }
+    />
+  </tr>
+  <Memo(MemberComponent)
+    date={2021-08-05T00:00:00.000Z}
+    id="asdffegegege"
+    key="asdffegegege"
+    name="Eric Meyer"
+    theme="melrose-theme"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-02-15",
+          "startDate": "2021-02-12",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-04-29",
+          "startDate": "2021-04-23",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-04-21",
+          "startDate": "2021-04-14",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-04-08",
+          "startDate": "2021-04-01",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberComponent)
+    date={2021-08-05T00:00:00.000Z}
+    id="fllfhllkjj"
+    key="fllfhllkjj"
+    name="Chris Coyier"
+    theme="melrose-theme"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-02-19",
+          "startDate": "2021-01-19",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-02-22",
+          "startDate": "2021-02-20",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-04-28",
+          "startDate": "2021-04-18",
+          "type": "UnPaid",
+        },
+        Object {
+          "endDate": "2021-04-01",
+          "startDate": "2021-03-29",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberComponent)
+    date={2021-08-05T00:00:00.000Z}
+    id="sdaasdwdd"
+    key="sdaasdwdd"
+    name="Jack London"
+    theme="melrose-theme"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-02-01",
+          "startDate": "2021-01-28",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-01-18",
+          "startDate": "2021-01-15",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+  <Memo(MemberComponent)
+    date={2021-08-05T00:00:00.000Z}
+    id="wdwrtettete"
+    key="wdwrtettete"
+    name="Paul Irish"
+    theme="melrose-theme"
+    vacations={
+      Array [
+        Object {
+          "endDate": "2021-02-22",
+          "startDate": "2021-02-20",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-03-25",
+          "startDate": "2021-02-25",
+          "type": "Paid",
+        },
+        Object {
+          "endDate": "2021-04-28",
+          "startDate": "2021-04-18",
+          "type": "Paid",
+        },
+      ]
+    }
+  />
+</Fragment>
+`;

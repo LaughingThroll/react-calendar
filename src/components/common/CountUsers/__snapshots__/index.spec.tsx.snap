@@ -7,7 +7,7 @@ exports[`Users render default render 1`] = `
   <img
     alt=""
     className="users__svg"
-    src="./../../../assets/users.svg"
+    src="users.svg"
   />
   <span
     className="users__count"

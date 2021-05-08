@@ -1,19 +1,19 @@
 import React from 'react'
 import classnames from 'classnames'
 
-import { Cell } from './../common'
+import { Cell } from '../../common'
 
-import { useCalucateWidth } from '../../hooks'
-import { isEqualDate, getCountDays } from '../../utils/date'
-import { getTypeVacation, isFirstDay, isLastDay } from '../../utils/vacations'
-import { VacationTypes, Vacation } from '../../types/model/vacation'
+import { useCalucateWidth } from '../../../hooks'
+import { isEqualDate, getCountDays } from '../../../utils/date'
+import { getTypeVacation, isFirstDay, isLastDay } from '../../../utils/vacations'
+import { VacationTypes, Vacation } from '../../../types/model/vacation'
 
-interface IMemberCell {
+export interface MemberCellProps {
   date: Date
   vacations: Vacation[]
 }
 
-const MemberCell: React.FC<IMemberCell> = ({ date, vacations }) => {
+const MemberCell: React.FC<MemberCellProps> = ({ date, vacations }) => {
   const vacationElement = useCalucateWidth<Date, HTMLDivElement>(date)
   const isPaid = getTypeVacation(vacations, date, VacationTypes.PAID)
   const isUnPaid = getTypeVacation(vacations, date, VacationTypes.UN_PAID)

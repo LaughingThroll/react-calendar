@@ -1,18 +1,20 @@
 import React from 'react'
+import './member.scss'
+
 import MemberCell from './MemberCell'
-import { CellSumm } from './../common'
+import { CellSumm } from '../common'
 
 import { getAllDaysInMonth } from '../../utils/date'
 import { getSumVacationsDaysByMonth, getSplitVacations } from '../../utils/vacations'
 
 import { Member } from '../../types/model/member'
 
-interface ITeamMember extends Member {
+export interface MemberProps extends Member {
   date: Date
   theme?: string
 }
 
-const MemberComponent: React.FC<ITeamMember> = ({ date, theme, name, vacations }) => {
+const MemberComponent: React.FC<MemberProps> = ({ date, theme, name, vacations }) => {
   const allDays = getAllDaysInMonth(date)
   const newVacations = getSplitVacations(vacations, allDays.length)
 
@@ -27,7 +29,7 @@ const MemberComponent: React.FC<ITeamMember> = ({ date, theme, name, vacations }
         <MemberCell key={index} date={date} vacations={newVacations} />
       ))}
 
-      <CellSumm classNames={['calendar-body__cell']}>{summVacationsInMonth}</CellSumm>
+      <CellSumm classNames={['calendar-body__cell', 'cell-gray']}>{summVacationsInMonth}</CellSumm>
     </tr>
   )
 }

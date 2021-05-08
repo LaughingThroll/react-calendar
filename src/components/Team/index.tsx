@@ -1,9 +1,11 @@
 import React from 'react'
 import classnames from 'classnames'
 
+import './team.scss'
+
 import { Cell } from '../common'
 import TeamInfo from './TeamInfo'
-import Member from '../Member/Member'
+import Member from '../Member'
 
 import { useToggle } from '../../hooks'
 
@@ -27,11 +29,10 @@ const TeamComponent: React.FC<TeamProps> = ({ team, date, themeIndex = 0, classN
     <>
       <tr
         className={`
-        calendar-body__row 
-        calendar-table--indentation 
+        calendar-body__row  
         ${mainTheme} 
         ${THEMES[themeIndex % THEMES.length][1]} 
-        ${classnames({ 'calendar-table--closed': !isOpen })} `}
+        ${classnames({ 'calendar-table--closed': !isOpen })} ${[...classNames].join(' ')}`}
       >
         <td className="team">
           <TeamInfo date={date} {...team} isOpen={isOpen} toggleOpen={toggleOpen} />
@@ -40,7 +41,7 @@ const TeamComponent: React.FC<TeamProps> = ({ team, date, themeIndex = 0, classN
           <Cell key={index} cellDate={date} classNames={['calendar-body__cell']}></Cell>
         ))}
 
-        <td className="calendar-body__cell cell-gray"></td>
+        <Cell classNames={['calendar-body__cell', 'cell-gray']}></Cell>
       </tr>
 
       {isOpen && team.members.map((member) => <Member key={member.id} date={date} theme={mainTheme} {...member} />)}

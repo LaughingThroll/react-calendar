@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react'
 
 import { Button } from '../components/common'
-import { CalendarNavigation, Summary, CalendarModal, CalendarHeader, CalendarFooter } from '../components'
-
-import TeamComponent from '../components/Team/Team'
+import {
+  CalendarNavigation,
+  Summary,
+  CalendarModal,
+  CalendarHeader,
+  CalendarFooter,
+  Team as TeamComponent,
+} from '../components'
 
 import { useToggle, useAsync } from '../hooks'
 
@@ -60,7 +65,13 @@ const App = () => {
 
           <tbody className="calendar-body">
             {teams.map((team, index) => (
-              <TeamComponent key={team.id} team={team} date={date} themeIndex={index} />
+              <TeamComponent
+                key={team.id}
+                team={team}
+                date={date}
+                themeIndex={index}
+                classNames={['calendar-table--indentation']}
+              />
             ))}
           </tbody>
           <CalendarFooter date={date} teams={teams} classNames={['calendar-table--indentation']} />
