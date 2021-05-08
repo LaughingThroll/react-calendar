@@ -28,6 +28,7 @@ export interface CalendarModalProps {
 }
 
 const CalendarModal: React.FC<CalendarModalProps> = ({ teams, isOpen, onClose, onSubmit }) => {
+  console.log('Team', teams)
   const startDate = useInput(getFutureOrPastDate(0))
   const endDate = useInput(getFutureOrPastDate(7))
   const [isDisabled, setIsDisabled] = useState(false)
@@ -49,11 +50,12 @@ const CalendarModal: React.FC<CalendarModalProps> = ({ teams, isOpen, onClose, o
     const currentTeam = findByID(teams, teamsSelect.value)
     const defaultTeamID = currentTeam?.id || teams[0]?.id
     teamsSelect.setValue(defaultTeamID)
-
+    console.log('TeamSelectValue', teamsSelect.value)
     const currentMember = currentTeam && findByID(currentTeam.members, membersSelect.value)
     if (currentTeam) {
       const defaultMemberID = currentMember?.id || currentTeam?.members[0]?.id
       membersSelect.setValue(defaultMemberID)
+      console.log('MemberSelectValue', membersSelect.value)
     }
   }, [teams, teamsSelect, membersSelect])
 

@@ -293,6 +293,7 @@ exports[`CalendarHeader render default render 1`] = `
       classNames={
         Array [
           "calendarHeader__cell",
+          "cell-gray",
         ]
       }
     >
