@@ -23,7 +23,7 @@ const CalendarHeader: React.FC<CalendarHeaderProps> = ({ date, children, classNa
         {getAllDaysInMonth(date).map((date, index) => (
           <CalendarHeaderCell key={index} cellDate={date} classNames={[calendarHeader__cell]} />
         ))}
-        <CellSumm classNames={[calendarHeader__cell]}>Sum </CellSumm>
+        <CellSumm classNames={[calendarHeader__cell, 'cell-gray']}>Sum </CellSumm>
       </tr>
     </thead>
   )
