@@ -1,0 +1,12 @@
+@import 'styles/utils/variables';
+@import 'styles/utils/mixin';
+
+.cellGray {
+  background-color: $weekend;
+}
+
+.cellSumm {
+  @extend %font-bold;
+
+  text-align: center;
+}

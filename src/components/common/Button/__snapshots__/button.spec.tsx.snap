@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component initial render button without props 1`] = `
+<button
+  className="button button_primary "
+  type="button"
+/>
+`;

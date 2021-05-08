@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert render default render 1`] = `
+<div
+  className="alertWrapper"
+>
+  <div
+    className="alert"
+  >
+    <p
+      className="alert__message"
+    >
+      alert
+    </p>
+    <Memo(Button)
+      classNames={
+        Array [
+          "alert__button",
+        ]
+      }
+      onClick={[MockFunction]}
+    >
+      Okey
+    </Memo(Button)>
+  </div>
+</div>
+`;
+
+exports[`Alert render default render with message compnent 1`] = `
+<div
+  class="alertWrapper"
+>
+  <div
+    class="alert"
+  >
+    <p
+      class="alert__message"
+    />
+    <div>
+      Some Text
+    </div>
+    <p />
+    <button
+      class="button button_primary alert__button"
+      type="button"
+    >
+      Okey
+    </button>
+  </div>
+</div>
+`;

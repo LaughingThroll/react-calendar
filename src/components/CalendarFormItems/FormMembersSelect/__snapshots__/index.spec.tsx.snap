@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormMembersSelect render correct id default render 1`] = `
+<Memo(FormItem)
+  classNames={Array []}
+  title="User"
+>
+  <Memo(Select)
+    name="members"
+    onChange={[MockFunction]}
+    value=""
+  >
+    <Memo(Option)
+      key="asdffegegege"
+      title="Eric Meyer"
+      value="asdffegegege"
+    />
+    <Memo(Option)
+      key="fllfhllkjj"
+      title="Chris Coyier"
+      value="fllfhllkjj"
+    />
+    <Memo(Option)
+      key="sdaasdwdd"
+      title="Jack London"
+      value="sdaasdwdd"
+    />
+    <Memo(Option)
+      key="wdwrtettete"
+      title="Paul Irish"
+      value="wdwrtettete"
+    />
+  </Memo(Select)>
+</Memo(FormItem)>
+`;
+
+exports[`FormMembersSelect render incorrect id default render 1`] = `
+<Memo(FormItem)
+  classNames={Array []}
+  title="User"
+>
+  <Memo(Select)
+    name="members"
+    onChange={[MockFunction]}
+    value=""
+  />
+</Memo(FormItem)>
+`;

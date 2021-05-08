@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Option render default render 1`] = `
+<option
+  className="select__option"
+>
+  Option
+</option>
+`;

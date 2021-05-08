@@ -1,0 +1,48 @@
+@import 'styles/utils/variables';
+@import 'styles/utils/mixin';
+
+.button {
+  @extend %font-bold;
+
+  padding: 10px;
+  min-width: 144px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color $fast linear, color $fast linear;
+
+  &_primary {
+    background-color: $button--primary;
+    color: $white;
+    &:hover {
+      background-color: darken($color: $button--primary, $amount: 5);
+    }
+  }
+
+  &_secondary {
+    border: 1px solid $button--secondary-border;
+    color: $scorpion;
+    &:hover {
+      background-color: lighten($color: $button--secondary-border, $amount: 10);
+    }
+  }
+
+  &_disabled {
+    pointer-events: none;
+    background-color: $button--disabled;
+  }
+
+  &_icon_plus {
+    &::before {
+      content: '';
+      background-image: url('../../../assets/images/icons/plus.svg');
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 13px;
+      height: 13px;
+      margin-right: 10px;
+    }
+  }
+}

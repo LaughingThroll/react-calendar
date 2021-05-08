@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarHeaderCell render default render 1`] = `
+<Memo(CalendarHeaderCell)
+  cellDate={2021-05-04T00:00:00.000Z}
+>
+  <Memo(Cell)
+    cellDate={2021-05-04T00:00:00.000Z}
+    classNames={Array []}
+    variant="th"
+  >
+    <th
+      className="  "
+    >
+      <span
+        className="calendar-header__day"
+      >
+        Tu
+      </span>
+      <span
+        className="calendar-header__number"
+      >
+        4
+      </span>
+    </th>
+  </Memo(Cell)>
+</Memo(CalendarHeaderCell)>
+`;

@@ -1,31 +1,25 @@
 {
   "name": "base",
   "version": "0.1.0",
+  "homepage": "https://laughingthroll.github.io/react-calendar/",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.7.1",
-    "@types/jest": "^26.0.20",
-    "@types/node": "^12.20.1",
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.1",
     "classnames": "^2.3.1",
-    "node-sass": "^5.0.0",
+    "gh-pages": "^3.1.0",
     "normalize.css": "^8.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-scripts": "4.0.2",
-    "typescript": "^4.1.5",
-    "web-vitals": "^1.1.0"
+    "react-scripts": "4.0.2"
   },
   "scripts": {
     "pretty": "prettier --write \"./src/**/*.{ts,tsx,d.ts}\"",
     "lint": "lint-staged",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --coverage",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
@@ -40,13 +34,33 @@
     ]
   },
   "devDependencies": {
-    "@types/react-transition-group": "^4.4.1",
+    "jest-fetch-mock": "^3.0.3",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.7.1",
+    "@types/enzyme": "^3.10.8",
+    "@types/jest": "^26.0.20",
+    "@types/node": "^12.20.1",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
     "@typescript-eslint/parser": "^4.15.1",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",
+    "enzyme": "^3.11.0",
+    "enzyme-to-json": "^3.6.2",
     "lint-staged": "^10.5.4",
+    "node-sass": "^5.0.0",
     "precommit-hook": "^3.0.0",
-    "prettier": "2.2.1"
+    "prettier": "2.2.1",
+    "typescript": "^4.1.5",
+    "web-vitals": "^1.1.0"
   },
   "pre-commit": [
     "lint"
-  ]
+  ],
+  "jest": {
+    "clearMocks": true,
+    "snapshotSerializers": [
+      "./node_modules/enzyme-to-json/serializer"
+    ]
+  }
 }

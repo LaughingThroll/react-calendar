@@ -1,0 +1,34 @@
+@import 'styles/utils/mixin';
+
+.calendarNavigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 226px;
+
+  &__currentDate {
+    @extend %font-bold;
+  }
+
+  &__btn {
+    width: 13px;
+    height: 13px;
+    outline: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    transition: transform 0.1s linear;
+
+    &_prevMonth {
+      background-image: url('../../assets/images/icons/arrow--left.svg');
+    }
+
+    &_nextMonth {
+      background-image: url('../../assets/images/icons/arrow--right.svg');
+    }
+
+    &:hover {
+      transform: scale(1.6);
+    }
+  }
+}

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormDates render default render 1`] = `
+<Memo(FormItem)
+  classNames={Array []}
+  inner={true}
+  title="Dates"
+>
+  <Memo(InputDate)
+    label="From"
+    name="startDate"
+    onChange={[MockFunction]}
+    value=""
+  />
+  <Memo(InputDate)
+    label="To"
+    name="endDate"
+    onChange={[MockFunction]}
+    value=""
+  />
+</Memo(FormItem)>
+`;

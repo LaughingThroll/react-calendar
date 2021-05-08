@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormVacationTypeSelect render default render 1`] = `
+<Memo(FormItem)
+  classNames={Array []}
+  title="Vac Type"
+>
+  <Memo(Select)
+    name="types"
+    onChange={[MockFunction]}
+    value=""
+  >
+    <Memo(Option)
+      title="Paid Day Off (PD)"
+      value="UnPaid"
+    />
+    <Memo(Option)
+      title="Paid Day On (PD)"
+      value="Paid"
+    />
+  </Memo(Select)>
+</Memo(FormItem)>
+`;

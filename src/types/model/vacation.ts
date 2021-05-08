@@ -1,22 +1,22 @@
 import { ID } from './../utilsTypes'
 
-export enum EVacationType {
+export enum VacationTypes {
   PAID = 'Paid',
   UN_PAID = 'UnPaid',
 }
 
-export type TVacation = EVacationType.PAID | EVacationType.UN_PAID
+export type vacationUnion = VacationTypes.PAID | VacationTypes.UN_PAID
 
-export interface IVacationDate {
+export interface VacationDate {
   startDate: string
   endDate: string
 }
 
-export interface IVacation extends IVacationDate {
-  type: TVacation
+export interface Vacation extends VacationDate {
+  type: vacationUnion
 }
 
-export interface ISubmitVacation extends IVacation {
+export interface VacationDTO extends Vacation {
   currentTeamID: ID
   currentMemberID: ID
 }

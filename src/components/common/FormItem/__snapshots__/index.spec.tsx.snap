@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormItem props props "inner" 1`] = `
+<div
+  className="formItem"
+>
+  <h5
+    className="formItem__title"
+  >
+    Title
+  </h5>
+  <div
+    className="formItem__inner"
+  >
+     
+  </div>
+</div>
+`;
+
+exports[`FormItem render default render 1`] = `
+<div
+  className="formItem"
+>
+  <h5
+    className="formItem__title"
+  >
+    Title
+  </h5>
+</div>
+`;

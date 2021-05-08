@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MemberCell render default 1`] = `
+<Memo(Cell)
+  cellDate={2021-08-05T00:00:00.000Z}
+  classNames={
+    Array [
+      "calendar-body__cell",
+    ]
+  }
+/>
+`;
+
+exports[`MemberCell render with vacation type Paid 1`] = `
+<Memo(Cell)
+  cellDate={2021-01-15T00:00:00.000Z}
+  classNames={
+    Array [
+      "calendar-body__cell",
+    ]
+  }
+>
+  <div
+    className="cell-vacations cell-vacations--paid cell-vacations--start-vac"
+  >
+    <span
+      className="cell-vacations__text"
+      style={
+        Object {
+          "width": 0,
+        }
+      }
+    >
+      Pd
+    </span>
+  </div>
+</Memo(Cell)>
+`;
+
+exports[`MemberCell render with vacation type UnPaid 1`] = `
+<Memo(Cell)
+  cellDate={2021-03-20T00:00:00.000Z}
+  classNames={
+    Array [
+      "calendar-body__cell",
+    ]
+  }
+>
+  <div
+    className="cell-vacations cell-vacations--unpaid"
+  />
+</Memo(Cell)>
+`;

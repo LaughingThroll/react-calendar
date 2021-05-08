@@ -1,10 +1,10 @@
-import { ITeam, ITeamResponse } from './team'
-import { IFirebaseResponse } from './firebase'
+import { Team, TeamResponse } from './team'
+import { FirebaseResponse } from './firebase'
 
-export interface ITeams {
-  teams: ITeam[]
+export interface Teams {
+  teams: Team[]
 }
 
-export interface ITeamsResponse {
-  teams: IFirebaseResponse<ITeamResponse>
+export interface TeamsResponse {
+  teams: FirebaseResponse<TeamResponse>
 }
